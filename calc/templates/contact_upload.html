@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Table Automation</title>
+    <style>
+        .button {
+          background-color: #4CAF50; /* Green */
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+        }
+        
+        .button2 {background-color: #008CBA;} /* Blue */
+        .button3 {background-color: #f44336;} /* Red */ 
+        .button4 {background-color: #e7e7e7; color: black;} /* Gray */ 
+        .button5 {background-color: #555555;} /* Black */
+        </style>
+</head>
+<body>
+
+   
+
+<div class="content">
+  </div>
+
+
+
+
+
+
+
+
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+</style>
+</head>
+<body>
+
+
+
+
+
+
+
+<div class="section-1 box">
+    <h1>Get Started</h1>
+</div>
+
+<div class="section-2 box">
+
+    {%if messages%}
+{%for message in messages%}
+<div>
+    <strong>{{message|safe}}
+</div>
+{% endfor %}
+{%else%}
+{{order}}
+<form method="POST" enctype="multipart/form-data">
+    {%csrf_token%}
+    <h1>Order of the CSV should be:</h1>
+    <h2>
+    <br>code, type, name, branch1, semester1, branch2, semester2, branch3, semester3, classroom_code1, 
+    <br>classroom_code2, classroom_code3, faculty1, faculty2, faculty3, theory, tutorial, lab, lab_name 
+    <br></h2>
+    <br>
+    <br>
+
+    <label><h3>Upload a file</label>
+    <input type='file' style="opacity:10; left:-40px;"  onchange="javascript: document.getElementById ('fileName') . value = this.value" name="file">
+    <p><h2> Only accept CSV files</p><h2>
+    <button class="button" type="submit">UPLOAD FILE</button>
+</form>
+<form method="POST" action="dele">
+    {%csrf_token%}
+    <button class="button button2" type="submit" href="dele">Delete previously uploaded records</button>
+</form>
+<form method="POST" action="dele2">
+    {%csrf_token%}
+    <button class="button button5" type="submit" href="dele2">Return to HOME</button>
+</form></h3>
+{%endif%}
+
+
+
+
+
+
+</div>
+
+<div class="section-3 box">
+</div>
+
+<style>
+::-webkit-scrollbar{
+    display:none;
+}
+    * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+    }
+
+    .box {
+        width: 100%;
+        height: 600px;
+        padding: 40px 60px;
+        color: black;
+        font-family: sans-serif;
+        text-align: center;
+    }
+
+    .section-1 {
+        height: 100vh;
+        background-image: url(https://pbs.twimg.com/media/FCHmPa1VIAcdnl0?format=jpg&name=4096x4096);
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    .section-2 {
+        height:750px;
+        background: #BCEDD8;
+    }
+
+    .section-3 {
+        background-image: url(https://iiitdwd.ac.in/img/home-page/director.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    .section-4 {
+        height:50vh;
+        background: yellow;
+    }
+
+    .box p {
+        font-size: 20px;
+        margin-top: 100px;
+    }
+
+    .box h1 {
+        font-size: 50px;
+    }
+    .box h2{
+        font-size:25px;
+        text-shadow: 1px 1px 1px blue
+    }
+    .box h3{
+        font-size:17px;
+        text-shadow: 1px 1px 1px blue
+    }
+</style>
+
+</body>
+</html>

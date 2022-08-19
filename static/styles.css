@@ -4,6 +4,10 @@
     font-family: sans-serif;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 .navbar {
     display: flex;
     align-items: center;

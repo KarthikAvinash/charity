@@ -24,28 +24,30 @@ h1 {
     text-align: center;
 }
 
+
 /* */
 
-.navbar{
+.navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #D7ADAB;
+    background-color: purple;
 }
 
-.logo{
+.logo {
     max-width: 200px;
+    max-height: 600px;
     mix-blend-mode: normal;
 }
 
-.list{
+.list {
     list-style: none;
     display: flex;
     margin: 0 20px;
     position: relative;
 }
 
-.home li{
+.home li {
     justify-content: center;
 }
 
@@ -57,27 +59,32 @@ h1 {
     margin: 0 20px;
     position: relative;
     display: inline;
-  }
+}
+
 
 /* study thouroughly */
-  .navbar ul li::after{  
-    content: ''; /* study thouroughly */
-    height: 2.5px;/* line below the links */
-    width: 0 ;/*to create the hover effect*/
+
+.navbar ul li::after {
+    content: '';
+    /* study thouroughly */
+    height: 2.5px;
+    /* line below the links */
+    width: 0;
+    /*to create the hover effect*/
     background: #009688;
     position: absolute;
     left: 0;
-    bottom: -10px;/*I think postion of the line*/
+    bottom: -10px;
+    /*I think postion of the line*/
     transition: 0.5s;
-  }
+}
 
-
-  .navbar ul li:hover::after{
+.navbar ul li:hover::after {
     width: 100%;
-  }
+}
 
-  /* */
 
+/* */
 
 main {
     display: flex;
@@ -85,7 +92,7 @@ main {
     justify-content: center;
     height: 75vh;
     width: 100%;
-    background: url(https://pbs.twimg.com/media/FCHmPa1VIAcdnl0?format=jpg&name=4096x4096) no-repeat center center;
+    background: url('dwd.jpeg') no-repeat center center;
     background-size: cover;
 }
 
