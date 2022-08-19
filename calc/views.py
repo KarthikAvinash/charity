@@ -9,6 +9,88 @@ from django.contrib.auth.forms import UserCreationForm
 import csv,io
 from django.contrib.auth.decorators import permission_required
 from django.contrib import messages
+from .resources import PersonResource
+from tablib import Dataset
+
+@permission_required('admin.can_add_log_enter')
+def contact_upload(request):
+    template="contact_upload.html"
+    prompt=None
+    if request.method=="GET":
+        return render(request,template,prompt)
+    
+    csv_file=request.FILES['file']
+    if not csv_file.name.endswith('.csv'):
+        messages.error(request,'This is not a CSV file!')
+    # if len(request.FILES)==0:
+    #     return redirect('/')
+    data_set=csv_file.read().decode('UTF-8')
+    io_string=io.StringIO(data_set)
+    next(io_string)
+    for column in csv.reader(io_string,delimiter=',',quotechar="|"):
+        _, created=data.objects.update_or_create(
+            code = column[0],
+            type=column[1],      
+            name = column[2],             
+            branch1 = column[3], 
+            semester1 = column[4], 
+            branch2 = column[5], 
+            semester2 = column[6], 
+            branch3 = column[7], 
+            semester3 = column[8], 
+            classroom_code1 = column[9],
+            classroom_code2 = column[10], 
+            classroom_code3 = column[11],
+            faculty1 = column[12],
+            faculty2 = column[13],
+            faculty3 = column[14],           
+            theory = column[15],
+            tutorial = column[16],
+            lab = column[17],
+            lab_name = column[18]
+              )
+        context={}
+        return render(request,template,context)
+
+def simple_upload(request):
+    template="simple_upload.html"
+    prompt=None
+    if request.method=="GET":
+        return render(request,template,prompt)
+    if request.method=='POST':
+        person_resource=PersonResource()
+        dataset=Dataset()
+        new_person=request.FILES['myfile']
+        if not new_person.name.endswith('xlsx'):
+            messages.info(request,'wrong format')
+            return render(request,'contact_upload.html')
+        imported_data=dataset.load(new_person.read(),format='xlsx')
+        for dat in imported_data:
+            value=data(
+                dat[0],
+                dat[1],
+                dat[2],
+                dat[3],
+                dat[4],
+                dat[5],
+                dat[6],
+                dat[7],
+                dat[8],
+                dat[9],
+                dat[10],
+                dat[11],
+                dat[12],
+                dat[13],
+                dat[14],
+                dat[15],
+                dat[16],
+                dat[17],
+                dat[18],
+                dat[19]
+            )
+            value.save()
+    return render(request,'contact_upload.html')
+
 """
 @Author= Karthik Aviansh
 21BCS052
@@ -630,7 +712,7 @@ def plotting():
                         pty=1
                 if temp1.faculty1==temp_for_faculty.faculty_name:
                     time=0
-
+            
                 temp2=obj_for_facultys.head_for_faculty_names
                 while temp2:
                     if temp1.faculty1==temp2.faculty_name:
@@ -722,7 +804,7 @@ def plotting():
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
                                                             break
-                                                else:
+                                                else:  
                                                     temp2.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
                                                     temp2.faculty_tt[i][2]="."
                                                     temp2.test_tt[i][1]=temp1.semester1
@@ -761,7 +843,7 @@ def plotting():
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
                                                             break
-                                                else:
+                                                else:  
                                                     temp2.faculty_tt[i][6]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
                                                     temp2.faculty_tt[i][7]="."
                                                     temp2.test_tt[i][6]=temp1.semester1
@@ -800,7 +882,7 @@ def plotting():
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
                                                             break
-                                                else:
+                                                else:  
                                                     temp2.faculty_tt[i][7]=temp1.semester1+" (3:15-4:45)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
                                                     temp2.faculty_tt[i][8]=temp2.faculty_tt[i][9]="."
                                                     temp2.test_tt[i][7]=temp1.semester1
@@ -839,7 +921,7 @@ def plotting():
                                     #                         temp4.classroom_tt[i][j]=temp1.name
                                     #                         time+=90
                                     #                         break
-                                    #             else:
+                                    #             else:  
                                     #                 temp2.faculty_tt[i][3]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
                                     #                 temp2.faculty_tt[i][4]="."
                                     #                 temp2.test_tt[i][6]=temp1.semester1
@@ -916,7 +998,7 @@ def plotting():
                         for _ in range(4):
                             for i in range(6):
                                 for j in range(8):
-
+                                    
                                     if time>=temp1.lab:
                                         break
                                     elif j==2:
@@ -940,7 +1022,7 @@ def plotting():
                                                         temp6.tt[i][5]=temp1.semester1+"_"+temp1.code
                                                         time+=120
                                                         break
-                                                    temp6=temp6.next
+                                                    temp6=temp6.next                                            
                                             elif temp3.sem_tt[i][j]==temp3.sem_tt[i][j+1] and time+120<=temp1.lab:
                                                 if time>=temp1.lab:break
                                                 temp5=None
@@ -950,12 +1032,12 @@ def plotting():
                                                 if temp1.branch1=="ECE":temp5=obj_for_linked_list_for_traversing_labs.head_for_ECE
                                                 temp6=None
                                                 if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
-                                                if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
+                                                if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms                                               
                                                 while(temp5):
                                                     if temp3.sem_tt[i][j]==temp5.code:
                                                         tip=1
                                                         break
-                                                    temp5=temp5.next
+                                                    temp5=temp5.next                                                
                                                 while(temp6):
                                                     if temp6.tt[i][3]==temp6.tt[i][4]==temp6.tt[i][5]=='*':
                                                         break
@@ -1020,9 +1102,9 @@ def plotting():
                                         if shift==1:break
                                     if _<4 and j==2:
                                         if temp2:
-                                            if temp2.faculty_tt[i][3]==temp2.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                            if temp2.faculty_tt[i][3]==temp2.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                        
                                                 if temp22:
-                                                    if temp22.faculty_tt[i][3]==temp22.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                    if temp22.faculty_tt[i][3]==temp22.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                                       
                                                         if temp222:
                                                             if temp222.faculty_tt[i][3]==temp222.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
                                                                 temp2.faculty_tt[i][3]=temp1.semester1+" (10:45-12:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
@@ -1047,8 +1129,8 @@ def plotting():
                                                             temp3.sem_tt_new[i][j]=temp1.code
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
-                                                            break
-                                                else:
+                                                            break                                                
+                                                else:  
                                                     temp2.faculty_tt[i][3]=temp1.semester1+" (10:45-12:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
                                                     temp2.faculty_tt[i][4]="."
                                                     temp2.test_tt[i][3]=temp1.semester1
@@ -1056,10 +1138,10 @@ def plotting():
                                                     temp3.sem_tt_new[i][j]=temp1.code
                                                     temp4.classroom_tt[i][j]=temp1.name
                                                     time+=90
-                                                    break
+                                                    break                                   
                                     if _<4 and j==4:
                                         if temp2:
-                                            if temp2.faculty_tt[i][6]==temp2.faculty_tt[i][7]==temp2.faculty_tt[i][8]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                            if temp2.faculty_tt[i][6]==temp2.faculty_tt[i][7]==temp2.faculty_tt[i][8]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                       
                                                 if temp22:
                                                     if temp22.faculty_tt[i][6]==temp22.faculty_tt[i][7]==temp22.faculty_tt[i][8]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
                                                         if temp222:
@@ -1087,7 +1169,7 @@ def plotting():
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
                                                             break
-                                                else:
+                                                else:  
                                                     temp2.faculty_tt[i][6]=temp1.semester1+" (2:15-3:45)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
                                                     temp2.faculty_tt[i][7]=temp2.faculty_tt[i][8]="."
                                                     temp2.test_tt[i][6]=temp1.semester1
@@ -1126,7 +1208,7 @@ def plotting():
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
                                                             break
-                                                else:
+                                                else:  
                                                     temp2.faculty_tt[i][8]=temp1.semester1+" (3:45-5:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
                                                     temp2.faculty_tt[i][9]="."
                                                     temp2.test_tt[i][8]=temp1.semester1
@@ -1202,7 +1284,7 @@ def plotting():
                                 for j in range(8):
                                     if time>=temp1.lab:
                                         break
-
+                                    
                                     elif j==1:
                                         if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]=='*' and time<temp1.lab:
                                             #If there is no activity at that time...
@@ -1217,12 +1299,12 @@ def plotting():
                                                         temp2.faculty_tt[i][2]=temp2.faculty_tt[i][5]="."
                                                         temp2.test_tt[i][1]=temp1.semester1
                                                         temp3.sem_tt[i][j]=temp1.code
-                                                        temp3.sem_tt_new[i][j]=temp1.code+temp6.name
+                                                        temp3.sem_tt_new[i][j]=temp1.code+temp6.name                                                                                                              
                                                         temp6.tt[i][1]=temp1.semester1+"_"+temp1.code
-                                                        temp6.tt[i][2]=temp1.semester1+"_"+temp1.code
+                                                        temp6.tt[i][2]=temp1.semester1+"_"+temp1.code                                                        
                                                         time+=120
                                                         break
-                                                    temp6=temp6.next
+                                                    temp6=temp6.next                                           
                                             elif temp3.sem_tt[i][j]!="*" and time+120<=temp1.lab:
                                                 if time>=temp1.lab:break
                                                 temp5=None
@@ -1232,24 +1314,24 @@ def plotting():
                                                 if temp1.branch1=="ECE":temp5=obj_for_linked_list_for_traversing_labs.head_for_ECE
                                                 temp6=None
                                                 if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
-                                                if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
+                                                if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms                                                
                                                 while(temp5):
                                                     if temp3.sem_tt[i][j]==temp5.code:
                                                         tip=1
                                                         break
-                                                    temp5=temp5.next
+                                                    temp5=temp5.next                                                
                                                 while(temp6):
                                                     if temp6.tt[i][1]==temp6.tt[i][2]=='*':
                                                         break
                                                     temp6=temp6.next
                                                 if tip==1 and temp5.id!=temp1.id and temp6:
                                                     temp2.faculty_tt[i][1]=temp1.semester1+" (8:30-10:30)"+"_"+temp1.code+"_LAB ("+temp6.name+")"
-                                                    temp2.faculty_tt[i][2]="."
-                                                    temp2.test_tt[i][1]=temp1.semester1
-                                                    temp3.sem_tt[i][j]+=" /" +temp1.code
-                                                    temp3.sem_tt_new[i][j]+=" / "+temp1.code+temp6.name
+                                                    temp2.faculty_tt[i][2]="."    
+                                                    temp2.test_tt[i][1]=temp1.semester1                                                
+                                                    temp3.sem_tt[i][j]+=" /" +temp1.code                                                    
+                                                    temp3.sem_tt_new[i][j]+=" / "+temp1.code+temp6.name                                                                                                      
                                                     temp6.tt[i][1]=temp1.semester1+"_"+temp1.code
-                                                    temp6.tt[i][2]=temp1.semester1+"_"+temp1.code
+                                                    temp6.tt[i][2]=temp1.semester1+"_"+temp1.code                                                
                                                     time+=120
                                                     break
                 if "CSE_Sem_3_A"==temp1.semester1 or "CSE_Sem_3_B"==temp1.semester1 or "CSE_Sem_4_A"==temp1.semester1 or "CSE_Sem_4_B"==temp1.semester1 or "DSAI_Sem_4"==temp1.semester1:
@@ -1283,9 +1365,9 @@ def plotting():
                                         if shift==1:break
                                     if _<5 and j==1 and time<temp1.theory:
                                         if temp2:
-                                            if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                            if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                        
                                                 if temp22:
-                                                    if temp22.faculty_tt[i][1]==temp22.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                    if temp22.faculty_tt[i][1]==temp22.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                  
                                                         if temp222:
                                                             if temp222.faculty_tt[i][1]==temp222.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
                                                                 temp2.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
@@ -1310,8 +1392,8 @@ def plotting():
                                                             temp3.sem_tt_new[i][j]=temp1.code
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
-                                                            break
-                                                else:
+                                                            break                                               
+                                                else:  
                                                     temp2.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
                                                     temp2.faculty_tt[i][2]="."
                                                     temp2.test_tt[i][1]=temp1.semester1
@@ -1322,9 +1404,9 @@ def plotting():
                                                     break
                                     if _<5 and j==4:
                                         if temp2:
-                                            if temp2.faculty_tt[i][6]==temp2.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                            if temp2.faculty_tt[i][6]==temp2.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                        
                                                 if temp22:
-                                                    if temp22.faculty_tt[i][6]==temp22.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                    if temp22.faculty_tt[i][6]==temp22.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                            
                                                         if temp222:
                                                             if temp222.faculty_tt[i][6]==temp222.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
                                                                 temp2.faculty_tt[i][6]=temp1.semester1+" (2:00-3:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
@@ -1350,7 +1432,7 @@ def plotting():
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
                                                             break
-                                                else:
+                                                else:  
                                                     temp2.faculty_tt[i][6]=temp1.semester1+" (2:00-3:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
                                                     temp2.faculty_tt[i][7]="."
                                                     temp2.test_tt[i][6]=temp1.semester1
@@ -1361,9 +1443,9 @@ def plotting():
                                                     break
                                     if _<5 and j==5:
                                         if temp2:
-                                            if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                            if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                        
                                                 if temp22:
-                                                    if temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                    if temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                 
                                                         if temp222:
                                                             if temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
                                                                 temp2.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
@@ -1388,8 +1470,8 @@ def plotting():
                                                             temp3.sem_tt_new[i][j]=temp1.code
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
-                                                            break
-                                                else:
+                                                            break   
+                                                else:  
                                                     temp2.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
                                                     temp2.faculty_tt[i][9]="."
                                                     temp2.test_tt[i][8]=temp1.semester1
@@ -1460,13 +1542,13 @@ def plotting():
                                             temp3.sem_tt_new[i][j]=temp1.code
                                             temp4.classroom_tt[i][j]=temp1.name
                                             time+=60
-                                            break
+                                            break         
                     elif temp1.lab:
                         time=0
                         for _ in range(5):
                             for i in range(6):
                                 for j in range(8):
-
+                                    
                                     if time>=temp1.lab:
                                         break
                                     elif j==2:
@@ -1486,7 +1568,7 @@ def plotting():
                                                         temp3.sem_tt[i][j+1]=temp1.code
                                                         temp3.sem_tt_new[i][j]=temp1.code+temp6.name
                                                         temp3.sem_tt_new[i][j+1]=temp1.code+temp6.name
-
+                                                        
                                                         temp6.tt[i][3]=temp1.semester1+"_"+temp1.code
                                                         temp6.tt[i][4]=temp1.semester1+"_"+temp1.code
                                                         temp6.tt[i][5]=temp1.semester1+"_"+temp1.code
@@ -1521,7 +1603,7 @@ def plotting():
                                                     temp3.sem_tt[i][j+1]+=" / "+temp1.code
                                                     temp3.sem_tt_new[i][j]+=" / "+temp1.code+temp6.name
                                                     temp3.sem_tt_new[i][j+1]+=" / "+temp1.code+temp6.name
-
+                                                    
                                                     temp6.tt[i][3]=temp1.semester1+"_"+temp1.code
                                                     temp6.tt[i][4]=temp1.semester1+"_"+temp1.code
                                                     temp6.tt[i][5]=temp1.semester1+"_"+temp1.code
@@ -1538,7 +1620,7 @@ def plotting():
                                                     temp2.faculty_tt[i][8]=temp2.faculty_tt[i][9]="."
                                                     temp3.sem_tt[i][j]=temp1.code
                                                     temp3.sem_tt_new[i][j]=temp1.code+temp5.name
-
+                                                    
                                                     time+=120
                                                     break
                                                 temp5=temp5.next
@@ -1601,7 +1683,7 @@ def plotting():
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
                                                             break
-                                                else:
+                                                else:  
                                                     temp2.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
                                                     temp2.faculty_tt[i][2]="."
                                                     temp2.test_tt[i][1]=temp1.semester1
@@ -1640,7 +1722,7 @@ def plotting():
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
                                                             break
-                                                else:
+                                                else:  
                                                     temp2.faculty_tt[i][3]=temp1.semester1+" (10:30-12:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
                                                     temp2.faculty_tt[i][4]="."
                                                     temp2.test_tt[i][3]=temp1.semester1
@@ -1679,7 +1761,7 @@ def plotting():
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
                                                             break
-                                                else:
+                                                else:  
                                                     temp2.faculty_tt[i][4]=temp1.semester1+" (12:00-1:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
                                                     temp2.faculty_tt[i][5]="."
                                                     temp2.test_tt[i][4]=temp1.semester1
@@ -1718,7 +1800,7 @@ def plotting():
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
                                                             break
-                                                else:
+                                                else:  
                                                     temp2.faculty_tt[i][7]=temp1.semester1+" (2:30-4:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
                                                     temp2.faculty_tt[i][8]="."
                                                     temp2.test_tt[i][7]=temp1.semester1
@@ -1757,7 +1839,7 @@ def plotting():
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
                                                             break
-                                                else:
+                                                else:  
                                                     temp2.faculty_tt[i][8]=temp1.semester1+" (4:00-5:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
                                                     temp2.faculty_tt[i][9]="."
                                                     temp2.test_tt[i][8]=temp1.semester1
@@ -1823,7 +1905,7 @@ def plotting():
                         for _ in range(4):
                             for i in range(6):
                                 for j in range(8):
-
+                                    
                                     if time>=temp1.lab:break
                                     elif j==4:
                                         if temp2.faculty_tt[i][7]==temp2.faculty_tt[i][8]=='*' and time<temp1.lab:
@@ -1841,7 +1923,7 @@ def plotting():
                                                         temp3.sem_tt[i][j+1]=temp1.code
                                                         temp3.sem_tt_new[i][j]=temp1.code+temp6.name
                                                         temp3.sem_tt_new[i][j+1]=temp1.code+temp6.name
-
+                                                        
                                                         temp6.tt[i][7]=temp1.semester1+"_"+temp1.code
                                                         temp6.tt[i][8]=temp1.semester1+"_"+temp1.code
                                                         time+=120
@@ -1873,7 +1955,7 @@ def plotting():
                                                     temp3.sem_tt[i][j+1]+=" / "+temp1.code
                                                     temp3.sem_tt_new[i][j]+=" / "+temp1.code+temp6.name
                                                     temp3.sem_tt_new[i][j+1]+=" / "+temp1.code+temp6.name
-
+                                                    
                                                     temp6.tt[i][7]=temp1.semester1+"_"+temp1.code
                                                     temp6.tt[i][8]=temp1.semester1+"_"+temp1.code
                                                     time+=120
@@ -1942,7 +2024,7 @@ def plotting():
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
                                                             break
-                                                else:
+                                                else:  
                                                     temp2.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
                                                     temp2.faculty_tt[i][2]="."
                                                     temp2.test_tt[i][1]=temp1.semester1
@@ -1953,9 +2035,9 @@ def plotting():
                                                     break
                                     if _<4 and j==2:
                                         if temp2:
-                                            if temp2.faculty_tt[i][2]==temp2.faculty_tt[i][3]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                            if temp2.faculty_tt[i][2]==temp2.faculty_tt[i][3]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                        
                                                 if temp22:
-                                                    if temp22.faculty_tt[i][2]==temp22.faculty_tt[i][3]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                    if temp22.faculty_tt[i][2]==temp22.faculty_tt[i][3]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                  
                                                         if temp222:
                                                             if temp222.faculty_tt[i][2]==temp222.faculty_tt[i][3]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
                                                                 temp2.faculty_tt[i][2]=temp1.semester1+" (10:00-11:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
@@ -1981,7 +2063,7 @@ def plotting():
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
                                                             break
-                                                else:
+                                                else:  
                                                     temp2.faculty_tt[i][2]=temp1.semester1+" (10:00-11:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
                                                     temp2.faculty_tt[i][3]="."
                                                     temp2.test_tt[i][2]=temp1.semester1
@@ -2020,7 +2102,7 @@ def plotting():
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
                                                             break
-                                                else:
+                                                else:  
                                                     temp2.faculty_tt[i][4]=temp1.semester1+" (11:30-1:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
                                                     temp2.faculty_tt[i][5]="."
                                                     temp2.test_tt[i][4]=temp1.semester1
@@ -2028,7 +2110,7 @@ def plotting():
                                                     temp3.sem_tt_new[i][j]=temp1.code
                                                     temp4.classroom_tt[i][j]=temp1.name
                                                     time+=90
-                                                    break
+                                                    break  
                                     if _<4 and j==6:
                                         if temp2:
                                             if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
@@ -2059,7 +2141,7 @@ def plotting():
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
                                                             break
-                                                else:
+                                                else:  
                                                     temp2.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
                                                     temp2.faculty_tt[i][9]="."
                                                     temp2.test_tt[i][8]=temp1.semester1
@@ -2124,7 +2206,7 @@ def plotting():
                                 for j in range(8):
                                     if time>=temp1.lab:
                                         break
-
+                                    
                                     elif j==4:
                                         if temp2.faculty_tt[i][6]==temp2.faculty_tt[i][7]=='*' and time<temp1.lab:
                                             #If there is no activity at that time...
@@ -2141,7 +2223,7 @@ def plotting():
                                                         temp3.sem_tt[i][j+1]=temp1.code
                                                         temp3.sem_tt_new[i][j]=temp1.code+temp6.name
                                                         temp3.sem_tt_new[i][j+1]=temp1.code+temp6.name
-
+                                                        
                                                         temp6.tt[i][6]=temp1.semester1+"_"+temp1.code
                                                         temp6.tt[i][7]=temp1.semester1+"_"+temp1.code
                                                         time+=120
@@ -2174,7 +2256,7 @@ def plotting():
                                                     temp3.sem_tt[i][j+1]+=" / "+temp1.code
                                                     temp3.sem_tt_new[i][j]+=" / "+temp1.code+temp6.name
                                                     temp3.sem_tt_new[i][j+1]+=" / "+temp1.code+temp6.name
-
+                                                    
                                                     temp6.tt[i][6]=temp1.semester1+"_"+temp1.code
                                                     temp6.tt[i][7]=temp1.semester1+"_"+temp1.code
                                                     time+=120
@@ -2187,7 +2269,7 @@ def plotting():
                         print("tutorial not satisfied for ",temp1.name,"Semester: ",temp1.semester1)
                 if temp1.lab:
                     if time<temp1.lab:
-                        print("lab not satisfied for ",temp1.name,"Semester: ",temp1.semester1)
+                        print("lab not satisfied for ",temp1.name,"Semester: ",temp1.semester1)                
                 temp1=temp1.next
             temp_for_faculty=temp_for_faculty.next
 def plotting_for_electives(openion=0):
@@ -2363,9 +2445,9 @@ def plotting_for_electives(openion=0):
                                                     time1+=90
                                                     temp55.classroom_tt[i][j]=temp1.code
                                                     temp4.sem_tt[i][j]=temp1.code
-                                                    temp44.sem_tt[i][j]=temp1.code
+                                                    temp44.sem_tt[i][j]=temp1.code                                                   
                                                     temp4.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"
-                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"
+                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"                                                    
                                                     temp2.faculty_tt[i][1]=temp1.code+"_ELE ("+temp55.classroom_code+")"
                                                     temp2.faculty_tt[i][2]="."
                                                     temp2.test_tt[i][1]=temp1.semester1
@@ -2375,9 +2457,9 @@ def plotting_for_electives(openion=0):
                                                     time1+=90
                                                     temp555.classroom_tt[i][j]=temp1.code
                                                     temp4.sem_tt[i][j]=temp1.code
-                                                    temp44.sem_tt[i][j]=temp1.code
+                                                    temp44.sem_tt[i][j]=temp1.code                                                    
                                                     temp4.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"
-                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"
+                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"                                                    
                                                     temp2.faculty_tt[i][1]=temp1.code+"_ELE ("+temp555.classroom_code+")"
                                                     temp2.faculty_tt[i][2]="."
                                                     temp2.test_tt[i][1]=temp1.semester1
@@ -2386,9 +2468,9 @@ def plotting_for_electives(openion=0):
                                             if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp5.classroom_tt[i][j]==temp4.sem_tt[i][j]=="*":
                                                 if time1<temp1.theory:
                                                     time1+=90
-                                                    temp5.classroom_tt[i][j]=temp1.code
-                                                    temp4.sem_tt[i][j]=temp1.code
-                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"
+                                                    temp5.classroom_tt[i][j]=temp1.code                                                    
+                                                    temp4.sem_tt[i][j]=temp1.code                                                    
+                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"                                                    
                                                     temp2.faculty_tt[i][1]=temp1.code+"_ELE ("+temp5.classroom_code+")"
                                                     temp2.faculty_tt[i][2]="."
                                                     temp2.test_tt[i][1]=temp1.semester1
@@ -2396,9 +2478,9 @@ def plotting_for_electives(openion=0):
                                             elif temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp55.classroom_tt[i][j]==temp4.sem_tt[i][j]=="*":
                                                 if time1<temp1.theory:
                                                     time1+=90
-                                                    temp55.classroom_tt[i][j]=temp1.code
-                                                    temp4.sem_tt[i][j]=temp1.code
-                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"
+                                                    temp55.classroom_tt[i][j]=temp1.code                                                    
+                                                    temp4.sem_tt[i][j]=temp1.code                                                    
+                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"                                                    
                                                     temp2.faculty_tt[i][1]=temp1.code+"_ELE ("+temp55.classroom_code+")"
                                                     temp2.faculty_tt[i][2]="."
                                                     temp2.test_tt[i][1]=temp1.semester1
@@ -2407,19 +2489,19 @@ def plotting_for_electives(openion=0):
                                                 if time1<temp1.theory:
                                                     time1+=90
                                                     temp555.classroom_tt[i][j]=temp1.code
-                                                    temp4.sem_tt[i][j]=temp1.code
-                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"
+                                                    temp4.sem_tt[i][j]=temp1.code                                                    
+                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"                                                    
                                                     temp2.faculty_tt[i][1]=temp1.code+"_ELE ("+temp555.classroom_code+")"
                                                     temp2.faculty_tt[i][2]="."
                                                     temp2.test_tt[i][1]=temp1.semester1
                                                     break
                                 if j==2:
-                                    if temp2 :
-                                        if temp4!=None and temp44!=None and temp444!=None:
+                                    if temp2 :                                        
+                                        if temp4!=None and temp44!=None and temp444!=None:                                            
                                             if temp2.faculty_tt[i][2]==temp2.faculty_tt[i][3]==temp5.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]==temp444.sem_tt[i][j]=="*":
                                                 if time1<temp1.theory:
                                                     time1+=90
-                                                    temp5.classroom_tt[i][j]=temp1.code
+                                                    temp5.classroom_tt[i][j]=temp1.code                                                   
                                                     temp4.sem_tt[i][j]=temp1.code
                                                     temp44.sem_tt[i][j]=temp1.code
                                                     temp444.sem_tt[i][j]=temp1.code
@@ -2433,7 +2515,7 @@ def plotting_for_electives(openion=0):
                                             elif temp2.faculty_tt[i][2]==temp2.faculty_tt[i][3]==temp55.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]==temp444.sem_tt[i][j]=="*":
                                                 if time1<temp1.theory:
                                                     time1+=90
-                                                    temp55.classroom_tt[i][j]=temp1.code
+                                                    temp55.classroom_tt[i][j]=temp1.code                                                   
                                                     temp4.sem_tt[i][j]=temp1.code
                                                     temp44.sem_tt[i][j]=temp1.code
                                                     temp444.sem_tt[i][j]=temp1.code
@@ -2462,11 +2544,11 @@ def plotting_for_electives(openion=0):
                                             if temp2.faculty_tt[i][2]==temp2.faculty_tt[i][3]==temp5.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=="*":
                                                 if time1<temp1.theory:
                                                     time1+=90
-                                                    temp5.classroom_tt[i][j]=temp1.code
+                                                    temp5.classroom_tt[i][j]=temp1.code                                                    
                                                     temp4.sem_tt[i][j]=temp1.code
-                                                    temp44.sem_tt[i][j]=temp1.code
+                                                    temp44.sem_tt[i][j]=temp1.code                                                    
                                                     temp4.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"
-                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"
+                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"                                                    
                                                     temp2.faculty_tt[i][2]=temp1.code+"_ELE ("+temp5.classroom_code+")"
                                                     temp2.faculty_tt[i][3]="."
                                                     temp2.test_tt[i][2]=temp1.semester1
@@ -2474,11 +2556,11 @@ def plotting_for_electives(openion=0):
                                             elif temp2.faculty_tt[i][2]==temp2.faculty_tt[i][3]==temp55.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=="*":
                                                 if time1<temp1.theory:
                                                     time1+=90
-                                                    temp55.classroom_tt[i][j]=temp1.code
+                                                    temp55.classroom_tt[i][j]=temp1.code                                                    
                                                     temp4.sem_tt[i][j]=temp1.code
-                                                    temp44.sem_tt[i][j]=temp1.code
+                                                    temp44.sem_tt[i][j]=temp1.code                                                   
                                                     temp4.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"
-                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"
+                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"                                                    
                                                     temp2.faculty_tt[i][2]=temp1.code+"_ELE ("+temp55.classroom_code+")"
                                                     temp2.faculty_tt[i][3]="."
                                                     temp2.test_tt[i][2]=temp1.semester1
@@ -2488,9 +2570,9 @@ def plotting_for_electives(openion=0):
                                                     time1+=90
                                                     temp555.classroom_tt[i][j]=temp1.code
                                                     temp4.sem_tt[i][j]=temp1.code
-                                                    temp44.sem_tt[i][j]=temp1.code
+                                                    temp44.sem_tt[i][j]=temp1.code                                                    
                                                     temp4.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"
-                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"
+                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"                                                    
                                                     temp2.faculty_tt[i][2]=temp1.code+"_ELE ("+temp555.classroom_code+")"
                                                     temp2.faculty_tt[i][3]="."
                                                     temp2.test_tt[i][2]=temp1.semester1
@@ -2499,9 +2581,9 @@ def plotting_for_electives(openion=0):
                                             if temp2.faculty_tt[i][2]==temp2.faculty_tt[i][3]==temp5.classroom_tt[i][j]==temp4.sem_tt[i][j]=="*":
                                                 if time1<temp1.theory:
                                                     time1+=90
-                                                    temp5.classroom_tt[i][j]=temp1.code
-                                                    temp4.sem_tt[i][j]=temp1.code
-                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"
+                                                    temp5.classroom_tt[i][j]=temp1.code                                                   
+                                                    temp4.sem_tt[i][j]=temp1.code                                                   
+                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"                                                    
                                                     temp2.faculty_tt[i][2]=temp1.code+"_ELE ("+temp5.classroom_code+")"
                                                     temp2.faculty_tt[i][3]="."
                                                     temp2.test_tt[i][2]=temp1.semester1
@@ -2509,9 +2591,9 @@ def plotting_for_electives(openion=0):
                                             elif temp2.faculty_tt[i][2]==temp2.faculty_tt[i][3]==temp55.classroom_tt[i][j]==temp4.sem_tt[i][j]=="*":
                                                 if time1<temp1.theory:
                                                     time1+=90
-                                                    temp55.classroom_tt[i][j]=temp1.code
-                                                    temp4.sem_tt[i][j]=temp1.code
-                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"
+                                                    temp55.classroom_tt[i][j]=temp1.code                                                    
+                                                    temp4.sem_tt[i][j]=temp1.code                                                    
+                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"                                                    
                                                     temp2.faculty_tt[i][2]=temp1.code+"_ELE ("+temp55.classroom_code+")"
                                                     temp2.faculty_tt[i][3]="."
                                                     temp2.test_tt[i][2]=temp1.semester1
@@ -2520,19 +2602,19 @@ def plotting_for_electives(openion=0):
                                                 if time1<temp1.theory:
                                                     time1+=90
                                                     temp555.classroom_tt[i][j]=temp1.code
-                                                    temp4.sem_tt[i][j]=temp1.code
-                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"
+                                                    temp4.sem_tt[i][j]=temp1.code                                                    
+                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"                                                    
                                                     temp2.faculty_tt[i][2]=temp1.code+"_ELE ("+temp555.classroom_code+")"
                                                     temp2.faculty_tt[i][3]="."
                                                     temp2.test_tt[i][2]=temp1.semester1
                                                     break
                                 if j==3:
-                                    if temp2 :
-                                        if temp4!=None and temp44!=None and temp444!=None:
+                                    if temp2 :                                        
+                                        if temp4!=None and temp44!=None and temp444!=None:                                            
                                             if temp2.faculty_tt[i][4]==temp2.faculty_tt[i][5]==temp5.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]==temp444.sem_tt[i][j]=="*":
                                                 if time1<temp1.theory:
                                                     time1+=90
-                                                    temp5.classroom_tt[i][j]=temp1.code
+                                                    temp5.classroom_tt[i][j]=temp1.code                                                    
                                                     temp4.sem_tt[i][j]=temp1.code
                                                     temp44.sem_tt[i][j]=temp1.code
                                                     temp444.sem_tt[i][j]=temp1.code
@@ -2546,7 +2628,7 @@ def plotting_for_electives(openion=0):
                                             elif temp2.faculty_tt[i][4]==temp2.faculty_tt[i][5]==temp55.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]==temp444.sem_tt[i][j]=="*":
                                                 if time1<temp1.theory:
                                                     time1+=90
-                                                    temp55.classroom_tt[i][j]=temp1.code
+                                                    temp55.classroom_tt[i][j]=temp1.code                                                   
                                                     temp4.sem_tt[i][j]=temp1.code
                                                     temp44.sem_tt[i][j]=temp1.code
                                                     temp444.sem_tt[i][j]=temp1.code
@@ -2645,7 +2727,7 @@ def plotting_for_electives(openion=0):
                                             if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp5.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]==temp444.sem_tt[i][j]=="*":
                                                 if time1<temp1.theory:
                                                     time1+=90
-                                                    temp5.classroom_tt[i][j]=temp1.code
+                                                    temp5.classroom_tt[i][j]=temp1.code                                                   
                                                     temp4.sem_tt[i][j]=temp1.code
                                                     temp44.sem_tt[i][j]=temp1.code
                                                     temp444.sem_tt[i][j]=temp1.code
@@ -2659,7 +2741,7 @@ def plotting_for_electives(openion=0):
                                             elif temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp55.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]==temp444.sem_tt[i][j]=="*":
                                                 if time1<temp1.theory:
                                                     time1+=90
-                                                    temp55.classroom_tt[i][j]=temp1.code
+                                                    temp55.classroom_tt[i][j]=temp1.code                                                    
                                                     temp4.sem_tt[i][j]=temp1.code
                                                     temp44.sem_tt[i][j]=temp1.code
                                                     temp444.sem_tt[i][j]=temp1.code
@@ -2684,15 +2766,15 @@ def plotting_for_electives(openion=0):
                                                     temp2.faculty_tt[i][9]="."
                                                     temp2.test_tt[i][8]=temp1.semester1
                                                     break
-                                        elif temp4!=None and temp44!=None :
+                                        elif temp4!=None and temp44!=None :                                           
                                             if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp5.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=="*":
                                                 if time1<temp1.theory:
                                                     time1+=90
-                                                    temp5.classroom_tt[i][j]=temp1.code
+                                                    temp5.classroom_tt[i][j]=temp1.code                                                   
                                                     temp4.sem_tt[i][j]=temp1.code
-                                                    temp44.sem_tt[i][j]=temp1.code
+                                                    temp44.sem_tt[i][j]=temp1.code                                                   
                                                     temp4.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"
-                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"
+                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"                                                   
                                                     temp2.faculty_tt[i][8]=temp1.code+"_ELE ("+temp5.classroom_code+")"
                                                     temp2.faculty_tt[i][9]="."
                                                     temp2.test_tt[i][8]=temp1.semester1
@@ -2700,11 +2782,11 @@ def plotting_for_electives(openion=0):
                                             elif temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp55.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=="*":
                                                 if time1<temp1.theory:
                                                     time1+=90
-                                                    temp55.classroom_tt[i][j]=temp1.code
+                                                    temp55.classroom_tt[i][j]=temp1.code                                                   
                                                     temp4.sem_tt[i][j]=temp1.code
-                                                    temp44.sem_tt[i][j]=temp1.code
+                                                    temp44.sem_tt[i][j]=temp1.code                                                   
                                                     temp4.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"
-                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"
+                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"                                                   
                                                     temp2.faculty_tt[i][8]=temp1.code+"_ELE ("+temp55.classroom_code+")"
                                                     temp2.faculty_tt[i][9]="."
                                                     temp2.test_tt[i][8]=temp1.semester1
@@ -2714,20 +2796,20 @@ def plotting_for_electives(openion=0):
                                                     time1+=90
                                                     temp555.classroom_tt[i][j]=temp1.code
                                                     temp4.sem_tt[i][j]=temp1.code
-                                                    temp44.sem_tt[i][j]=temp1.code
+                                                    temp44.sem_tt[i][j]=temp1.code                                                   
                                                     temp4.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"
-                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"
+                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"                                                   
                                                     temp2.faculty_tt[i][8]=temp1.code+"_ELE ("+temp555.classroom_code+")"
                                                     temp2.faculty_tt[i][9]="."
                                                     temp2.test_tt[i][8]=temp1.semester1
                                                     break
-                                        elif temp4!=None:
+                                        elif temp4!=None:                                            
                                             if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp5.classroom_tt[i][j]==temp4.sem_tt[i][j]=="*":
                                                 if time1<temp1.theory:
                                                     time1+=90
-                                                    temp5.classroom_tt[i][j]=temp1.code
-                                                    temp4.sem_tt[i][j]=temp1.code
-                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"
+                                                    temp5.classroom_tt[i][j]=temp1.code                                                   
+                                                    temp4.sem_tt[i][j]=temp1.code                                                   
+                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"                                                   
                                                     temp2.faculty_tt[i][8]=temp1.code+"_ELE ("+temp5.classroom_code+")"
                                                     temp2.faculty_tt[i][9]="."
                                                     temp2.test_tt[i][8]=temp1.semester1
@@ -2735,9 +2817,9 @@ def plotting_for_electives(openion=0):
                                             elif temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp55.classroom_tt[i][j]==temp4.sem_tt[i][j]=="*":
                                                 if time1<temp1.theory:
                                                     time1+=90
-                                                    temp55.classroom_tt[i][j]=temp1.code
-                                                    temp4.sem_tt[i][j]=temp1.code
-                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"
+                                                    temp55.classroom_tt[i][j]=temp1.code                                                   
+                                                    temp4.sem_tt[i][j]=temp1.code                                                    
+                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"                                                    
                                                     temp2.faculty_tt[i][8]=temp1.code+"_ELE ("+temp55.classroom_code+")"
                                                     temp2.faculty_tt[i][9]="."
                                                     temp2.test_tt[i][8]=temp1.semester1
@@ -2746,12 +2828,12 @@ def plotting_for_electives(openion=0):
                                                 if time1<temp1.theory:
                                                     time1+=90
                                                     temp555.classroom_tt[i][j]=temp1.code
-                                                    temp4.sem_tt[i][j]=temp1.code
-                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"
+                                                    temp4.sem_tt[i][j]=temp1.code                                                    
+                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"                                                    
                                                     temp2.faculty_tt[i][8]=temp1.code+"_ELE ("+temp555.classroom_code+")"
                                                     temp2.faculty_tt[i][9]="."
                                                     temp2.test_tt[i][8]=temp1.semester1
-                                                    break
+                                                    break           
                 if temp1.tutorial:
                     time1,time2,time3=0,0,0
                     for _ in range(5):
@@ -2765,33 +2847,33 @@ def plotting_for_electives(openion=0):
                                                 break
                                         if shift==1:break
                                 if j==5:
-                                    if temp2:
-                                        if temp4!=None and temp44!=None and temp444!=None:
+                                    if temp2:                                       
+                                        if temp4!=None and temp44!=None and temp444!=None:                                            
                                             if temp2.faculty_tt[i][7]==temp5.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]==temp444.sem_tt[i][j]=="*":
                                                 if time1<temp1.tutorial:
                                                     time1+=60
-                                                    temp5.classroom_tt[i][j]=temp1.code
+                                                    temp5.classroom_tt[i][j]=temp1.code                                                    
                                                     temp4.sem_tt[i][j]=temp1.code
                                                     temp44.sem_tt[i][j]=temp1.code
                                                     temp444.sem_tt[i][j]=temp1.code
                                                     temp4.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"
                                                     temp44.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"
                                                     temp444.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"
-                                                    temp2.faculty_tt[i][7]=temp1.code+"_ELE ("+temp5.classroom_code+")"
-                                                    temp2.test_tt[i][7]=temp1.semester1
+                                                    temp2.faculty_tt[i][7]=temp1.code+"_ELE ("+temp5.classroom_code+")"  
+                                                    temp2.test_tt[i][7]=temp1.semester1                                                  
                                                     break
                                             elif temp2.faculty_tt[i][7]==temp55.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]==temp444.sem_tt[i][j]=="*":
                                                 if time1<temp1.tutorial:
                                                     time1+=60
-                                                    temp55.classroom_tt[i][j]=temp1.code
+                                                    temp55.classroom_tt[i][j]=temp1.code                                                   
                                                     temp4.sem_tt[i][j]=temp1.code
                                                     temp44.sem_tt[i][j]=temp1.code
                                                     temp444.sem_tt[i][j]=temp1.code
                                                     temp4.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"
                                                     temp44.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"
                                                     temp444.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"
-                                                    temp2.faculty_tt[i][7]=temp1.code+"_ELE ("+temp55.classroom_code+")"
-                                                    temp2.test_tt[i][7]=temp1.semester1
+                                                    temp2.faculty_tt[i][7]=temp1.code+"_ELE ("+temp55.classroom_code+")" 
+                                                    temp2.test_tt[i][7]=temp1.semester1                                                  
                                                     break
                                             elif temp2.faculty_tt[i][7]==temp555.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]==temp444.sem_tt[i][j]=="*":
                                                 if time1<temp1.tutorial:
@@ -2803,44 +2885,44 @@ def plotting_for_electives(openion=0):
                                                     temp4.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"
                                                     temp44.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"
                                                     temp444.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"
-                                                    temp2.faculty_tt[i][7]=temp1.code+"_ELE ("+temp555.classroom_code+")"
-                                                    temp2.test_tt[i][7]=temp1.semester1
+                                                    temp2.faculty_tt[i][7]=temp1.code+"_ELE ("+temp555.classroom_code+")" 
+                                                    temp2.test_tt[i][7]=temp1.semester1                                                  
                                                     break
-                                        elif temp4!=None and temp44!=None :
+                                        elif temp4!=None and temp44!=None :                                           
                                             if temp2.faculty_tt[i][7]==temp5.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=="*":
                                                 if time1<temp1.tutorial:
                                                     time1+=60
-                                                    temp5.classroom_tt[i][j]=temp1.code
+                                                    temp5.classroom_tt[i][j]=temp1.code                                                    
                                                     temp4.sem_tt[i][j]=temp1.code
-                                                    temp44.sem_tt[i][j]=temp1.code
+                                                    temp44.sem_tt[i][j]=temp1.code                                                    
                                                     temp4.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"
-                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"
-                                                    temp2.faculty_tt[i][7]=temp1.code+"_ELE ("+temp5.classroom_code+")"
-                                                    temp2.test_tt[i][7]=temp1.semester1
+                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"                                                    
+                                                    temp2.faculty_tt[i][7]=temp1.code+"_ELE ("+temp5.classroom_code+")"  
+                                                    temp2.test_tt[i][7]=temp1.semester1                                                 
                                                     break
                                             elif temp2.faculty_tt[i][7]==temp55.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=="*":
                                                 if time1<temp1.tutorial:
                                                     time1+=60
-                                                    temp55.classroom_tt[i][j]=temp1.code
+                                                    temp55.classroom_tt[i][j]=temp1.code                                                   
                                                     temp4.sem_tt[i][j]=temp1.code
-                                                    temp44.sem_tt[i][j]=temp1.code
+                                                    temp44.sem_tt[i][j]=temp1.code                                                   
                                                     temp4.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"
-                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"
-                                                    temp2.faculty_tt[i][7]=temp1.code+"_ELE ("+temp55.classroom_code+")"
-                                                    temp2.test_tt[i][7]=temp1.semester1
+                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"                                                   
+                                                    temp2.faculty_tt[i][7]=temp1.code+"_ELE ("+temp55.classroom_code+")"  
+                                                    temp2.test_tt[i][7]=temp1.semester1                                                 
                                                     break
                                             elif temp2.faculty_tt[i][7]==temp555.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=="*":
                                                 if time1<temp1.tutorial:
                                                     time1+=60
                                                     temp555.classroom_tt[i][j]=temp1.code
                                                     temp4.sem_tt[i][j]=temp1.code
-                                                    temp44.sem_tt[i][j]=temp1.code
+                                                    temp44.sem_tt[i][j]=temp1.code                                                    
                                                     temp4.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"
-                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"
-                                                    temp2.faculty_tt[i][7]=temp1.code+"_ELE ("+temp555.classroom_code+")"
-                                                    temp2.test_tt[i][7]=temp1.semester1
+                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"                                                    
+                                                    temp2.faculty_tt[i][7]=temp1.code+"_ELE ("+temp555.classroom_code+")" 
+                                                    temp2.test_tt[i][7]=temp1.semester1                                                  
                                                     break
-                                        elif temp4!=None:
+                                        elif temp4!=None: 
                                             if temp2.faculty_tt[i][7]==temp5.classroom_tt[i][j]==temp4.sem_tt[i][j]=="*":
                                                 if time1<temp1.tutorial:
                                                     time1+=60
@@ -2869,33 +2951,33 @@ def plotting_for_electives(openion=0):
                                                     temp2.test_tt[i][7]=temp1.semester1
                                                     break
                                 if j==6:
-                                    if temp2 :
-                                        if temp4!=None and temp44!=None and temp444!=None:
+                                    if temp2 : 
+                                        if temp4!=None and temp44!=None and temp444!=None:                                           
                                             if temp2.faculty_tt[i][8]==temp5.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]==temp444.sem_tt[i][j]=="*":
                                                 if time1<temp1.tutorial:
                                                     time1+=60
-                                                    temp5.classroom_tt[i][j]=temp1.code
+                                                    temp5.classroom_tt[i][j]=temp1.code                                                   
                                                     temp4.sem_tt[i][j]=temp1.code+"(3:30-4:30)"
                                                     temp44.sem_tt[i][j]=temp1.code
                                                     temp444.sem_tt[i][j]=temp1.code
                                                     temp4.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"
                                                     temp44.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"
                                                     temp444.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"
-                                                    temp2.faculty_tt[i][8]=temp1.code+"_ELE ("+temp5.classroom_code+")"
-                                                    temp2.test_tt[i][8]=temp1.semester1
+                                                    temp2.faculty_tt[i][8]=temp1.code+"_ELE ("+temp5.classroom_code+")"  
+                                                    temp2.test_tt[i][8]=temp1.semester1                                                  
                                                     break
                                             elif temp2.faculty_tt[i][8]==temp55.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]==temp444.sem_tt[i][j]=="*":
                                                 if time1<temp1.tutorial:
                                                     time1+=60
-                                                    temp55.classroom_tt[i][j]=temp1.code
+                                                    temp55.classroom_tt[i][j]=temp1.code                                                    
                                                     temp4.sem_tt[i][j]=temp1.code
                                                     temp44.sem_tt[i][j]=temp1.code
                                                     temp444.sem_tt[i][j]=temp1.code
                                                     temp4.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"
                                                     temp44.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"
                                                     temp444.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"
-                                                    temp2.faculty_tt[i][8]=temp1.code+"_ELE ("+temp55.classroom_code+")"
-                                                    temp2.test_tt[i][8]=temp1.semester1
+                                                    temp2.faculty_tt[i][8]=temp1.code+"_ELE ("+temp55.classroom_code+")"  
+                                                    temp2.test_tt[i][8]=temp1.semester1                                                  
                                                     break
                                             elif temp2.faculty_tt[i][8]==temp555.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]==temp444.sem_tt[i][j]=="*":
                                                 if time1<temp1.tutorial:
@@ -2907,8 +2989,8 @@ def plotting_for_electives(openion=0):
                                                     temp4.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"
                                                     temp44.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"
                                                     temp444.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"
-                                                    temp2.faculty_tt[i][8]=temp1.code+"_ELE ("+temp555.classroom_code+")"
-                                                    temp2.test_tt[i][8]=temp1.semester1
+                                                    temp2.faculty_tt[i][8]=temp1.code+"_ELE ("+temp555.classroom_code+")" 
+                                                    temp2.test_tt[i][8]=temp1.semester1                                                  
                                                     break
                                         elif temp4!=None and temp44!=None :
                                             if temp2.faculty_tt[i][8]==temp5.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=="*":
@@ -2948,58 +3030,58 @@ def plotting_for_electives(openion=0):
                                             if temp2.faculty_tt[i][8]==temp5.classroom_tt[i][j]==temp4.sem_tt[i][j]=="*":
                                                 if time1<temp1.tutorial:
                                                     time1+=60
-                                                    temp5.classroom_tt[i][j]=temp1.code
-                                                    temp4.sem_tt[i][j]=temp1.code
-                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"
+                                                    temp5.classroom_tt[i][j]=temp1.code                                                   
+                                                    temp4.sem_tt[i][j]=temp1.code                                                    
+                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"                                                    
                                                     temp2.faculty_tt[i][8]=temp1.code+"_ELE ("+temp5.classroom_code+")"
-                                                    temp2.test_tt[i][8]=temp1.semester1
+                                                    temp2.test_tt[i][8]=temp1.semester1                                                    
                                                     break
                                             elif temp2.faculty_tt[i][8]==temp55.classroom_tt[i][j]==temp4.sem_tt[i][j]=="*":
                                                 if time1<temp1.tutorial:
                                                     time1+=60
-                                                    temp55.classroom_tt[i][j]=temp1.code
-                                                    temp4.sem_tt[i][j]=temp1.code
-                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"
-                                                    temp2.faculty_tt[i][8]=temp1.code+"_ELE ("+temp55.classroom_code+")"
-                                                    temp2.test_tt[i][8]=temp1.semester1
+                                                    temp55.classroom_tt[i][j]=temp1.code                                                   
+                                                    temp4.sem_tt[i][j]=temp1.code                                                   
+                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"                                                   
+                                                    temp2.faculty_tt[i][8]=temp1.code+"_ELE ("+temp55.classroom_code+")" 
+                                                    temp2.test_tt[i][8]=temp1.semester1                                                  
                                                     break
                                             elif temp2.faculty_tt[i][8]==temp555.classroom_tt[i][j]==temp4.sem_tt[i][j]=="*":
                                                 if time1<temp1.tutorial:
                                                     time1+=60
                                                     temp555.classroom_tt[i][j]=temp1.code
-                                                    temp4.sem_tt[i][j]=temp1.code
-                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"
-                                                    temp2.faculty_tt[i][8]=temp1.code+"_ELE ("+temp555.classroom_code+")"
-                                                    temp2.test_tt[i][8]=temp1.semester1
+                                                    temp4.sem_tt[i][j]=temp1.code                                                   
+                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"                                                   
+                                                    temp2.faculty_tt[i][8]=temp1.code+"_ELE ("+temp555.classroom_code+")" 
+                                                    temp2.test_tt[i][8]=temp1.semester1                                                  
                                                     break
                                 if j==6:
-                                    if temp2 :
-                                        if temp4!=None and temp44!=None and temp444!=None:
+                                    if temp2 :                                       
+                                        if temp4!=None and temp44!=None and temp444!=None:                                           
                                             if temp2.faculty_tt[i][9]==temp5.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]==temp444.sem_tt[i][j]=="*":
                                                 if time1<temp1.tutorial:
                                                     time1+=60
-                                                    temp5.classroom_tt[i][j]=temp1.code
+                                                    temp5.classroom_tt[i][j]=temp1.code                                                   
                                                     temp4.sem_tt[i][j]=temp1.code
                                                     temp44.sem_tt[i][j]=temp1.code
                                                     temp444.sem_tt[i][j]=temp1.code
                                                     temp4.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"
                                                     temp44.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"
                                                     temp444.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"
-                                                    temp2.faculty_tt[i][9]=temp1.code+"_ELE ("+temp5.classroom_code+")"
-                                                    temp2.test_tt[i][9]=temp1.semester1
+                                                    temp2.faculty_tt[i][9]=temp1.code+"_ELE ("+temp5.classroom_code+")"  
+                                                    temp2.test_tt[i][9]=temp1.semester1                                                 
                                                     break
                                             elif temp2.faculty_tt[i][9]==temp55.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]==temp444.sem_tt[i][j]=="*":
                                                 if time1<temp1.tutorial:
                                                     time1+=60
-                                                    temp55.classroom_tt[i][j]=temp1.code
+                                                    temp55.classroom_tt[i][j]=temp1.code                                                   
                                                     temp4.sem_tt[i][j]=temp1.code
                                                     temp44.sem_tt[i][j]=temp1.code
                                                     temp444.sem_tt[i][j]=temp1.code
                                                     temp4.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"
                                                     temp44.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"
                                                     temp444.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"
-                                                    temp2.faculty_tt[i][9]=temp1.code+"_ELE ("+temp55.classroom_code+")"
-                                                    temp2.test_tt[i][9]=temp1.semester1
+                                                    temp2.faculty_tt[i][9]=temp1.code+"_ELE ("+temp55.classroom_code+")" 
+                                                    temp2.test_tt[i][9]=temp1.semester1                                                  
                                                     break
                                             elif temp2.faculty_tt[i][9]==temp555.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]==temp444.sem_tt[i][j]=="*":
                                                 if time1<temp1.tutorial:
@@ -3011,52 +3093,52 @@ def plotting_for_electives(openion=0):
                                                     temp4.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"
                                                     temp44.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"
                                                     temp444.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"
-                                                    temp2.faculty_tt[i][9]=temp1.code+"_ELE ("+temp555.classroom_code+")"
-                                                    temp2.test_tt[i][9]=temp1.semester1
-                                                    break
-                                        elif temp4!=None and temp44!=None :
+                                                    temp2.faculty_tt[i][9]=temp1.code+"_ELE ("+temp555.classroom_code+")" 
+                                                    temp2.test_tt[i][9]=temp1.semester1                                                  
+                                                    break                                       
+                                        elif temp4!=None and temp44!=None :                                            
                                             if temp2.faculty_tt[i][9]==temp5.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=="*":
                                                 if time1<temp1.tutorial:
                                                     time1+=60
-                                                    temp5.classroom_tt[i][j]=temp1.code
+                                                    temp5.classroom_tt[i][j]=temp1.code                                                    
                                                     temp4.sem_tt[i][j]=temp1.code
-                                                    temp44.sem_tt[i][j]=temp1.code
+                                                    temp44.sem_tt[i][j]=temp1.code                                                    
                                                     temp4.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"
-                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"
-                                                    temp2.faculty_tt[i][9]=temp1.code+"_ELE ("+temp5.classroom_code+")"
-                                                    temp2.test_tt[i][9]=temp1.semester1
+                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"                                                    
+                                                    temp2.faculty_tt[i][9]=temp1.code+"_ELE ("+temp5.classroom_code+")"  
+                                                    temp2.test_tt[i][9]=temp1.semester1                                                  
                                                     break
                                             elif temp2.faculty_tt[i][9]==temp55.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=="*":
                                                 if time1<temp1.tutorial:
                                                     time1+=60
-                                                    temp55.classroom_tt[i][j]=temp1.code
+                                                    temp55.classroom_tt[i][j]=temp1.code                                                   
                                                     temp4.sem_tt[i][j]=temp1.code
-                                                    temp44.sem_tt[i][j]=temp1.code
+                                                    temp44.sem_tt[i][j]=temp1.code                                                   
                                                     temp4.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"
-                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"
-                                                    temp2.faculty_tt[i][9]=temp1.code+"_ELE ("+temp55.classroom_code+")"
-                                                    temp2.test_tt[i][9]=temp1.semester1
+                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp55.classroom_code+")"                                                   
+                                                    temp2.faculty_tt[i][9]=temp1.code+"_ELE ("+temp55.classroom_code+")"   
+                                                    temp2.test_tt[i][9]=temp1.semester1                                                
                                                     break
                                             elif temp2.faculty_tt[i][9]==temp555.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=="*":
                                                 if time1<temp1.tutorial:
                                                     time1+=60
                                                     temp555.classroom_tt[i][j]=temp1.code
                                                     temp4.sem_tt[i][j]=temp1.code
-                                                    temp44.sem_tt[i][j]=temp1.code
+                                                    temp44.sem_tt[i][j]=temp1.code                                                   
                                                     temp4.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"
-                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"
-                                                    temp2.faculty_tt[i][9]=temp1.code+"_ELE ("+temp555.classroom_code+")"
-                                                    temp2.test_tt[i][9]=temp1.semester1
-                                                    break
-                                        elif temp4!=None:
+                                                    temp44.sem_tt_new[i][j]=temp1.code+"("+temp555.classroom_code+")"                                                   
+                                                    temp2.faculty_tt[i][9]=temp1.code+"_ELE ("+temp555.classroom_code+")"  
+                                                    temp2.test_tt[i][9]=temp1.semester1                                                 
+                                                    break                                       
+                                        elif temp4!=None:                                           
                                             if temp2.faculty_tt[i][9]==temp5.classroom_tt[i][j]==temp4.sem_tt[i][j]=="*":
                                                 if time1<temp1.tutorial:
                                                     time1+=60
-                                                    temp5.classroom_tt[i][j]=temp1.code
-                                                    temp4.sem_tt[i][j]=temp1.code
-                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"
-                                                    temp2.faculty_tt[i][9]=temp1.code+"_ELE ("+temp5.classroom_code+")"
-                                                    temp2.test_tt[i][9]=temp1.semester1
+                                                    temp5.classroom_tt[i][j]=temp1.code                                                   
+                                                    temp4.sem_tt[i][j]=temp1.code                                                   
+                                                    temp4.sem_tt_new[i][j]=temp1.code+"("+temp5.classroom_code+")"                                                   
+                                                    temp2.faculty_tt[i][9]=temp1.code+"_ELE ("+temp5.classroom_code+")"  
+                                                    temp2.test_tt[i][9]=temp1.semester1                                                 
                                                     break
                                             elif temp2.faculty_tt[i][9]==temp55.classroom_tt[i][j]==temp4.sem_tt[i][j]=="*":
                                                 if time1<temp1.tutorial:
@@ -3572,7 +3654,7 @@ def plotting_for_electives(openion=0):
                                                     temp2.faculty_tt[i][7]="."
                                                     temp2.test_tt[i][6]=temp1.semester1
                                                     temp4.sem_tt[i][j]+=" /" +temp1.code
-                                                    temp4.sem_tt[i][j+1]+=" /" +temp1.code
+                                                    temp4.sem_tt[i][j+1]+=" /" +temp1.code    
                                                     temp4.sem_tt_new[i][j]+=" /" +temp1.code+"("+temp6.name+")"
                                                     temp4.sem_tt_new[i][j+1]+=" /" +temp1.code+"("+temp6.name+")"
                                                     temp6.tt[i][6]=temp1.code
@@ -3582,7 +3664,7 @@ def plotting_for_electives(openion=0):
                 if temp1.theory:
                     if time1<temp1.theory:print("theory not satisfied for ",temp1.name,"Semester: ",temp1.semester1)
                 if temp1.tutorial:
-                    if time1<temp1.tutorial:print("tutorial not satisfied for ",temp1.name,"Semester: ",temp1.semester1)
+                    if time1<temp1.tutorial:print("tutorial not satisfied for ",temp1.name,"Semester: ",temp1.semester1)   
                 if temp1.lab:
                     if time1<temp1.lab:print("Lab not satisfied for ",temp1.name,"Semester: ",temp1.semester1)
                 temp1=temp1.next
@@ -3603,7 +3685,7 @@ def plotting_for_electives(openion=0):
                                         if shift==1:break
                                 if j==5:
                                     if temp2 and temp22 and temp222:
-                                        if temp4!=None and temp44!=None and temp444!=None:
+                                        if temp4!=None and temp44!=None and temp444!=None:   
                                             if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]==temp444.sem_tt[i][j]=="*":
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
                                                 while(temp3 and time1<temp1.theory):
@@ -3667,7 +3749,7 @@ def plotting_for_electives(openion=0):
                                                             temp22.faculty_tt[i][8]=temp1.code+temp3.classroom_code
                                                             temp22.faculty_tt[i][9]="."
                                                             break
-
+                                                    
                                                     temp3=temp3.next
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
                                                 while(temp3 and time3<temp1.theory):
@@ -3699,8 +3781,8 @@ def plotting_for_electives(openion=0):
                                                             temp222.faculty_tt[i][8]=temp1.code+temp3.classroom_code
                                                             temp222.faculty_tt[i][9]="."
                                                             break
-
-                                                    temp3=temp3.next
+                                                        
+                                                    temp3=temp3.next 
                                         elif temp4!=None and temp44!=None :
                                             if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=="*":
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
@@ -3741,7 +3823,7 @@ def plotting_for_electives(openion=0):
                                                         temp222.faculty_tt[i][8]=temp1.code+temp3.classroom_code
                                                         temp222.faculty_tt[i][9]="."
                                                         break
-                                                    temp3=temp3.next
+                                                    temp3=temp3.next 
                                         elif temp4!=None:
                                             if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp4.sem_tt[i][j]=="*":
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
@@ -3776,7 +3858,7 @@ def plotting_for_electives(openion=0):
                                                         temp222.faculty_tt[i][8]=temp1.code+temp3.classroom_code
                                                         temp222.faculty_tt[i][9]="."
                                                         break
-                                                    temp3=temp3.next
+                                                    temp3=temp3.next 
                                 if _>2 and j==5:
                                     if temp2 and temp22 and temp222:
                                         if temp4!=None and temp44!=None and temp444!=None:
@@ -3825,7 +3907,7 @@ def plotting_for_electives(openion=0):
                                                         temp222.faculty_tt[i][8]=temp1.code+temp3.classroom_code
                                                         temp222.faculty_tt[i][9]="."
                                                         break
-                                                    temp3=temp3.next
+                                                    temp3=temp3.next 
                                         elif temp4!=None and temp44!=None :
                                             if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=="*":
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
@@ -3866,7 +3948,7 @@ def plotting_for_electives(openion=0):
                                                         temp222.faculty_tt[i][8]=temp1.code+temp3.classroom_code
                                                         temp222.faculty_tt[i][9]="."
                                                         break
-                                                    temp3=temp3.next
+                                                    temp3=temp3.next 
                                         elif temp4!=None:
                                             if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp4.sem_tt[i][j]=="*":
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
@@ -3901,7 +3983,7 @@ def plotting_for_electives(openion=0):
                                                         temp222.faculty_tt[i][8]=temp1.code+temp3.classroom_code
                                                         temp222.faculty_tt[i][9]="."
                                                         break
-                                                    temp3=temp3.next
+                                                    temp3=temp3.next 
                                 if _>3 and j==2:
                                     if temp2 and temp22 and temp222:
                                         if temp4!=None and temp44!=None and temp444!=None:
@@ -3950,8 +4032,8 @@ def plotting_for_electives(openion=0):
                                                         temp222.faculty_tt[i][3]=temp1.code+temp3.classroom_code
                                                         temp222.faculty_tt[i][4]="."
                                                         break
-                                                    temp3=temp3.next
-                                        elif temp4!=None and temp44!=None:
+                                                    temp3=temp3.next 
+                                        elif temp4!=None and temp44!=None: 
                                             if temp2.faculty_tt[i][3]==temp2.faculty_tt[i][4]==temp22.faculty_tt[i][3]==temp22.faculty_tt[i][4]==temp222.faculty_tt[i][3]==temp222.faculty_tt[i][4]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=="*":
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
                                                 while(temp3 and time1<temp1.theory):
@@ -4026,7 +4108,7 @@ def plotting_for_electives(openion=0):
                                                         temp222.faculty_tt[i][3]=temp1.code+temp3.classroom_code
                                                         temp222.faculty_tt[i][4]="."
                                                         break
-                                                    temp3=temp3.next
+                                                    temp3=temp3.next 
                                 if _>3 and j==1:
                                     if temp2 and temp22 and temp222:
                                         if temp4!=None and temp44!=None and temp444!=None:
@@ -4075,8 +4157,8 @@ def plotting_for_electives(openion=0):
                                                         temp222.faculty_tt[i][1]=temp1.code+temp3.classroom_code
                                                         temp222.faculty_tt[i][2]="."
                                                         break
-                                                    temp3=temp3.next
-                                        elif temp4!=None and temp44!=None:
+                                                    temp3=temp3.next 
+                                        elif temp4!=None and temp44!=None: 
                                             if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp22.faculty_tt[i][1]==temp22.faculty_tt[i][2]==temp222.faculty_tt[i][1]==temp222.faculty_tt[i][2]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=='*':
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
                                                 while(temp3 and time1<temp1.theory):
@@ -4116,8 +4198,8 @@ def plotting_for_electives(openion=0):
                                                         temp222.faculty_tt[i][1]=temp1.code+temp3.classroom_code
                                                         temp222.faculty_tt[i][2]="."
                                                         break
-                                                    temp3=temp3.next
-                                        elif temp4!=None :
+                                                    temp3=temp3.next   
+                                        elif temp4!=None : 
                                             if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp22.faculty_tt[i][1]==temp22.faculty_tt[i][2]==temp222.faculty_tt[i][1]==temp222.faculty_tt[i][2]==temp4.sem_tt[i][j]=='*':
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
                                                 while(temp3 and time1<temp1.theory):
@@ -4151,7 +4233,7 @@ def plotting_for_electives(openion=0):
                                                         temp222.faculty_tt[i][1]=temp1.code+temp3.classroom_code
                                                         temp222.faculty_tt[i][2]="."
                                                         break
-                                                    temp3=temp3.next
+                                                    temp3=temp3.next                 
                 if temp1.tutorial:
                     time1=0
                     time2=0
@@ -4214,7 +4296,7 @@ def plotting_for_electives(openion=0):
                                                         temp222.faculty_tt[i][8]=temp1.code+temp3.classroom_code
                                                         temp222.faculty_tt[i][9]="."
                                                         break
-                                                    temp3=temp3.next
+                                                    temp3=temp3.next 
                                         elif temp4!=None and temp44!=None :
                                             if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=="*":
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
@@ -4255,7 +4337,7 @@ def plotting_for_electives(openion=0):
                                                         temp222.faculty_tt[i][8]=temp1.code+temp3.classroom_code
                                                         temp222.faculty_tt[i][9]="."
                                                         break
-                                                    temp3=temp3.next
+                                                    temp3=temp3.next 
                                         elif temp4!=None:
                                             if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp4.sem_tt[i][j]=="*":
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
@@ -4290,7 +4372,7 @@ def plotting_for_electives(openion=0):
                                                         temp222.faculty_tt[i][8]=temp1.code+temp3.classroom_code
                                                         temp222.faculty_tt[i][9]="."
                                                         break
-                                                    temp3=temp3.next
+                                                    temp3=temp3.next 
                                 if _<4 and j==5:
                                     if temp2 and temp22 and temp222:
                                         if temp4!=None and temp44!=None and temp444!=None:
@@ -4339,7 +4421,7 @@ def plotting_for_electives(openion=0):
                                                         temp222.faculty_tt[i][8]=temp1.code+temp3.classroom_code
                                                         temp222.faculty_tt[i][9]="."
                                                         break
-                                                    temp3=temp3.next
+                                                    temp3=temp3.next 
                                         elif temp4!=None and temp44!=None :
                                             if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=="*":
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
@@ -4380,7 +4462,7 @@ def plotting_for_electives(openion=0):
                                                         temp222.faculty_tt[i][8]=temp1.code+temp3.classroom_code
                                                         temp222.faculty_tt[i][9]="."
                                                         break
-                                                    temp3=temp3.next
+                                                    temp3=temp3.next 
                                         elif temp4!=None:
                                             if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp4.sem_tt[i][j]=="*":
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
@@ -4415,7 +4497,7 @@ def plotting_for_electives(openion=0):
                                                         temp222.faculty_tt[i][8]=temp1.code+temp3.classroom_code
                                                         temp222.faculty_tt[i][9]="."
                                                         break
-                                                    temp3=temp3.next
+                                                    temp3=temp3.next 
                                 if _<4 and j==4:
                                     if temp2 and temp22 and temp222:
                                         if temp4!=None and temp44!=None and temp444!=None:
@@ -4461,8 +4543,8 @@ def plotting_for_electives(openion=0):
                                                         temp444.sem_tt_new[i][j]+=temp1.code+"("+temp3.classroom_code+") /"
                                                         temp222.faculty_tt[i][7]=temp1.code+temp3.classroom_code
                                                         break
-                                                    temp3=temp3.next
-                                        elif temp4!=None and temp44!=None:
+                                                    temp3=temp3.next 
+                                        elif temp4!=None and temp44!=None: 
                                             if temp2.faculty_tt[i][7]==temp22.faculty_tt[i][7]==temp222.faculty_tt[i][7]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=="*":
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
                                                 while(temp3 and time1<temp1.tutorial):
@@ -4531,7 +4613,7 @@ def plotting_for_electives(openion=0):
                                                         temp4.sem_tt_new[i][j]+=temp1.code+"("+temp3.classroom_code+") /"
                                                         temp222.faculty_tt[i][7]=temp1.code+temp3.classroom_code
                                                         break
-                                                    temp3=temp3.next
+                                                    temp3=temp3.next 
                                 if _<4 and j==3:
                                     if temp2 and temp22 and temp222:
                                         if temp4!=None and temp44!=None and temp444!=None:
@@ -4580,8 +4662,8 @@ def plotting_for_electives(openion=0):
                                                         temp222.faculty_tt[i][1]=temp1.code+temp3.classroom_code
                                                         temp222.faculty_tt[i][2]="."
                                                         break
-                                                    temp3=temp3.next
-                                        elif temp4!=None and temp44!=None:
+                                                    temp3=temp3.next 
+                                        elif temp4!=None and temp44!=None: 
                                             if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp22.faculty_tt[i][1]==temp22.faculty_tt[i][2]==temp222.faculty_tt[i][1]==temp222.faculty_tt[i][2]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=='*':
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
                                                 while(temp3 and time1<temp1.tutorial):
@@ -4621,8 +4703,8 @@ def plotting_for_electives(openion=0):
                                                         temp222.faculty_tt[i][1]=temp1.code+temp3.classroom_code
                                                         temp222.faculty_tt[i][2]="."
                                                         break
-                                                    temp3=temp3.next
-                                        elif temp4!=None :
+                                                    temp3=temp3.next   
+                                        elif temp4!=None : 
                                             if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp22.faculty_tt[i][1]==temp22.faculty_tt[i][2]==temp222.faculty_tt[i][1]==temp222.faculty_tt[i][2]==temp4.sem_tt[i][j]=='*':
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
                                                 while(temp3 and time1<temp1.tutorial):
@@ -4656,7 +4738,7 @@ def plotting_for_electives(openion=0):
                                                         temp222.faculty_tt[i][1]=temp1.code+temp3.classroom_code
                                                         temp222.faculty_tt[i][2]="."
                                                         break
-                                                    temp3=temp3.next
+                                                    temp3=temp3.next 
                 if temp1.theory:
                     if time1<temp1.theory:print("theory not satisfied for ",temp1.name,"Semester: ",temp1.semester1,"time1:",time1)
                     if temp44:
@@ -4705,7 +4787,7 @@ def clear3():
                 for j in range(8):
                     if j!=0 and i!=0:
                         temp.classroom_tt[i][j]='*'
-
+                        
         else:
             for i in range(6):
                 for j in range(6):
@@ -4756,43 +4838,31 @@ obj_for_class_rooms.insert('DSAI_Sem_7',"C209","Sem_7")# Extra classroom to be u
 obj_for_class_rooms.insert("DSAI_Sem_8","C210","Sem_8")
 
 #            self,code          ,type   ,name                                                  ,branch1  ,semester1       ,branch2   ,semester2  ,branch3,semester3  ,classroom_code1,code2,code3  ,faculty1                   ,faculty2        ,faculty3    ,theory   ,tutorial  ,lab   ,lab_name=None
-# node_for_courses("MA103"        ,"c"    ,"Math for CS"                                         ,"CSE"    ,"Sem_2_A"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C101"  ,"NA"  ,"NA"        ,"Dr. Tanay Saha"          ,"NA"             ,"NA"        ,3      ,1       ,0)
-# node_for_courses("CS102"        ,"c"    ,"Data Structures"                                     ,"CSE"    ,"Sem_2_A"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C101"  ,"NA"  ,"NA"        ,"Dr. Avantika Singh"      ,"NA"             ,"NA"        ,3      ,1       ,2   ,"CS_LAB")
-# node_for_courses("CS106"        ,"c"    ,"MPMC"                                                ,"CSE"    ,"Sem_2_A"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C101"  ,"NA"  ,"NA"        ,"Dr. Kishore V"           ,"NA"             ,"NA"        ,3      ,0       ,2   ,"CS_LAB")
-# node_for_courses("PH105"        ,"c"    ,"Physics for IT"                                      ,"CSE"    ,"Sem_2_A"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C101"  ,"NA"  ,"NA"        ,"Dr. Aswath Babu"         ,"NA"             ,"NA"        ,3      ,1       ,0)
-# node_for_courses("HS102"        ,"c"    ,"Professional Communication"                          ,"CSE"    ,"Sem_2_A"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C101"  ,"NA"  ,"NA"        ,"Dr. Rajesh N S"          ,"NA"             ,"NA"        ,2      ,0       ,2   ,"CS_LAB")
-
-# node_for_courses("MA103"        ,"c"    ,"Math for CS"                                         ,"CSE"    ,"Sem_2_B"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C102"  ,"NA"  ,"NA"        ,"Dr. Gokul Raj"           ,"NA"             ,"NA"        ,3      ,1       ,0)
-# node_for_courses("CS102"        ,"c"    ,"Data Structures"                                     ,"CSE"    ,"Sem_2_B"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C102"  ,"NA"  ,"NA"        ,"Dr. Radhika"             ,"NA"             ,"NA"        ,3      ,1       ,2   ,"CS_LAB")
-# node_for_courses("CS106"        ,"c"    ,"MPMC"                                                ,"CSE"    ,"Sem_2_B"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C102"  ,"NA"  ,"NA"        ,"Dr. Kishore V"           ,"NA"             ,"NA"        ,3      ,0       ,2   ,"CS_LAB")
-# node_for_courses("PH105"        ,"c"    ,"Physics for IT"                                      ,"CSE"    ,"Sem_2_B"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C102"  ,"NA"  ,"NA"        ,"Dr. Aswath Babu"         ,"NA"             ,"NA"        ,3      ,1       ,0)
-# node_for_courses("HS102"        ,"c"    ,"Professional Communication"                          ,"CSE"    ,"Sem_2_B"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C102"  ,"NA"  ,"NA"        ,"Dr. Rajesh N S"          ,"NA"             ,"NA"        ,2      ,0       ,2   ,"CS_LAB")
-
-
+                                             
 node_for_courses("MA201"        ,"c"    ,"Probability"                                         ,"CSE"    ,"Sem_3_A"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C201"  ,"NA"  ,"NA"        ,"Dr. Lakshman"            ,"NA"             ,"NA"        ,3      ,1       ,0  )
 node_for_courses("CS201"        ,"c"    ,"Discrete mathematics"                                ,"CSE"    ,"Sem_3_A"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C201"  ,"NA"  ,"NA"        ,"Dr. Prabhu Prasad"       ,"NA"             ,"NA"        ,3      ,1       ,0  )
 node_for_courses("CS207"        ,"c"    ,"object oriented prog"                                ,"CSE"    ,"Sem_3_A"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C201"  ,"NA"  ,"NA"        ,"Dr. Vivekraj"            ,"NA"             ,"NA"        ,3      ,0       ,2   ,'CS_LAB')
 node_for_courses("EC105"        ,"c"    ,"Computer_Archit"                                     ,"CSE"    ,"Sem_3_A"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C201"  ,"NA"  ,"NA"        ,"Dr. Pramod Yelmewad"     ,"NA"             ,"NA"        ,3      ,0       ,2   ,'CS_LAB')
 node_for_courses("CS202"        ,"c"    ,"Design and analysis of algorithms"                   ,"CSE"    ,"Sem_3_A"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C201"  ,"NA"  ,"NA"        ,"Dr. Malay Kumar"         ,"NA"             ,"NA"        ,3      ,1       ,2   ,'CS_LAB')
-
+                             
 node_for_courses("MA201"        ,"c"    ,"Probability"                                         ,"CSE"    ,"Sem_3_B"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C202"  ,"NA"  ,"NA"        ,"Dr. Lakshman"            ,"NA"             ,"NA"        ,3      ,1       ,0  )
 node_for_courses("CS201"        ,"c"    ,"Discrete mathematics"                                ,"CSE"    ,"Sem_3_B"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C202"  ,"NA"  ,"NA"        ,"Dr. Pawan Kumar"         ,"NA"             ,"NA"        ,3      ,1       ,0  )
 node_for_courses("CS207"        ,"c"    ,"object oriented prog"                                ,"CSE"    ,"Sem_3_B"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C202"  ,"NA"  ,"NA"        ,"CSNF1"                   ,"NA"             ,"NA"        ,3      ,0       ,2   ,'CS_LAB')
 node_for_courses("EC105"        ,"c"    ,"Computer_Archit"                                     ,"CSE"    ,"Sem_3_B"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C202"  ,"NA"  ,"NA"        ,"Dr. Prabhu Prasad"       ,"NA"             ,"NA"        ,3      ,0       ,2   ,'CS_LAB')
 node_for_courses("CS202"        ,"c"    ,"Design and analysis of algorithms"                   ,"CSE"    ,"Sem_3_B"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C202"  ,"NA"  ,"NA"        ,"CSNF2"                   ,"NA"             ,"NA"        ,3      ,1       ,2   ,'CS_LAB')
 node_for_courses("HS206"        ,"e"    ,"Psychology/lifeskill/soc"                            ,"CSE"    ,"Sem_3_A"       ,"CSE"     ,"Sem_3_B"  ,"NA"   ,"NA"        ,"C201"  ,"C202"  ,"NA"        ,"ODNF1"                   ,"ODNF2"          ,"ODNF3"     ,3      ,1       ,0  )
-
+                  
 node_for_courses("CS309"        ,"c"    ,"Statistics of CS"                                    ,"CSE"    ,"Sem_5_A"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C203"  ,"NA"  ,"NA"        ,"Dr. Ramesh Athe"         ,"NA"             ,"NA"        ,3      ,1       ,0  )
 node_for_courses("CS303"        ,"c"    ,"Computer Networks"                                   ,"CSE"    ,"Sem_5_A"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C203"  ,"NA"  ,"NA"        ,"Dr. Radhika B.S"         ,"NA"             ,"NA"        ,3      ,1       ,2   ,'CS_LAB')
 node_for_courses("CS304"        ,"c"    ,"AI"                                                  ,"CSE"    ,"Sem_5_A"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C203"  ,"NA"  ,"NA"        ,"Dr. Jaylakshmi"          ,"NA"             ,"NA"        ,3      ,1       ,0   ,'CS_LAB')
 
 node_for_courses("5TB1"         ,"e"    ,"ele1_sem5"                                           ,"CSE"    ,"Sem_5_A"       ,"CSE"     ,"Sem_5_B"  ,"NA"   ,"NA"        ,"C203"  ,"C204","NA"        ,"Dr. Sadhvi"              ,"Dr. Pawan Kumar"       ,"Dr. Radhika B.S"  ,3      ,1       ,0  )#tut
 node_for_courses("5ELE1"        ,"e"    ,"ele2_sem5"                                           ,"CSE"    ,"Sem_5_A"       ,"CSE"     ,"Sem_5_B"  ,"NA"   ,"NA"        ,"C203"  ,"C204","NA"        ,"Dr. Rajendra"            ,"Dr. Jagadeesha R Bhat" ,"Dr. Aswath Babu"  ,3      ,1       ,0  )#tut
-
+                             
 node_for_courses("CS309"        ,"c"    ,"Statistics of CS"                                    ,"CSE"    ,"Sem_5_B"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C204"  ,"NA"  ,"NA"        ,"Dr.Ramesh Athe"         ,"NA"             ,"NA"        ,3      ,1       ,0  )
 node_for_courses("CS303"        ,"c"    ,"Computer Networks"                                   ,"CSE"    ,"Sem_5_B"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C204"  ,"NA"  ,"NA"        ,"Dr. Sadhvi"              ,"NA"             ,"NA"        ,3      ,1       ,2   ,'CS_LAB')
 node_for_courses("CS304"        ,"c"    ,"AI"                                                  ,"CSE"    ,"Sem_5_B"       ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C204"  ,"NA"  ,"NA"        ,"CSNF3"                   ,"NA"             ,"NA"        ,3      ,1       ,0   ,'CS_LAB')
-
+                         
 node_for_courses("CS461"        ,"e"    ,"Cloud Security"                                      ,"CSE"    ,"Sem_7"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C205"  ,"NA"  ,"NA"        ,"Dr. Malay Kumar"         ,"NA"             ,"NA"        ,3      ,0       ,0  )
 node_for_courses("CS462"        ,"e"    ,"Computer Graphics"                                   ,"CSE"    ,"Sem_7"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C205"  ,"NA"  ,"NA"        ,"Dr. Vivekraj"            ,"NA"             ,"NA"        ,3      ,0       ,2     , "CS_LAB")
 node_for_courses("DS451"        ,"e"    ,"Systems and Big Data analytics"                      ,"CSE"    ,"Sem_7"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C205"  ,"NA"  ,"NA"        ,"Dr. Animesh"             ,"NA"             ,"NA"        ,3      ,1       ,0  )
@@ -4805,26 +4875,20 @@ node_for_courses("CS498"        ,"e"    ,"Mini-Project-2"                       
 
 node_for_courses("EC459"        ,"e"    ,"Machine Learning for Biomedical Signal Analysis"     ,"ECE"    ,"Sem_7"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C801"  ,"NA"  ,"NA"        ,"Dr. Sibasankar"          ,"NA"             ,"NA"        ,3      ,1       ,0  )
 node_for_courses("EC458"        ,"e"    ,"Statistical Signal Processing"                       ,"ECE"    ,"Sem_7"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C801"  ,"NA"  ,"NA"        ,"Dr. Chinmayananda"       ,"NA"             ,"NA"        ,3      ,1       ,0  )
-
-# node_for_courses("DS105"        ,"c"    ,"Probability and statistics"                          ,"DSAI"   ,"Sem_2"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C401"  ,"NA"  ,"NA"        ,"Dr. Ramesh Athe"         ,"NA"             ,"NA"        ,3      ,1       ,0  )
-# node_for_courses("CS102"        ,"c"    ,"Data Structures"                                     ,"DSAI"   ,"Sem_2"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C401"  ,"NA"  ,"NA"        ,"Dr. Sunil Saumya"        ,"NA"             ,"NA"        ,3      ,1       ,2   ,'CS_LAB')
-# node_for_courses("EG101"        ,"c"    ,"Engineering101"                                      ,"DSAI"   ,"Sem_2"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C401"  ,"NA"  ,"NA"        ,"Dr. Rajib Sharma"        ,"NA"             ,"NA"        ,2      ,1       ,2   ,'CS_LAB')
-# node_for_courses("HS107"        ,"c"    ,"Economics"                                           ,"DSAI"   ,"Sem_2"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C401"  ,"NA"  ,"NA"        ,"Ms. Anushree K"          ,"NA"             ,"NA"        ,3      ,1       ,0   )
-# node_for_courses("HS102"        ,"c"    ,"Professional Communication"                          ,"DSAI"   ,"Sem_2"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C401"  ,"NA"  ,"NA"        ,"Dr. Manjusha C B"        ,"NA"             ,"NA"        ,2      ,0       ,2   ,'CS_LAB')
-
+                         
 node_for_courses("DS201"        ,"c"    ,"Data and Business Analytics"                         ,"DSAI"   ,"Sem_3"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C501"  ,"NA"  ,"NA"        ,"Dr. Rajib Sharma"        ,"NA"             ,"NA"        ,3      ,0       ,0  )
 node_for_courses("CS201"        ,"c"    ,"Discrete Mathematics"                                ,"DSAI"   ,"Sem_3"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C501"  ,"NA"  ,"NA"        ,"Dr. Hariprasad HS"       ,"NA"             ,"NA"        ,3      ,1       ,0   ,'CS_LAB')
 node_for_courses("CS207"        ,"c"    ,"Object Oriented Programming"                         ,"DSAI"   ,"Sem_3"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C501"  ,"NA"  ,"NA"        ,"Dr. Manjunath V"         ,"NA"             ,"NA"        ,3      ,0       ,2   ,'CS_LAB')
 node_for_courses("HS201"        ,"c"    ,"Industrial Psychology"                               ,"DSAI"   ,"Sem_3"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C501"  ,"NA"  ,"NA"        ,"Ms. Anushree K"          ,"NA"             ,"NA"        ,3      ,0       ,0   )
 node_for_courses("CS202"        ,"c"    ,"Design and Analysis of Algorithms"                   ,"DSAI"   ,"Sem_3"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C501"  ,"NA"  ,"NA"        ,"Dr. Sunil Saumya"        ,"NA"             ,"NA"        ,3      ,1       ,2   ,'CS_LAB')
 node_for_courses("HS202"        ,"c"    ,"Ethics"                                              ,"DSAI"   ,"Sem_3"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C501"  ,"NA"  ,"NA"        ,"Dr. Rajesh N S"          ,"NA"             ,"NA"        ,3      ,0       ,0  )
-
+                          
 node_for_courses("DS204"        ,"c"    ,"Graphs and Social Networks"                          ,"DSAI"   ,"Sem_5"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C601"  ,"NA"  ,"NA"        ,"Dr. Utkarsh"             ,"NA"             ,"NA"        ,3      ,1       ,0   ,'CS_LAB')
 node_for_courses("DS205"        ,"c"    ,"Computer Communication Networks"                     ,"DSAI"   ,"Sem_5"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C601"  ,"NA"  ,"NA"        ,"Dr. Rajib Sharma"        ,"NA"             ,"NA"        ,3      ,1       ,2   ,'CS_LAB')
 node_for_courses("DS206"        ,"c"    ,"Algorithms and Artificial Intelligence"              ,"DSAI"   ,"Sem_5"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C601"  ,"NA"  ,"NA"        ,"Ms. Animesh"             ,"NA"             ,"NA"        ,3      ,1       ,0   )
 node_for_courses("DS207"        ,"c"    ,"Machine Learning"                                    ,"DSAI"   ,"Sem_5"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C601"  ,"NA"  ,"NA"        ,"Dr. Sunil Saumya"        ,"NA"             ,"NA"        ,3      ,1       ,0   ,'CS_LAB')
 node_for_courses("DS208"        ,"c"    ,"Visualization and App Development"                   ,"DSAI"   ,"Sem_5"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C601"  ,"NA"  ,"NA"        ,"Dr. Manjunath"           ,"NA"             ,"NA"        ,2      ,1       ,2   ,'CS_LAB')
-
+                      
 node_for_courses("HS102"        ,"c"    ,"Professional Communication"                          ,"ECE"    ,"Sem_3"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C701"  ,"NA"  ,"NA"        ,"Dr. Rajesh N S"          ,"NA"             ,"NA"        ,2      ,1       ,0  )
 node_for_courses("MA202"        ,"c"    ,"Linear Algebra"                                      ,"ECE"    ,"Sem_3"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C701"  ,"NA"  ,"NA"        ,"Dr. Anand"               ,"NA"             ,"NA"        ,3      ,1       ,0  )
 node_for_courses("EC207"        ,"c"    ,"Electromagnetic theory"                              ,"ECE"    ,"Sem_3"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C701"  ,"NA"  ,"NA"        ,"Dr. Samen B"             ,"NA"             ,"NA"        ,3      ,1       ,0  )
@@ -4863,30 +4927,29 @@ def workload_calculate():
                 if temp.theory:temp1.workload+=(temp.theory)
                 if temp.tutorial:temp1.workload+=(temp.tutorial)
             temp=temp.next
-def sort_faculty_list():
-        current = obj_for_facultys.head_for_faculty_names;
+def sort_faculty_list():  
+        current = obj_for_facultys.head_for_faculty_names;  
         index = None
         if(current == None):return
-        else:
-            while(current != None):
-                index = current.next;
-                while(index != None):
-                    if(current.workload < index.workload):
-                        tp = current.workload;
-                        current.workload = index.workload;
+        else:  
+            while(current != None):  
+                index = current.next;  
+                while(index != None):   
+                    if(current.workload < index.workload):  
+                        tp = current.workload;  
+                        current.workload = index.workload;  
                         index.workload = tp;
-                        tp = current.faculty_id;
-                        current.faculty_id = index.faculty_id;
+                        tp = current.faculty_id;  
+                        current.faculty_id = index.faculty_id;  
                         index.faculty_id = tp;
-                        tp = current.faculty_name;
-                        current.faculty_name = index.faculty_name;
+                        tp = current.faculty_name;  
+                        current.faculty_name = index.faculty_name;  
                         index.faculty_name = tp;
-                        tp = current.faculty_tt;
-                        current.faculty_tt = index.faculty_tt;
-                        index.faculty_tt = tp;
-                    index = index.next;
-                current = current.next;
-
+                        tp = current.faculty_tt;  
+                        current.faculty_tt = index.faculty_tt;  
+                        index.faculty_tt = tp;  
+                    index = index.next;  
+                current = current.next;  
 
 
 
@@ -5060,6 +5123,7 @@ def student(request):
     obj_for_class_rooms.head_for_class_rooms=None
     datas=data.objects.all()
     for i in datas:
+            print((i.code),(i.type),(i.name),(i.branch1),(i.semester1),(i.branch2),(i.semester2),(i.branch3),(i.semester3),(i.classroom_code1),(i.classroom_code2),(i.classroom_code3),(i.faculty1),(i.faculty2),(i.faculty3),(i.theory),(i.tutorial),(i.lab),(i.lab_name))
             # print(remove_spaces(i.code),remove_spaces(i.type),remove_spaces(i.name),remove_spaces(i.branch1),remove_spaces(i.semester1),remove_spaces(i.branch2),remove_spaces(i.semester2),remove_spaces(i.branch3),remove_spaces(i.semester3),remove_spaces(i.classroom_code1),remove_spaces(i.classroom_code2),remove_spaces(i.classroom_code3),remove_spaces(i.faculty1),remove_spaces(i.faculty2),remove_spaces(i.faculty3),(i.theory),(i.tutorial),(i.lab),remove_spaces(i.lab_name))
             node_for_courses(remove_spaces(i.code),remove_spaces(i.type),remove_spaces(i.name),remove_spaces(i.branch1),remove_spaces(i.semester1),remove_spaces(i.branch2),remove_spaces(i.semester2),remove_spaces(i.branch3),remove_spaces(i.semester3),remove_spaces(i.classroom_code1),remove_spaces(i.classroom_code2),remove_spaces(i.classroom_code3),remove_spaces(i.faculty1),remove_spaces(i.faculty2),remove_spaces(i.faculty3),(i.theory),(i.tutorial),(i.lab),remove_spaces(i.lab_name))
 
@@ -5244,11 +5308,10 @@ def contact_upload(request):
     prompt=None
     if request.method=="GET":
         return render(request,template,prompt)
-    if len(request.FILES['file'])==0:
-        return redirect('/')
+    
     csv_file=request.FILES['file']
-    # if not csv_file.name.endswith('.csv'):
-    #     messages.error(request,'This is not a CSV file!')
+    if not csv_file.name.endswith('.csv'):
+        messages.error(request,'This is not a CSV file!')
     # if len(request.FILES)==0:
     #     return redirect('/')
 
@@ -5272,12 +5335,11 @@ def contact_upload(request):
             faculty1 = column[12],
             faculty2 = column[13],
             faculty3 = column[14],           
-            theory = (column[15]),
-            tutorial = (column[16]),
-            lab = (column[17]),
+            theory = column[15],
+            tutorial = column[16],
+            lab = column[17],
             lab_name = column[18]
               )
-       
         context={}
         return render(request,template,context)
 
@@ -5344,8 +5406,6 @@ def login_user(request):
         else:
             messages.info(request, 'Invalid Username or Password')
             return redirect('login_user')
-
-
 
     else:
         return render(request, 'login.html')

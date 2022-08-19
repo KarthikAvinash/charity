@@ -1,3 +1,0 @@
-#code,type   ,name                                                  ,branch1  ,semester1       ,branch2   ,semester2  ,branch3,semester3  ,classroom_code1,code2,code3  ,faculty1                   ,faculty2        ,faculty3    ,theory   ,tutorial  ,lab   ,lab_name
-CS201        ,c    ,Discrete mathematics                                ,CSE    ,Sem_3_A       ,NA      ,NA       ,NA   ,NA        ,C201  ,NA  ,NA        ,Dr. Prabhu Prasad       ,NA             ,NA        ,3,1,0,CS_LAB
-MA201,c    ,Probability                                         ,CSE    ,Sem_3_A       ,NA      ,NA       ,NA   ,NA        ,C201  ,NA  ,NA        ,Dr. Lakshman            ,NA             ,NA        ,3,1,0,CS_LAB
