@@ -34,5 +34,5 @@ urlpatterns = [
     path('dele2',views.dele2,name="lkjhgf"),
     path('dele',views.dele,name="lkjhgf"),
     path('/redirect/', redirect_view,name="redirecting"),
-    path("",views.ind,name="returned")
+    path("",views.ind,name="returned"),
 ]
