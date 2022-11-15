@@ -95,8 +95,7 @@ def simple_upload(request):
 @Author= Karthik Aviansh
 21BCS052
 """
-#_______________________________________________________INITIALIZATIONS___________________________
-#ELECTIVES ARE NOT HAVING LABS?
+#CSE_Sem_1_A
 cse,dsai,ece,cse_th,dsai_th,ece_th,cse_tut,dsai_tut,ece_tut,cse_lab,dsai_lab,ece_lab=0,0,0,0,0,0,0,0,0,0,0,0
 #________________________________INITIAL PLACE WHERE ALL NODES ARE SENT___________________________
 class node_for_courses:
@@ -449,14 +448,15 @@ class node_for_semesters:
                             ['Wednesday'    ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."],
                             ['Thursday'     ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."],
                             ['Friday'       ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."]]
-        if sem=="CSE_Sem_5_A" or sem=="CSE_Sem_5_B" or sem=="CSE_Sem_6_A" or sem=="CSE_Sem_6_B" or sem=="DSAI_Sem_5" or sem=="DSAI_Sem_6" or sem=="ECE_Sem_5" or sem=="ECE_Sem_6":
+        # if sem=="CSE_Sem_5_A" or sem=="CSE_Sem_5_B" or sem=="CSE_Sem_6_A" or sem=="CSE_Sem_6_B" or sem=="DSAI_Sem_5" or sem=="DSAI_Sem_6" or sem=="ECE_Sem_5" or sem=="ECE_Sem_6":
+        if sem=="CSE_Sem_6_A" or sem=="CSE_Sem_6_B" or sem=="DSAI_Sem_5" or sem=="DSAI_Sem_6" or sem=="ECE_Sem_5" or sem=="ECE_Sem_6":
             self.sem_tt=[   ['Day/Time'     ,'8:30-10:00'             ,'10:30-12:00'          ,'12:00-1:30'                       ,'2:30-3:30'                         ,'3:30-4:30'              ,""  ,"."],
                             ['Monday   '    ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."],
                             ['Tuesday  '    ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."],
                             ['Wednesday'    ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."],
                             ['Thursday'     ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."],
                             ['Friday'       ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."]]
-        if sem_org=="Sem_7_A" or sem_org=="Sem_7_B" or sem_org=="Sem_8_A" or sem_org=="Sem_8_B" or sem_org=="Sem_7" or sem_org=="Sem_8":
+        if sem=="CSE_Sem_5_A" or sem=="CSE_Sem_5_B" or sem_org=="Sem_7_A" or sem_org=="Sem_7_B" or sem_org=="Sem_8_A" or sem_org=="Sem_8_B" or sem_org=="Sem_7" or sem_org=="Sem_8":
             self.sem_tt=[   ['Day/Time'     ,'8:30-10:00'             ,'10:00-11:30'          ,'11:30-1:00'                       ,'1:30-2:30'                         ,'2:30-3:30'              ,"3:30-5:00"            ,"5:00-6:00" ],
                             ['Monday   '    ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,'*'                    ,'*'         ],
                             ['Tuesday  '    ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,'*'                    ,'*'         ],
@@ -470,6 +470,7 @@ class node_for_semesters:
                             ['Wednesday'    ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."],
                             ['Thursday'     ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."],
                             ['Friday'       ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."]]
+        
         if sem=="CSE_Sem_1_A" or sem=="CSE_Sem_1_B" or sem=="CSE_Sem_2_A" or sem=="CSE_Sem_2_B" or sem=="ECE_Sem_1" or sem=="ECE_Sem_2":
             self.sem_tt_new=[   ['Day/Time'     ,'9:00-10:30'             ,'10:45-11:45'          ,'11:45-12:45'                      ,'1:45-3:15'                         ,'3:15-4:15'              ,""  ,"."],
                                 ['Monday   '    ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."],
@@ -477,21 +478,22 @@ class node_for_semesters:
                                 ['Wednesday'    ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."],
                                 ['Thursday'     ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."],
                                 ['Friday'       ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."]]
-        if sem=="CSE_Sem_3_A" or sem=="CSE_Sem_3_B" or sem=="CSE_Sem_4_A" or sem=="CSE_Sem_4_B"  or sem=="DSAI_Sem_4":
+        if  sem=="CSE_Sem_3_A" or sem=="CSE_Sem_3_B" or sem=="CSE_Sem_4_A" or sem=="CSE_Sem_4_B"  or sem=="DSAI_Sem_4":
             self.sem_tt_new=[   ['Day/Time'     ,'9:00-10:30'             ,'11:00-12:00'          ,'12:00-1:00'                       ,'2:00-3:30'                         ,'3:30-5:00'              ,""  ,"."],
                                 ['Monday   '    ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."],
                                 ['Tuesday  '    ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."],
                                 ['Wednesday'    ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."],
                                 ['Thursday'     ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."],
                                 ['Friday'       ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."]]
-        if sem=="CSE_Sem_5_A" or sem=="CSE_Sem_5_B" or sem=="CSE_Sem_6_A" or sem=="CSE_Sem_6_B" or sem=="DSAI_Sem_5" or sem=="DSAI_Sem_6" or sem=="ECE_Sem_5" or sem=="ECE_Sem_6":
+        # if sem=="CSE_Sem_5_A" or sem=="CSE_Sem_5_B" or sem=="CSE_Sem_6_A" or sem=="CSE_Sem_6_B" or sem=="DSAI_Sem_5" or sem=="DSAI_Sem_6" or sem=="ECE_Sem_5" or sem=="ECE_Sem_6":
+        if sem=="CSE_Sem_6_A" or sem=="CSE_Sem_6_B" or sem=="DSAI_Sem_5" or sem=="DSAI_Sem_6" or sem=="ECE_Sem_5" or sem=="ECE_Sem_6":
             self.sem_tt_new=[   ['Day/Time'     ,'8:30-10:00'             ,'10:30-12:00'          ,'12:00-1:30'                       ,'2:30-3:30'                         ,'3:30-4:30'              ,""  ,"."],
                                 ['Monday   '    ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."],
                                 ['Tuesday  '    ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."],
                                 ['Wednesday'    ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."],
                                 ['Thursday'     ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."],
                                 ['Friday'       ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,"." ,"."]]
-        if sem_org=="Sem_7_A" or sem_org=="Sem_7_B" or sem_org=="Sem_8_A" or sem_org=="Sem_8_B" or sem_org=="Sem_7" or sem_org=="Sem_8":
+        if sem=="CSE_Sem_5_A" or sem=="CSE_Sem_5_B" or sem_org=="Sem_7_A" or sem_org=="Sem_7_B" or sem_org=="Sem_8_A" or sem_org=="Sem_8_B" or sem_org=="Sem_7" or sem_org=="Sem_8":
             self.sem_tt_new=[   ['Day/Time'     ,'8:30-10:00'             ,'10:00-11:30'          ,'11:30-1:00'                       ,'1:30-2:30'                         ,'2:30-3:30'              ,"3:30-5:00"            ,"5:00-6:00" ],
                                 ['Monday   '    ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,'*'                    ,'*'         ],
                                 ['Tuesday  '    ,'*'                      ,'*'                    ,'*'                                ,'*'                                 ,'*'                      ,'*'                    ,'*'         ],
@@ -649,1629 +651,1728 @@ class linked_list_for_traversing_class_rooms:
 pty=0
 #_______________________________________________________PLOTTING FUNCTION DECISION MAKING________________________________________
 def plotting():
-    global pty
-    point=0
-    pointer=0
-    for i in range(9):
-        variable_for_sem_generalized_head=None
-        variable_for_classroom_generalized_head=None
-        if i==0:
-            if cse==0:continue
-            temp1=obj_for_linked_list_for_traversing_labs.head_for_CSE
-            variable_for_sem_generalized_head=obj_for_sem.head_for_semesters
-            variable_for_classroom_generalized_head=obj_for_class_rooms.head_for_class_rooms
-        if i==1:
-            if cse==0:continue
-            temp1=obj_for_linked_list_for_traversing_theory.head_for_CSE
-            variable_for_sem_generalized_head=obj_for_sem.head_for_semesters
-            variable_for_classroom_generalized_head=obj_for_class_rooms.head_for_class_rooms
-        if i==2:
-            if cse==0:continue
-            temp1=obj_for_linked_list_for_traversing_tutorials.head_for_CSE
-            variable_for_sem_generalized_head=obj_for_sem.head_for_semesters
-            variable_for_classroom_generalized_head=obj_for_class_rooms.head_for_class_rooms
-        if i==3:
-            if dsai==0:continue
-            temp1=obj_for_linked_list_for_traversing_labs.head_for_DSAI
-            variable_for_sem_generalized_head=obj_for_sem.head_for_semesters
-            variable_for_classroom_generalized_head=obj_for_class_rooms.head_for_class_rooms
-        if i==5:
-            if dsai==0:continue
-            temp1=obj_for_linked_list_for_traversing_theory.head_for_DSAI
-            variable_for_sem_generalized_head=obj_for_sem.head_for_semesters
-            variable_for_classroom_generalized_head=obj_for_class_rooms.head_for_class_rooms
-        if i==4:
-            if dsai==0:continue
-            temp1=obj_for_linked_list_for_traversing_tutorials.head_for_DSAI
-            variable_for_sem_generalized_head=obj_for_sem.head_for_semesters
-            variable_for_classroom_generalized_head=obj_for_class_rooms.head_for_class_rooms
-        if i==6:
-            if ece==0:continue
-            temp1=obj_for_linked_list_for_traversing_labs.head_for_ECE
-            variable_for_sem_generalized_head=obj_for_sem.head_for_semesters
-            variable_for_classroom_generalized_head=obj_for_class_rooms.head_for_class_rooms
-        if i==7:
-            if ece==0:continue
-            temp1=obj_for_linked_list_for_traversing_theory.head_for_ECE
-            variable_for_sem_generalized_head=obj_for_sem.head_for_semesters
-            variable_for_classroom_generalized_head=obj_for_class_rooms.head_for_class_rooms
-        if i==8:
-            if ece==0:continue
-            temp1=obj_for_linked_list_for_traversing_tutorials.head_for_ECE
-            variable_for_sem_generalized_head=obj_for_sem.head_for_semesters
-            variable_for_classroom_generalized_head=obj_for_class_rooms.head_for_class_rooms
-        #Holding node.
-        temp_for_faculty=obj_for_facultys.head_for_faculty_names
-        while(temp_for_faculty):
-            while(temp1):
-                if temp1.semester1=="CSE_Sem_2_A":
-                    if i==1:
-                        point+=1
-                if point>0 :
-                    if pty==0:
-                        pty=1
-                if temp1.faculty1==temp_for_faculty.faculty_name:
-                    time=0
+        global pty
+        point=0
+        pointer=0
+        temp=obj_for_facultys.head_for_faculty_names
+        i=0
+        while(temp):
+            print(temp.faculty_name)
             
-                temp2=obj_for_facultys.head_for_faculty_names
-                while temp2:
-                    if temp1.faculty1==temp2.faculty_name:
-                        break
-                    temp2=temp2.next
-                #Fetching faculty2 if exists or else None
-                temp22=obj_for_facultys.head_for_faculty_names
-                while(temp22):
-                    if temp1.faculty2==temp22.faculty_name:
-                        break
-                    temp22=temp22.next
-                if temp1.faculty2=='NA':temp22=None
-                #Fetching faculty3 if exists or else None
-                temp222=obj_for_facultys.head_for_faculty_names
-                while(temp222):
-                    if temp1.faculty3==temp222.faculty_name:
-                        break
-                    temp222=temp222.next
-                if temp1.faculty3=='NA':temp222=None
-                #Fetching semester.
-                temp3=variable_for_sem_generalized_head
-                while temp3:
-                    if temp1.semester1==temp3.sem:
-                        break
-                    temp3=temp3.next
-                #Fetching classroom.
-                temp4=variable_for_classroom_generalized_head
-                while(temp4):
-                    if (temp1.semester1)==temp4.name:
-                        break
-                    temp4=temp4.next
-                #Fetching lab every time.
-                temp5=None
-                if temp1.lab_name=='CSE_LAB':temp5=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
-                if temp1.lab_name=='ECE_LAB':temp5=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
-                #Changing timetable.
-                if "CSE_Sem_1_A"==temp1.semester1 or "CSE_Sem_1_B"==temp1.semester1 or "CSE_Sem_2_A"==temp1.semester1 or "CSE_Sem_2_B"==temp1.semester1 or "ECE_Sem_1"==temp1.semester1 or "ECE_Sem_2"==temp1.semester1 :
-                    if temp1.theory:
-                        time=0
-                        for _ in range(4):
-                            for i in range(6):
-                                for j in range(8):
-                                    if _<=2:
-                                        shift=0
-                                        for l in range(8):
-                                            if temp2.test_tt[i][l]==temp1.semester1:
-                                                shift=1
-                                                break
-                                        if shift==1:break
-                                    if _<2:
-                                        if i==1 and j==1 and (temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[1][2]==temp1.code ): break
-                                        if i==2 and j==1 and (temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[2][2]==temp1.code or temp3.sem_tt[3][1]==temp1.code): break
-                                        if i==3 and j==1 and (temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[3][2]==temp1.code or temp3.sem_tt[4][1]==temp1.code): break
-                                        if i==4 and j==1 and (temp3.sem_tt[3][1]==temp1.code or temp3.sem_tt[4][2]==temp1.code or temp3.sem_tt[5][1]==temp1.code): break
-                                        if i==5 and j==1 and (temp3.sem_tt[4][1]==temp1.code or temp3.sem_tt[5][2]==temp1.code ): break
-                                        if i==1 and j==4 and (temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[2][4]==temp1.code ): break
-                                        if i==2 and j==4 and (temp3.sem_tt[1][4]==temp1.code or temp3.sem_tt[2][4]==temp1.code or temp3.sem_tt[3][4]==temp1.code): break
-                                        if i==3 and j==4 and (temp3.sem_tt[2][4]==temp1.code or temp3.sem_tt[3][4]==temp1.code or temp3.sem_tt[4][4]==temp1.code): break
-                                        if i==4 and j==4 and (temp3.sem_tt[3][4]==temp1.code or temp3.sem_tt[4][4]==temp1.code or temp3.sem_tt[5][4]==temp1.code): break
-                                        if i==5 and j==4 and (temp3.sem_tt[4][4]==temp1.code or temp3.sem_tt[5][1]==temp1.code ): break
-                                    if j==1:
-                                        if temp2:
-                                            if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                if temp22:
-                                                    if temp22.faculty_tt[i][1]==temp22.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                        if temp222:
-                                                            if temp222.faculty_tt[i][1]==temp222.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                                temp2.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
-                                                                temp2.faculty_tt[i][2]="."
-                                                                temp2.test_tt[i][1]=temp1.semester1
-                                                                temp22.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
-                                                                temp22.faculty_tt[i][2]="."
-                                                                temp222.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
-                                                                temp222.faculty_tt[i][2]="."
-                                                                temp3.sem_tt[i][j]=temp1.code
-                                                                temp3.sem_tt_new[i][j]=temp1.code
-                                                                temp4.classroom_tt[i][j]=temp1.name
-                                                                time+=90
-                                                                break
-                                                            else:continue
-                                                        else:
+
+            for i in range(9):
+                variable_for_sem_generalized_head=None
+                variable_for_classroom_generalized_head=None
+                if i==0:
+                    if cse==0:continue
+                    temp1=obj_for_linked_list_for_traversing_labs.head_for_CSE
+                    variable_for_sem_generalized_head=obj_for_sem.head_for_semesters
+                    variable_for_classroom_generalized_head=obj_for_class_rooms.head_for_class_rooms
+                if i==1:
+                    if cse==0:continue
+                    temp1=obj_for_linked_list_for_traversing_theory.head_for_CSE
+                    variable_for_sem_generalized_head=obj_for_sem.head_for_semesters
+                    variable_for_classroom_generalized_head=obj_for_class_rooms.head_for_class_rooms
+                if i==2:
+                    if cse==0:continue
+                    temp1=obj_for_linked_list_for_traversing_tutorials.head_for_CSE
+                    variable_for_sem_generalized_head=obj_for_sem.head_for_semesters
+                    variable_for_classroom_generalized_head=obj_for_class_rooms.head_for_class_rooms
+                if i==3:
+                    if dsai==0:continue
+                    temp1=obj_for_linked_list_for_traversing_labs.head_for_DSAI
+                    variable_for_sem_generalized_head=obj_for_sem.head_for_semesters
+                    variable_for_classroom_generalized_head=obj_for_class_rooms.head_for_class_rooms
+                if i==5:
+                    if dsai==0:continue
+                    temp1=obj_for_linked_list_for_traversing_theory.head_for_DSAI
+                    variable_for_sem_generalized_head=obj_for_sem.head_for_semesters
+                    variable_for_classroom_generalized_head=obj_for_class_rooms.head_for_class_rooms
+                if i==4:
+                    if dsai==0:continue
+                    temp1=obj_for_linked_list_for_traversing_tutorials.head_for_DSAI
+                    variable_for_sem_generalized_head=obj_for_sem.head_for_semesters
+                    variable_for_classroom_generalized_head=obj_for_class_rooms.head_for_class_rooms
+                if i==6:
+                    if ece==0:continue
+                    temp1=obj_for_linked_list_for_traversing_labs.head_for_ECE
+                    variable_for_sem_generalized_head=obj_for_sem.head_for_semesters
+                    variable_for_classroom_generalized_head=obj_for_class_rooms.head_for_class_rooms
+                if i==7:
+                    if ece==0:continue
+                    temp1=obj_for_linked_list_for_traversing_theory.head_for_ECE
+                    variable_for_sem_generalized_head=obj_for_sem.head_for_semesters
+                    variable_for_classroom_generalized_head=obj_for_class_rooms.head_for_class_rooms
+                if i==8:
+                    if ece==0:continue
+                    temp1=obj_for_linked_list_for_traversing_tutorials.head_for_ECE
+                    variable_for_sem_generalized_head=obj_for_sem.head_for_semesters
+                    variable_for_classroom_generalized_head=obj_for_class_rooms.head_for_class_rooms
+                #Holding node.
+                
+                while(temp1):
+                        if temp1.faculty1!=temp.faculty_name:
+                            temp1=temp1.next
+                            continue
+                        if temp1.semester1=="CSE_Sem_2_A":
+                            if i==1:
+                                point+=1
+                        if point>0 :
+                            if pty==0:
+                                pty=1
+                        temp2=obj_for_facultys.head_for_faculty_names
+                        while temp2:
+                            if temp1.faculty1==temp2.faculty_name:
+                                break
+                            temp2=temp2.next
+                        #Fetching faculty2 if exists or else None
+                        temp22=obj_for_facultys.head_for_faculty_names
+                        while(temp22):
+                            if temp1.faculty2==temp22.faculty_name:
+                                break
+                            temp22=temp22.next
+                        if temp1.faculty2=='NA':temp22=None
+                        #Fetching faculty3 if exists or else None
+                        temp222=obj_for_facultys.head_for_faculty_names
+                        while(temp222):
+                            if temp1.faculty3==temp222.faculty_name:
+                                break
+                            temp222=temp222.next
+                        if temp1.faculty3=='NA':temp222=None
+                        #Fetching semester.
+                        temp3=variable_for_sem_generalized_head
+                        while temp3:
+                            if temp1.semester1==temp3.sem:
+                                break
+                            temp3=temp3.next
+                        #Fetching classroom.
+                        temp4=variable_for_classroom_generalized_head
+                        while(temp4):
+                            if (temp1.semester1)==temp4.name:
+                                break
+                            temp4=temp4.next
+                        #Fetching lab every time.
+                        temp5=None
+                        if temp1.lab_name=='CSE_LAB':temp5=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
+                        if temp1.lab_name=='ECE_LAB':temp5=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
+                        #Changing timetable.
+                        if "CSE_Sem_1_A"==temp1.semester1 or "CSE_Sem_1_B"==temp1.semester1 or "CSE_Sem_2_A"==temp1.semester1 or "CSE_Sem_2_B"==temp1.semester1 or "ECE_Sem_1"==temp1.semester1 or "ECE_Sem_2"==temp1.semester1 :
+                            if temp1.theory:
+                                time=0
+                                for _ in range(4):
+                                    for i in range(6):
+                                        for j in range(8):
+                                            if _<=2:
+                                                shift=0
+                                                for l in range(8):
+                                                    if temp2.test_tt[i][l]==temp1.semester1:
+                                                        shift=1
+                                                        break
+                                                if shift==1:break
+                                            if _<2:
+                                                if i==1 and j==1 and (temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[1][2]==temp1.code ): break
+                                                if i==2 and j==1 and (temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[2][2]==temp1.code or temp3.sem_tt[3][1]==temp1.code): break
+                                                if i==3 and j==1 and (temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[3][2]==temp1.code or temp3.sem_tt[4][1]==temp1.code): break
+                                                if i==4 and j==1 and (temp3.sem_tt[3][1]==temp1.code or temp3.sem_tt[4][2]==temp1.code or temp3.sem_tt[5][1]==temp1.code): break
+                                                if i==5 and j==1 and (temp3.sem_tt[4][1]==temp1.code or temp3.sem_tt[5][2]==temp1.code ): break
+                                                if i==1 and j==4 and (temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[2][4]==temp1.code ): break
+                                                if i==2 and j==4 and (temp3.sem_tt[1][4]==temp1.code or temp3.sem_tt[2][4]==temp1.code or temp3.sem_tt[3][4]==temp1.code): break
+                                                if i==3 and j==4 and (temp3.sem_tt[2][4]==temp1.code or temp3.sem_tt[3][4]==temp1.code or temp3.sem_tt[4][4]==temp1.code): break
+                                                if i==4 and j==4 and (temp3.sem_tt[3][4]==temp1.code or temp3.sem_tt[4][4]==temp1.code or temp3.sem_tt[5][4]==temp1.code): break
+                                                if i==5 and j==4 and (temp3.sem_tt[4][4]==temp1.code or temp3.sem_tt[5][1]==temp1.code ): break
+                                            if j==1 and _<2:
+                                                if temp2:
+                                                    if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                        if temp22:
+                                                            if temp22.faculty_tt[i][1]==temp22.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                if temp222:
+                                                                    if temp222.faculty_tt[i][1]==temp222.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                        temp2.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
+                                                                        temp2.faculty_tt[i][2]="."
+                                                                        temp2.test_tt[i][1]=temp1.semester1
+                                                                        temp22.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
+                                                                        temp22.faculty_tt[i][2]="."
+                                                                        temp222.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
+                                                                        temp222.faculty_tt[i][2]="."
+                                                                        temp3.sem_tt[i][j]=temp1.code
+                                                                        temp3.sem_tt_new[i][j]=temp1.code
+                                                                        temp4.classroom_tt[i][j]=temp1.name
+                                                                        time+=90
+                                                                        break
+                                                                    else:continue
+                                                                else:
+                                                                    temp2.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
+                                                                    temp2.faculty_tt[i][2]="."
+                                                                    temp2.test_tt[i][1]=temp1.semester1
+                                                                    temp22.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
+                                                                    temp22.faculty_tt[i][2]="."
+                                                                    temp3.sem_tt[i][j]=temp1.code
+                                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                                    time+=90
+                                                                    break
+                                                        else:  
                                                             temp2.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
                                                             temp2.faculty_tt[i][2]="."
                                                             temp2.test_tt[i][1]=temp1.semester1
-                                                            temp22.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
-                                                            temp22.faculty_tt[i][2]="."
                                                             temp3.sem_tt[i][j]=temp1.code
                                                             temp3.sem_tt_new[i][j]=temp1.code
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
                                                             break
-                                                else:  
-                                                    temp2.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
-                                                    temp2.faculty_tt[i][2]="."
-                                                    temp2.test_tt[i][1]=temp1.semester1
-                                                    temp3.sem_tt[i][j]=temp1.code
-                                                    temp3.sem_tt_new[i][j]=temp1.code
-                                                    temp4.classroom_tt[i][j]=temp1.name
-                                                    time+=90
-                                                    break
-                                    if j==4:
-                                        if temp2:
-                                            if temp2.faculty_tt[i][6]==temp2.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                if temp22:
-                                                    if temp22.faculty_tt[i][6]==temp22.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                        if temp222:
-                                                            if temp222.faculty_tt[i][6]==temp222.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                                temp2.faculty_tt[i][6]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
-                                                                temp2.faculty_tt[i][7]="."
-                                                                temp2.test_tt[i][6]=temp1.semester1
-                                                                temp22.faculty_tt[i][6]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
-                                                                temp22.faculty_tt[i][7]="."
-                                                                temp222.faculty_tt[i][6]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
-                                                                temp222.faculty_tt[i][7]="."
-                                                                temp3.sem_tt[i][j]=temp1.code
-                                                                temp3.sem_tt_new[i][j]=temp1.code
-                                                                temp4.classroom_tt[i][j]=temp1.name
-                                                                time+=90
-                                                                break
-                                                        else:
+                                            if j==4 and _>=2:
+                                                if temp2:
+                                                    if temp2.faculty_tt[i][6]==temp2.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                        if temp22:
+                                                            if temp22.faculty_tt[i][6]==temp22.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                if temp222:
+                                                                    if temp222.faculty_tt[i][6]==temp222.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                        temp2.faculty_tt[i][6]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
+                                                                        temp2.faculty_tt[i][7]="."
+                                                                        temp2.test_tt[i][6]=temp1.semester1
+                                                                        temp22.faculty_tt[i][6]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
+                                                                        temp22.faculty_tt[i][7]="."
+                                                                        temp222.faculty_tt[i][6]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
+                                                                        temp222.faculty_tt[i][7]="."
+                                                                        temp3.sem_tt[i][j]=temp1.code
+                                                                        temp3.sem_tt_new[i][j]=temp1.code
+                                                                        temp4.classroom_tt[i][j]=temp1.name
+                                                                        time+=90
+                                                                        break
+                                                                else:
+                                                                    temp2.faculty_tt[i][6]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
+                                                                    temp2.faculty_tt[i][7]="."
+                                                                    temp2.test_tt[i][6]=temp1.semester1
+                                                                    temp22.faculty_tt[i][6]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
+                                                                    temp22.faculty_tt[i][7]="."
+                                                                    temp3.sem_tt[i][j]=temp1.code
+                                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                                    time+=90
+                                                                    break
+                                                        else:  
                                                             temp2.faculty_tt[i][6]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
                                                             temp2.faculty_tt[i][7]="."
                                                             temp2.test_tt[i][6]=temp1.semester1
-                                                            temp22.faculty_tt[i][6]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
-                                                            temp22.faculty_tt[i][7]="."
                                                             temp3.sem_tt[i][j]=temp1.code
                                                             temp3.sem_tt_new[i][j]=temp1.code
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
                                                             break
-                                                else:  
-                                                    temp2.faculty_tt[i][6]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
-                                                    temp2.faculty_tt[i][7]="."
-                                                    temp2.test_tt[i][6]=temp1.semester1
-                                                    temp3.sem_tt[i][j]=temp1.code
-                                                    temp3.sem_tt_new[i][j]=temp1.code
-                                                    temp4.classroom_tt[i][j]=temp1.name
-                                                    time+=90
-                                                    break
-                                    if j==5:
-                                        if temp2:
-                                            if temp2.faculty_tt[i][7]==temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                if temp22:
-                                                    if temp22.faculty_tt[i][7]==temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                        if temp222:
-                                                            if temp222.faculty_tt[i][7]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                                temp2.faculty_tt[i][7]=temp1.semester1+" (3:15-4:45)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
-                                                                temp2.faculty_tt[i][8]=temp2.faculty_tt[i][9]="."
-                                                                temp2.test_tt[i][7]=temp1.semester1
-                                                                temp22.faculty_tt[i][7]=temp1.semester1+" (3:15-4:45)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
-                                                                temp22.faculty_tt[i][8]=temp22.faculty_tt[i][9]="."
-                                                                temp222.faculty_tt[i][7]=temp1.semester1+" (3:15-4:45)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
-                                                                temp222.faculty_tt[i][8]=temp222.faculty_tt[i][9]="."
-                                                                temp3.sem_tt[i][j]=temp1.code
-                                                                temp3.sem_tt_new[i][j]=temp1.code
-                                                                temp4.classroom_tt[i][j]=temp1.name
-                                                                time+=90
-                                                                break
-                                                        else:
+                                            if j==5 and _==3:
+                                                if temp2:
+                                                    if temp2.faculty_tt[i][7]==temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                        if temp22:
+                                                            if temp22.faculty_tt[i][7]==temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                if temp222:
+                                                                    if temp222.faculty_tt[i][7]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                        temp2.faculty_tt[i][7]=temp1.semester1+" (3:15-4:45)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
+                                                                        temp2.faculty_tt[i][8]=temp2.faculty_tt[i][9]="."
+                                                                        temp2.test_tt[i][7]=temp1.semester1
+                                                                        temp22.faculty_tt[i][7]=temp1.semester1+" (3:15-4:45)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
+                                                                        temp22.faculty_tt[i][8]=temp22.faculty_tt[i][9]="."
+                                                                        temp222.faculty_tt[i][7]=temp1.semester1+" (3:15-4:45)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
+                                                                        temp222.faculty_tt[i][8]=temp222.faculty_tt[i][9]="."
+                                                                        temp3.sem_tt[i][j]=temp1.code
+                                                                        temp3.sem_tt_new[i][j]=temp1.code
+                                                                        temp4.classroom_tt[i][j]=temp1.name
+                                                                        time+=90
+                                                                        break
+                                                                else:
+                                                                    temp2.faculty_tt[i][7]=temp1.semester1+" (3:15-4:45)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
+                                                                    temp2.faculty_tt[i][8]=temp2.faculty_tt[i][9]="."
+                                                                    temp2.test_tt[i][7]=temp1.semester1
+                                                                    temp22.faculty_tt[i][7]=temp1.semester1+" (3:15-4:45)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
+                                                                    temp22.faculty_tt[i][8]=temp22.faculty_tt[i][9]="."
+                                                                    temp3.sem_tt[i][j]=temp1.code
+                                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                                    time+=90
+                                                                    break
+                                                        else:  
                                                             temp2.faculty_tt[i][7]=temp1.semester1+" (3:15-4:45)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
                                                             temp2.faculty_tt[i][8]=temp2.faculty_tt[i][9]="."
                                                             temp2.test_tt[i][7]=temp1.semester1
-                                                            temp22.faculty_tt[i][7]=temp1.semester1+" (3:15-4:45)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
-                                                            temp22.faculty_tt[i][8]=temp22.faculty_tt[i][9]="."
                                                             temp3.sem_tt[i][j]=temp1.code
                                                             temp3.sem_tt_new[i][j]=temp1.code
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
                                                             break
-                                                else:  
-                                                    temp2.faculty_tt[i][7]=temp1.semester1+" (3:15-4:45)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
-                                                    temp2.faculty_tt[i][8]=temp2.faculty_tt[i][9]="."
-                                                    temp2.test_tt[i][7]=temp1.semester1
-                                                    temp3.sem_tt[i][j]=temp1.code
-                                                    temp3.sem_tt_new[i][j]=temp1.code
-                                                    temp4.classroom_tt[i][j]=temp1.name
-                                                    time+=90
-                                                    break
-                                    # if j==2:
-                                    #     if temp2:
-                                    #         if temp2.faculty_tt[i][3]==temp2.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                    #             if temp22:
-                                    #                 if temp22.faculty_tt[i][3]==temp22.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                    #                     if temp222:
-                                    #                         if temp222.faculty_tt[i][3]==temp222.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                    #                             temp2.faculty_tt[i][3]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
-                                    #                             temp2.faculty_tt[i][4]="."
-                                    #                             temp2.test_tt[i][3]=temp1.semester1
-                                    #                             temp22.faculty_tt[i][3]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
-                                    #                             temp22.faculty_tt[i][4]="."
-                                    #                             temp222.faculty_tt[i][3]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
-                                    #                             temp222.faculty_tt[i][4]="."
-                                    #                             temp3.sem_tt[i][j]=temp1.code
-                                    #                             temp3.sem_tt_new[i][j]=temp1.code
-                                    #                             temp4.classroom_tt[i][j]=temp1.name
-                                    #                             time+=90
-                                    #                             break
-                                    #                     else:
-                                    #                         temp2.faculty_tt[i][3]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
-                                    #                         temp2.faculty_tt[i][4]="."
-                                    #                         temp2.test_tt[i][3]=temp1.semester1
-                                    #                         temp22.faculty_tt[i][3]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
-                                    #                         temp22.faculty_tt[i][4]="."
-                                    #                         temp3.sem_tt[i][j]=temp1.code
-                                    #                         temp3.sem_tt_new[i][j]=temp1.code
-                                    #                         temp4.classroom_tt[i][j]=temp1.name
-                                    #                         time+=90
-                                    #                         break
-                                    #             else:  
-                                    #                 temp2.faculty_tt[i][3]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
-                                    #                 temp2.faculty_tt[i][4]="."
-                                    #                 temp2.test_tt[i][6]=temp1.semester1
-                                    #                 temp3.sem_tt[i][j]=temp1.code
-                                    #                 temp3.sem_tt_new[i][j]=temp1.code
-                                    #                 temp4.classroom_tt[i][j]=temp1.name
-                                    #                 time+=90
-                                    #                 break
-                    elif temp1.tutorial:
-                        time=0
-                        for _ in range(5):
-                            for i in range(6):
-                                for j in range(8):
-                                    if _<=2:
-                                        shift=0
-                                        for l in range(8):
-                                            if temp2.test_tt[i][l]==temp1.semester1:
-                                                shift=1
-                                                break
-                                        if shift==1:break
-                                    if j==5 and time<temp1.tutorial:
-                                        if temp2.faculty_tt[i][7]==temp2.faculty_tt[i][8]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*':
-                                            if j-1!=0 and temp2.faculty_tt[i][j-1]==temp1.semester1:break
-                                            temp2.faculty_tt[i][7]=temp1.semester1+" (3:15-4:15)"+"_"+temp1.code+"_TUT ("+temp4.classroom_code+")"
-                                            temp2.faculty_tt[i][8]="."
-                                            temp2.test_tt[i][7]=temp1.semester1
-                                            temp3.sem_tt[i][j]=temp1.code
-                                            temp3.sem_tt_new[i][j]=temp1.code
-                                            temp4.classroom_tt[i][j]=temp1.name
-                                            time+=60
-                                            break
-                                    if j==2:
-                                        if temp2.faculty_tt[i][3]==temp2.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
-                                            temp2.faculty_tt[i][3]=temp1.semester1+" (10:45-11:45)"+"_"+temp1.code+"_TUT ("+temp4.classroom_code+")"
-                                            temp2.faculty_tt[i][4]="."
-                                            temp2.test_tt[i][3]=temp1.semester1
-                                            temp3.sem_tt[i][j]=temp1.code
-                                            temp3.sem_tt_new[i][j]=temp1.code
-                                            temp4.classroom_tt[i][j]=temp1.name
-                                            time+=60
-                                            break
-                                    if j==3:
-                                        if temp2.faculty_tt[i][4]==temp2.faculty_tt[i][5]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
-                                            temp2.faculty_tt[i][4]=temp1.semester1+" (11:45-12:45)"+"_"+temp1.code+"_TUT ("+temp4.classroom_code+")"
-                                            temp2.faculty_tt[i][5]="."
-                                            temp2.test_tt[i][4]=temp1.semester1
-                                            temp3.sem_tt[i][j]=temp1.code
-                                            temp3.sem_tt_new[i][j]=temp1.code
-                                            temp4.classroom_tt[i][j]=temp1.name
-                                            time+=60
-                                            break
-                                    if j==1:
-                                        if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
-                                            temp2.faculty_tt[i][1]=temp1.semester1+" (9:00-10:00)"+"_"+temp1.code+"_TUT ("+temp4.classroom_code+")"
-                                            temp2.faculty_tt[i][2]="."
-                                            temp2.test_tt[i][1]=temp1.semester1
-                                            temp3.sem_tt[i][j]=temp1.code
-                                            temp3.sem_tt_new[i][j]=temp1.code
-                                            temp4.classroom_tt[i][j]=temp1.name
-                                            time+=60
-                                            break
-                                    if j==4:
-                                        if temp2.faculty_tt[i][6]==temp2.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
-                                            temp2.faculty_tt[i][6]=temp1.semester1+" (1:45-2:45)"+"_"+temp1.code+"_TUT ("+temp4.classroom_code+")"
-                                            temp2.faculty_tt[i][7]="."
-                                            temp2.test_tt[i][6]=temp1.semester1
-                                            temp3.sem_tt[i][j]=temp1.code
-                                            temp3.sem_tt_new[i][j]=temp1.code
-                                            temp4.classroom_tt[i][j]=temp1.name
-                                            time+=60
-                                            break
-                    elif temp1.lab:
-                        time=0
-                        for _ in range(4):
-                            for i in range(6):
-                                for j in range(8):
-                                    
-                                    if time>=temp1.lab:
-                                        break
-                                    elif j==2:
-                                        if temp2.faculty_tt[i][3]==temp2.faculty_tt[i][4]==temp2.faculty_tt[i][5]=='*' and time<temp1.lab:
-                                            #If there is no activity at that time...
-                                            if temp3.sem_tt[i][j]==temp3.sem_tt[i][j+1]=='*' and (time+120)<=temp1.lab:
-                                                if temp2.faculty_tt[i][1]==temp1.semester1:break
-                                                if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
-                                                if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
-                                                while(temp6):
-                                                    if temp6.tt[i][3]==temp6.tt[i][4]==temp6.tt[i][5]=='*' and temp6.tt[i][j]=='*':
-                                                        temp2.faculty_tt[i][3]=temp1.semester1+" (10:45-12:45)"+"_"+temp1.code+"_LAB ("+temp6.name+")"
-                                                        temp2.faculty_tt[i][4]=temp2.faculty_tt[i][5]="."
-                                                        temp2.test_tt[i][3]=temp1.semester1
-                                                        temp3.sem_tt[i][j]=temp1.code
-                                                        temp3.sem_tt[i][j+1]=temp1.code
-                                                        temp3.sem_tt_new[i][j]=temp1.code+temp6.name
-                                                        temp3.sem_tt_new[i][j+1]=temp1.code+temp6.name
-                                                        temp6.tt[i][3]=temp1.semester1+"_"+temp1.code
-                                                        temp6.tt[i][4]=temp1.semester1+"_"+temp1.code
-                                                        temp6.tt[i][5]=temp1.semester1+"_"+temp1.code
-                                                        time+=120
+                                            # if j==2:
+                                            #     if temp2:
+                                            #         if temp2.faculty_tt[i][3]==temp2.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                            #             if temp22:
+                                            #                 if temp22.faculty_tt[i][3]==temp22.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                            #                     if temp222:
+                                            #                         if temp222.faculty_tt[i][3]==temp222.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                            #                             temp2.faculty_tt[i][3]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
+                                            #                             temp2.faculty_tt[i][4]="."
+                                            #                             temp2.test_tt[i][3]=temp1.semester1
+                                            #                             temp22.faculty_tt[i][3]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
+                                            #                             temp22.faculty_tt[i][4]="."
+                                            #                             temp222.faculty_tt[i][3]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
+                                            #                             temp222.faculty_tt[i][4]="."
+                                            #                             temp3.sem_tt[i][j]=temp1.code
+                                            #                             temp3.sem_tt_new[i][j]=temp1.code
+                                            #                             temp4.classroom_tt[i][j]=temp1.name
+                                            #                             time+=90
+                                            #                             break
+                                            #                     else:
+                                            #                         temp2.faculty_tt[i][3]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
+                                            #                         temp2.faculty_tt[i][4]="."
+                                            #                         temp2.test_tt[i][3]=temp1.semester1
+                                            #                         temp22.faculty_tt[i][3]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
+                                            #                         temp22.faculty_tt[i][4]="."
+                                            #                         temp3.sem_tt[i][j]=temp1.code
+                                            #                         temp3.sem_tt_new[i][j]=temp1.code
+                                            #                         temp4.classroom_tt[i][j]=temp1.name
+                                            #                         time+=90
+                                            #                         break
+                                            #             else:  
+                                            #                 temp2.faculty_tt[i][3]=temp1.semester1+" (1:45-3:15)"+"_"+temp1.code+"_ ("+temp4.classroom_code+")"
+                                            #                 temp2.faculty_tt[i][4]="."
+                                            #                 temp2.test_tt[i][6]=temp1.semester1
+                                            #                 temp3.sem_tt[i][j]=temp1.code
+                                            #                 temp3.sem_tt_new[i][j]=temp1.code
+                                            #                 temp4.classroom_tt[i][j]=temp1.name
+                                            #                 time+=90
+                                            #                 break
+                            elif temp1.tutorial:
+                                time=0
+                                for _ in range(5):
+                                    for i in range(6):
+                                        for j in range(8):
+                                            if _<=2:
+                                                shift=0
+                                                for l in range(8):
+                                                    if temp2.test_tt[i][l]==temp1.semester1:
+                                                        shift=1
                                                         break
-                                                    temp6=temp6.next                                            
-                                            elif temp3.sem_tt[i][j]==temp3.sem_tt[i][j+1] and time+120<=temp1.lab:
-                                                if time>=temp1.lab:break
-                                                temp5=None
-                                                tip=0
-                                                if temp1.branch1=="CSE":temp5=obj_for_linked_list_for_traversing_labs.head_for_CSE
-                                                if temp1.branch1=="DSAI":temp5=obj_for_linked_list_for_traversing_labs.head_for_DSAI
-                                                if temp1.branch1=="ECE":temp5=obj_for_linked_list_for_traversing_labs.head_for_ECE
-                                                temp6=None
-                                                if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
-                                                if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms                                               
-                                                while(temp5):
-                                                    if temp3.sem_tt[i][j]==temp5.code:
-                                                        tip=1
-                                                        break
-                                                    temp5=temp5.next                                                
-                                                while(temp6):
-                                                    if temp6.tt[i][3]==temp6.tt[i][4]==temp6.tt[i][5]=='*':
-                                                        break
-                                                    temp6=temp6.next
-                                                if tip==1 and temp5.id!=temp1.id and temp6:
-                                                    temp2.faculty_tt[i][3]=temp1.semester1+" (10:45-12:45)"+"_"+temp1.code+"_LAB ("+temp6.name+")"
-                                                    temp2.faculty_tt[i][4]="."
-                                                    temp2.test_tt[i][3]=temp1.semester1
-                                                    temp2.faculty_tt[i][5]="."
-                                                    temp3.sem_tt[i][j]+=" /" +temp1.code
-                                                    temp3.sem_tt[i][j+1]+=" / "+temp1.code
-                                                    temp3.sem_tt_new[i][j]+=" / "+temp1.code+temp6.name
-                                                    temp3.sem_tt_new[i][j+1]+=" / "+temp1.code+temp6.name
-                                                    temp6.tt[i][3]=temp1.semester1+"_"+temp1.code
-                                                    temp6.tt[i][4]=temp1.semester1+"_"+temp1.code
-                                                    temp6.tt[i][5]=temp1.semester1+"_"+temp1.code
-                                                    time+=120
-                                                    break
-                                    if _<4 and j==5:
-                                        if temp2.faculty_tt[i][7]==temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.lab:
-                                            if temp1.lab_name=='CS_LAB':temp5=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
-                                            if temp1.lab_name=='EC_LAB':temp5=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
-                                            while(temp5):
-                                                if temp5.tt[i][7]==temp5.tt[i][8]==temp5.tt[i][9]=='*' and time<temp1.lab:
-                                                    temp5.tt[i][7]=temp5.tt[i][8]=temp5.tt[i][9]=temp1.semester1+"_"+temp1.code
-                                                    temp2.faculty_tt[i][7]=temp1.semester1+" (3:15-5:15)"+"_"+temp1.code+"_LAB ("+temp5.name+")"
-                                                    temp2.faculty_tt[i][8]=temp2.faculty_tt[i][9]="."
-                                                    temp2.test_tt[i][7]=temp1.semester1
-                                                    temp3.sem_tt[i][j]=temp1.code
-                                                    temp3.sem_tt_new[i][j]=temp1.code+temp5.name
-                                                    time+=120
-                                                    break
-                                                temp5=temp5.next
-                if "DSAI_Sem_1"==temp1.semester1 or "DSAI_Sem_2"==temp1.semester1 or "ECE_Sem_3"==temp1.semester1 or "ECE_Sem_4"==temp1.semester1 or "DSAI_Sem_3"==temp1.semester1 :
-                    if temp1.theory:
-                        time=0
-                        for _ in range(4):
-                            for i in range(6):
-                                for j in range(8):
-                                    if _<2:
-                                        if i==1 and j==2 and (temp3.sem_tt[1][4]==temp1.code or temp3.sem_tt[1][5]==temp1.code or temp3.sem_tt[3][2]==temp1.code ): break
-                                        if i==2 and j==2 and (temp3.sem_tt[2][4]==temp1.code or temp3.sem_tt[2][5]==temp1.code or temp3.sem_tt[1][2]==temp1.code or temp3.sem_tt[3][2]==temp1.code): break
-                                        if i==3 and j==2 and (temp3.sem_tt[3][4]==temp1.code or temp3.sem_tt[3][5]==temp1.code or temp3.sem_tt[2][2]==temp1.code or temp3.sem_tt[4][2]==temp1.code): break
-                                        if i==4 and j==2 and (temp3.sem_tt[4][4]==temp1.code or temp3.sem_tt[4][5]==temp1.code or temp3.sem_tt[3][2]==temp1.code or temp3.sem_tt[5][2]==temp1.code): break
-                                        if i==5 and j==2 and (temp3.sem_tt[5][4]==temp1.code or temp3.sem_tt[5][5]==temp1.code or temp3.sem_tt[4][2]==temp1.code ): break
-                                        if i==1 and j==2 and (temp3.sem_tt[1][2]==temp1.code or temp3.sem_tt[1][5]==temp1.code or temp3.sem_tt[3][4]==temp1.code ): break
-                                        if i==2 and j==2 and (temp3.sem_tt[2][2]==temp1.code or temp3.sem_tt[2][5]==temp1.code or temp3.sem_tt[1][4]==temp1.code or temp3.sem_tt[3][4]==temp1.code): break
-                                        if i==3 and j==2 and (temp3.sem_tt[3][2]==temp1.code or temp3.sem_tt[3][5]==temp1.code or temp3.sem_tt[2][4]==temp1.code or temp3.sem_tt[4][4]==temp1.code): break
-                                        if i==4 and j==2 and (temp3.sem_tt[4][2]==temp1.code or temp3.sem_tt[4][5]==temp1.code or temp3.sem_tt[3][4]==temp1.code or temp3.sem_tt[5][4]==temp1.code): break
-                                        if i==5 and j==2 and (temp3.sem_tt[5][2]==temp1.code or temp3.sem_tt[5][5]==temp1.code or temp3.sem_tt[4][4]==temp1.code ): break
-                                        if i==1 and j==2 and (temp3.sem_tt[1][2]==temp1.code or temp3.sem_tt[1][4]==temp1.code or temp3.sem_tt[1][5]==temp1.code ): break
-                                        if i==2 and j==2 and (temp3.sem_tt[2][2]==temp1.code or temp3.sem_tt[2][4]==temp1.code or temp3.sem_tt[1][5]==temp1.code or temp3.sem_tt[3][5]==temp1.code): break
-                                        if i==3 and j==2 and (temp3.sem_tt[3][2]==temp1.code or temp3.sem_tt[3][4]==temp1.code or temp3.sem_tt[2][5]==temp1.code or temp3.sem_tt[4][5]==temp1.code): break
-                                        if i==4 and j==2 and (temp3.sem_tt[4][2]==temp1.code or temp3.sem_tt[4][4]==temp1.code or temp3.sem_tt[3][5]==temp1.code or temp3.sem_tt[5][5]==temp1.code): break
-                                        if i==5 and j==2 and (temp3.sem_tt[5][2]==temp1.code or temp3.sem_tt[5][4]==temp1.code or temp3.sem_tt[4][5]==temp1.code ): break
-                                    if _<=2:
-                                        shift=0
-                                        for l in range(8):
-                                            if temp2.test_tt[i][l]==temp1.semester1:
-                                                shift=1
-                                                break
-                                        if shift==1:break
-                                    if _<4 and j==2:
-                                        if temp2:
-                                            if temp2.faculty_tt[i][3]==temp2.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                        
-                                                if temp22:
-                                                    if temp22.faculty_tt[i][3]==temp22.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                                       
-                                                        if temp222:
-                                                            if temp222.faculty_tt[i][3]==temp222.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                                temp2.faculty_tt[i][3]=temp1.semester1+" (10:45-12:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp2.faculty_tt[i][4]="."
-                                                                temp2.test_tt[i][3]=temp1.semester1
-                                                                temp22.faculty_tt[i][3]=temp1.semester1+" (10:45-12:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp22.faculty_tt[i][4]="."
-                                                                temp222.faculty_tt[i][3]=temp1.semester1+" (10:45-12:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp222.faculty_tt[i][4]="."
-                                                                temp3.sem_tt[i][j]=temp1.code
-                                                                temp3.sem_tt_new[i][j]=temp1.code
-                                                                temp4.classroom_tt[i][j]=temp1.name
-                                                                time+=90
-                                                                break
-                                                        else:
-                                                            temp2.faculty_tt[i][3]=temp1.semester1+" (10:45-12:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp2.faculty_tt[i][4]="."
-                                                            temp2.test_tt[i][3]=temp1.semester1
-                                                            temp22.faculty_tt[i][3]=temp1.semester1+" (10:45-12:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp22.faculty_tt[i][4]="."
-                                                            temp3.sem_tt[i][j]=temp1.code
-                                                            temp3.sem_tt_new[i][j]=temp1.code
-                                                            temp4.classroom_tt[i][j]=temp1.name
-                                                            time+=90
-                                                            break                                                
-                                                else:  
-                                                    temp2.faculty_tt[i][3]=temp1.semester1+" (10:45-12:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                    temp2.faculty_tt[i][4]="."
-                                                    temp2.test_tt[i][3]=temp1.semester1
-                                                    temp3.sem_tt[i][j]=temp1.code
-                                                    temp3.sem_tt_new[i][j]=temp1.code
-                                                    temp4.classroom_tt[i][j]=temp1.name
-                                                    time+=90
-                                                    break                                   
-                                    if _<4 and j==4:
-                                        if temp2:
-                                            if temp2.faculty_tt[i][6]==temp2.faculty_tt[i][7]==temp2.faculty_tt[i][8]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                       
-                                                if temp22:
-                                                    if temp22.faculty_tt[i][6]==temp22.faculty_tt[i][7]==temp22.faculty_tt[i][8]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                        if temp222:
-                                                            if temp222.faculty_tt[i][7]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                                temp2.faculty_tt[i][6]=temp1.semester1+" (2:15-3:45)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp2.faculty_tt[i][7]=temp2.faculty_tt[i][8]="."
-                                                                temp2.test_tt[i][6]=temp1.semester1
-                                                                temp22.faculty_tt[i][6]=temp1.semester1+" (2:15-3:45)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp22.faculty_tt[i][7]=temp22.faculty_tt[i][8]="."
-                                                                temp222.faculty_tt[i][6]=temp1.semester1+" (2:15-3:45)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp222.faculty_tt[i][7]=temp222.faculty_tt[i][8]="."
-                                                                temp3.sem_tt[i][j]=temp1.code
-                                                                temp3.sem_tt_new[i][j]=temp1.code
-                                                                temp4.classroom_tt[i][j]=temp1.name
-                                                                time+=90
-                                                                break
-                                                        else:
-                                                            temp2.faculty_tt[i][6]=temp1.semester1+" (2:15-3:45)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp2.faculty_tt[i][7]=temp2.faculty_tt[i][8]="."
-                                                            temp2.test_tt[i][6]=temp1.semester1
-                                                            temp22.faculty_tt[i][6]=temp1.semester1+" (2:15-3:45)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp22.faculty_tt[i][7]=temp22.faculty_tt[i][8]="."
-                                                            temp3.sem_tt[i][j]=temp1.code
-                                                            temp3.sem_tt_new[i][j]=temp1.code
-                                                            temp4.classroom_tt[i][j]=temp1.name
-                                                            time+=90
-                                                            break
-                                                else:  
-                                                    temp2.faculty_tt[i][6]=temp1.semester1+" (2:15-3:45)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                    temp2.faculty_tt[i][7]=temp2.faculty_tt[i][8]="."
-                                                    temp2.test_tt[i][6]=temp1.semester1
-                                                    temp3.sem_tt[i][j]=temp1.code
-                                                    temp3.sem_tt_new[i][j]=temp1.code
-                                                    temp4.classroom_tt[i][j]=temp1.name
-                                                    time+=90
-                                                    break
-                                    if _>1 and j==5:
-                                        if temp2:
-                                            if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                if temp22:
-                                                    if temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                        if temp222:
-                                                            if temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                                temp2.faculty_tt[i][8]=temp1.semester1+" (3:45-5:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp2.faculty_tt[i][9]="."
-                                                                temp2.test_tt[i][8]=temp1.semester1
-                                                                temp22.faculty_tt[i][8]=temp1.semester1+" (3:45-5:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp22.faculty_tt[i][9]="."
-                                                                temp222.faculty_tt[i][8]=temp1.semester1+" (3:45-5:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp222.faculty_tt[i][9]="."
-                                                                temp3.sem_tt[i][j]=temp1.code
-                                                                temp3.sem_tt_new[i][j]=temp1.code
-                                                                temp4.classroom_tt[i][j]=temp1.name
-                                                                time+=90
-                                                                break
-                                                        else:
-                                                            temp2.faculty_tt[i][8]=temp1.semester1+" (3:45-5:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp2.faculty_tt[i][9]="."
-                                                            temp2.test_tt[i][8]=temp1.semester1
-                                                            temp22.faculty_tt[i][8]=temp1.semester1+" (3:45-5:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp22.faculty_tt[i][9]="."
-                                                            temp3.sem_tt[i][j]=temp1.code
-                                                            temp3.sem_tt_new[i][j]=temp1.code
-                                                            temp4.classroom_tt[i][j]=temp1.name
-                                                            time+=90
-                                                            break
-                                                else:  
-                                                    temp2.faculty_tt[i][8]=temp1.semester1+" (3:45-5:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                    temp2.faculty_tt[i][9]="."
-                                                    temp2.test_tt[i][8]=temp1.semester1
-                                                    temp3.sem_tt[i][j]=temp1.code
-                                                    temp3.sem_tt_new[i][j]=temp1.code
-                                                    temp4.classroom_tt[i][j]=temp1.name
-                                                    time+=90
-                                                    break
-                    elif temp1.tutorial:
-                        time=0
-                        for _ in range(4):
-                            for i in range(6):
-                                for j in range(8):
-                                    if _<=2:
-                                        shift=0
-                                        for l in range(8):
-                                            if temp2.test_tt[i][l]==temp1.semester1:
-                                                shift=1
-                                                break
-                                        if shift==1:break
-                                    if j==1 and time<temp1.tutorial:
-                                        if temp2.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*':
-                                            temp2.test_tt[i][2]=temp1.semester1
-                                            temp2.faculty_tt[i][2]=temp1.semester1+" (9:00-10:00)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
-                                            temp3.sem_tt[i][j]=temp1.code
-                                            temp3.sem_tt_new[i][j]=temp1.code
-                                            temp4.classroom_tt[i][j]=temp1.name
-                                            time+=60
-                                            break
-                                    if _<4 and j==3:
-                                        if temp2.faculty_tt[i][4]==temp2.faculty_tt[i][5]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
-                                            temp2.faculty_tt[i][4]=temp1.semester1+" (12:15-1:15)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
-                                            temp2.faculty_tt[i][5]="."
-                                            temp2.test_tt[i][4]=temp1.semester1
-                                            temp3.sem_tt[i][j]=temp1.code
-                                            temp3.sem_tt_new[i][j]=temp1.code
-                                            temp4.classroom_tt[i][j]=temp1.name
-                                            time+=60
-                                            break
-                                    if _>=2 and j==4:
-                                        if temp2.faculty_tt[i][6]==temp2.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
-                                            temp2.faculty_tt[i][6]=temp1.semester1+" (2:15-3:15)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
-                                            temp2.faculty_tt[i][7]="."
-                                            temp2.test_tt[i][6]=temp1.semester1
-                                            temp3.sem_tt[i][j]=temp1.code
-                                            temp3.sem_tt_new[i][j]=temp1.code
-                                            temp4.classroom_tt[i][j]=temp1.name
-                                            time+=60
-                                            break
-                                    if _>=2 and j==5:
-                                        if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
-                                            temp2.faculty_tt[i][8]=temp1.semester1+" (3:45-4:45)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
-                                            temp2.faculty_tt[i][9]="."
-                                            temp2.test_tt[i][8]=temp1.semester1
-                                            temp3.sem_tt[i][j]=temp1.code
-                                            temp3.sem_tt_new[i][j]=temp1.code
-                                            temp4.classroom_tt[i][j]=temp1.name
-                                            time+=60
-                                            break
-                                    if _>=2 and j==5:
-                                        if temp2.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
-                                            temp2.faculty_tt[i][9]=temp1.semester1+" (4:30-5:30)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
-                                            temp2.test_tt[i][9]=temp1.semester1
-                                            temp3.sem_tt[i][j]=temp1.code
-                                            temp3.sem_tt_new[i][j]=temp1.code
-                                            temp4.classroom_tt[i][j]=temp1.name
-                                            time+=60
-                                            break
-                    elif temp1.lab:
-                        time=0
-                        for _ in range(4):
-                            for i in range(6):
-                                for j in range(8):
-                                    if time>=temp1.lab:
-                                        break
-                                    
-                                    elif j==1:
-                                        if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]=='*' and time<temp1.lab:
-                                            #If there is no activity at that time...
-                                            if temp3.sem_tt[i][j]==temp3.sem_tt[i][j+1]==temp4.classroom_tt[i][j]==temp4.classroom_tt[i][j+1]=='*' and (time+120)<=temp1.lab:
-                                                if temp2.faculty_tt[i][1]==temp1.semester1:
-                                                    break
-                                                if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
-                                                if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
-                                                while(temp6):
-                                                    if temp6.tt[i][1]==temp6.tt[i][2]=='*':
-                                                        temp2.faculty_tt[i][1]=temp1.semester1+" (8:30-10:30)"+"_"+temp1.code+"_LAB ("+temp6.name+")"
-                                                        temp2.faculty_tt[i][2]=temp2.faculty_tt[i][5]="."
-                                                        temp2.test_tt[i][1]=temp1.semester1
-                                                        temp3.sem_tt[i][j]=temp1.code
-                                                        temp3.sem_tt_new[i][j]=temp1.code+temp6.name                                                                                                              
-                                                        temp6.tt[i][1]=temp1.semester1+"_"+temp1.code
-                                                        temp6.tt[i][2]=temp1.semester1+"_"+temp1.code                                                        
-                                                        time+=120
-                                                        break
-                                                    temp6=temp6.next                                           
-                                            elif temp3.sem_tt[i][j]!="*" and time+120<=temp1.lab:
-                                                if time>=temp1.lab:break
-                                                temp5=None
-                                                tip=0
-                                                if temp1.branch1=="CSE":temp5=obj_for_linked_list_for_traversing_labs.head_for_CSE
-                                                if temp1.branch1=="DSAI":temp5=obj_for_linked_list_for_traversing_labs.head_for_DSAI
-                                                if temp1.branch1=="ECE":temp5=obj_for_linked_list_for_traversing_labs.head_for_ECE
-                                                temp6=None
-                                                if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
-                                                if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms                                                
-                                                while(temp5):
-                                                    if temp3.sem_tt[i][j]==temp5.code:
-                                                        tip=1
-                                                        break
-                                                    temp5=temp5.next                                                
-                                                while(temp6):
-                                                    if temp6.tt[i][1]==temp6.tt[i][2]=='*':
-                                                        break
-                                                    temp6=temp6.next
-                                                if tip==1 and temp5.id!=temp1.id and temp6:
-                                                    temp2.faculty_tt[i][1]=temp1.semester1+" (8:30-10:30)"+"_"+temp1.code+"_LAB ("+temp6.name+")"
-                                                    temp2.faculty_tt[i][2]="."    
-                                                    temp2.test_tt[i][1]=temp1.semester1                                                
-                                                    temp3.sem_tt[i][j]+=" /" +temp1.code                                                    
-                                                    temp3.sem_tt_new[i][j]+=" / "+temp1.code+temp6.name                                                                                                      
-                                                    temp6.tt[i][1]=temp1.semester1+"_"+temp1.code
-                                                    temp6.tt[i][2]=temp1.semester1+"_"+temp1.code                                                
-                                                    time+=120
-                                                    break
-                if "CSE_Sem_3_A"==temp1.semester1 or "CSE_Sem_3_B"==temp1.semester1 or "CSE_Sem_4_A"==temp1.semester1 or "CSE_Sem_4_B"==temp1.semester1 or "DSAI_Sem_4"==temp1.semester1:
-                    if temp1.theory:
-                        time=0
-                        for _ in range(5):
-                            for i in range(6):
-                                for j in range(6):
-                                    if _<2:
-                                        if i==1 and j==1 and (temp3.sem_tt[1][4]==temp1.code or temp3.sem_tt[1][5]==temp1.code or temp3.sem_tt[2][1]==temp1.code): break
-                                        if i==2 and j==1 and (temp3.sem_tt[2][4]==temp1.code or temp3.sem_tt[2][5]==temp1.code or temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[3][1]==temp1.code): break
-                                        if i==3 and j==1 and (temp3.sem_tt[3][4]==temp1.code or temp3.sem_tt[3][5]==temp1.code or temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[4][1]==temp1.code): break
-                                        if i==4 and j==1 and (temp3.sem_tt[4][4]==temp1.code or temp3.sem_tt[4][5]==temp1.code or temp3.sem_tt[3][1]==temp1.code or temp3.sem_tt[5][1]==temp1.code): break
-                                        if i==5 and j==1 and (temp3.sem_tt[5][4]==temp1.code or temp3.sem_tt[5][5]==temp1.code or temp3.sem_tt[4][1]==temp1.code ): break
-                                        if i==1 and j==4 and (temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[1][5]==temp1.code or temp3.sem_tt[2][4]==temp1.code): break
-                                        if i==2 and j==4 and (temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[2][5]==temp1.code or temp3.sem_tt[1][4]==temp1.code or temp3.sem_tt[3][4]==temp1.code): break
-                                        if i==3 and j==4 and (temp3.sem_tt[3][1]==temp1.code or temp3.sem_tt[3][5]==temp1.code or temp3.sem_tt[2][4]==temp1.code or temp3.sem_tt[4][4]==temp1.code): break
-                                        if i==4 and j==4 and (temp3.sem_tt[4][1]==temp1.code or temp3.sem_tt[4][5]==temp1.code or temp3.sem_tt[3][4]==temp1.code or temp3.sem_tt[5][4]==temp1.code): break
-                                        if i==5 and j==4 and (temp3.sem_tt[5][1]==temp1.code or temp3.sem_tt[5][5]==temp1.code or temp3.sem_tt[4][4]==temp1.code ): break
-                                        if i==1 and j==5 and (temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[1][4]==temp1.code or temp3.sem_tt[2][5]==temp1.code): break
-                                        if i==2 and j==5 and (temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[2][4]==temp1.code or temp3.sem_tt[1][5]==temp1.code or temp3.sem_tt[3][5]==temp1.code): break
-                                        if i==3 and j==5 and (temp3.sem_tt[3][1]==temp1.code or temp3.sem_tt[3][4]==temp1.code or temp3.sem_tt[2][5]==temp1.code or temp3.sem_tt[4][5]==temp1.code): break
-                                        if i==4 and j==5 and (temp3.sem_tt[4][1]==temp1.code or temp3.sem_tt[4][4]==temp1.code or temp3.sem_tt[3][5]==temp1.code or temp3.sem_tt[5][5]==temp1.code): break
-                                        if i==5 and j==5 and (temp3.sem_tt[5][1]==temp1.code or temp3.sem_tt[5][4]==temp1.code or temp3.sem_tt[4][5]==temp1.code ): break
-                                    if _<2:
-                                        shift=0
-                                        for l in range(8):
-                                            if temp2.test_tt[i][l]==temp1.semester1:
-                                                shift=1
-                                                break
-                                        if shift==1:break
-                                    if _<5 and j==1 and time<temp1.theory:
-                                        if temp2:
-                                            if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                        
-                                                if temp22:
-                                                    if temp22.faculty_tt[i][1]==temp22.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                  
-                                                        if temp222:
-                                                            if temp222.faculty_tt[i][1]==temp222.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                                temp2.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp2.faculty_tt[i][2]="."
-                                                                temp2.test_tt[i][1]=temp1.semester1
-                                                                temp22.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp22.faculty_tt[i][2]="."
-                                                                temp222.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp222.faculty_tt[i][2]="."
-                                                                temp3.sem_tt[i][j]=temp1.code
-                                                                temp3.sem_tt_new[i][j]=temp1.code
-                                                                temp4.classroom_tt[i][j]=temp1.nam
-                                                                time+=90
-                                                                break
-                                                        else:
-                                                            temp2.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp2.faculty_tt[i][2]="."
-                                                            temp2.test_tt[i][1]=temp1.semester1
-                                                            temp22.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp22.faculty_tt[i][2]="."
-                                                            temp3.sem_tt[i][j]=temp1.code
-                                                            temp3.sem_tt_new[i][j]=temp1.code
-                                                            temp4.classroom_tt[i][j]=temp1.name
-                                                            time+=90
-                                                            break                                               
-                                                else:  
-                                                    temp2.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                if shift==1:break
+                                            if j==1 and _==0:
+                                                if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
+                                                    temp2.faculty_tt[i][1]=temp1.semester1+" (9:00-10:00)"+"_"+temp1.code+"_TUT ("+temp4.classroom_code+")"
                                                     temp2.faculty_tt[i][2]="."
                                                     temp2.test_tt[i][1]=temp1.semester1
                                                     temp3.sem_tt[i][j]=temp1.code
                                                     temp3.sem_tt_new[i][j]=temp1.code
                                                     temp4.classroom_tt[i][j]=temp1.name
-                                                    time+=90
+                                                    time+=60
                                                     break
-                                    if _<5 and j==4:
-                                        if temp2:
-                                            if temp2.faculty_tt[i][6]==temp2.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                        
-                                                if temp22:
-                                                    if temp22.faculty_tt[i][6]==temp22.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                            
-                                                        if temp222:
-                                                            if temp222.faculty_tt[i][6]==temp222.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                                temp2.faculty_tt[i][6]=temp1.semester1+" (2:00-3:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp2.faculty_tt[i][7]="."
-                                                                temp2.test_tt[i][6]=temp1.semester1
-                                                                temp22.faculty_tt[i][6]=temp1.semester1+" (2:00-3:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp22.faculty_tt[i][7]="."
-                                                                temp222.faculty_tt[i][6]=temp1.semester1+" (2:00-3:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp222.faculty_tt[i][7]="."
-                                                                temp3.sem_tt[i][j]=temp1.code
-                                                                temp3.sem_tt_new[i][j]=temp1.code
-                                                                temp4.classroom_tt[i][j]=temp1.name
-                                                                time+=90
-                                                                break
-                                                        else:
-                                                            temp2.faculty_tt[i][6]=temp1.semester1+" (2:00-3:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp2.faculty_tt[i][7]="."
-                                                            temp2.test_tt[i][6]=temp1.semester1
-                                                            temp22.faculty_tt[i][6]=temp1.semester1+" (2:00-3:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp22.faculty_tt[i][7]="."
-                                                            temp3.sem_tt[i][j]=temp1.code
-                                                            temp3.sem_tt_new[i][j]=temp1.code
-                                                            temp4.classroom_tt[i][j]=temp1.name
-                                                            time+=90
-                                                            break
-                                                else:  
-                                                    temp2.faculty_tt[i][6]=temp1.semester1+" (2:00-3:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                            if j==4 and _==1:
+                                                if temp2.faculty_tt[i][6]==temp2.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
+                                                    temp2.faculty_tt[i][6]=temp1.semester1+" (1:45-2:45)"+"_"+temp1.code+"_TUT ("+temp4.classroom_code+")"
                                                     temp2.faculty_tt[i][7]="."
                                                     temp2.test_tt[i][6]=temp1.semester1
                                                     temp3.sem_tt[i][j]=temp1.code
                                                     temp3.sem_tt_new[i][j]=temp1.code
                                                     temp4.classroom_tt[i][j]=temp1.name
-                                                    time+=90
+                                                    time+=60
                                                     break
-                                    if _<5 and j==5:
-                                        if temp2:
-                                            if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                        
-                                                if temp22:
-                                                    if temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                 
-                                                        if temp222:
-                                                            if temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                                temp2.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp2.faculty_tt[i][9]="."
-                                                                temp2.test_tt[i][8]=temp1.semester1
-                                                                temp22.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp22.faculty_tt[i][9]="."
-                                                                temp222.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp222.faculty_tt[i][9]="."
-                                                                temp3.sem_tt[i][j]=temp1.code
-                                                                temp3.sem_tt_new[i][j]=temp1.code
-                                                                temp4.classroom_tt[i][j]=temp1.name
-                                                                time+=90
-                                                                break
-                                                        else:
-                                                            temp2.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp2.faculty_tt[i][9]="."
-                                                            temp2.test_tt[i][8]=temp1.semester1
-                                                            temp22.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp22.faculty_tt[i][9]="."
-                                                            temp3.sem_tt[i][j]=temp1.code
-                                                            temp3.sem_tt_new[i][j]=temp1.code
-                                                            temp4.classroom_tt[i][j]=temp1.name
-                                                            time+=90
-                                                            break   
-                                                else:  
-                                                    temp2.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                    temp2.faculty_tt[i][9]="."
-                                                    temp2.test_tt[i][8]=temp1.semester1
-                                                    temp3.sem_tt[i][j]=temp1.code
-                                                    temp3.sem_tt_new[i][j]=temp1.code
-                                                    temp4.classroom_tt[i][j]=temp1.name
-                                                    time+=90
-                                                    break
-                    elif temp1.tutorial:
-                        time=0
-                        for _ in range(4):
-                            for i in range(6):
-                                for j in range(6):
-                                    if _<=2:
-                                        shift=0
-                                        for l in range(8):
-                                            if temp2.test_tt[i][l]==temp1.semester1:
-                                                shift=1
-                                                break
-                                        if shift==1:break
-                                    if j==2 and time<temp1.tutorial:
-                                        if temp2.faculty_tt[i][3]==temp2.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*':
-                                            if j-1!=0 and temp2.faculty_tt[i][2]==temp1.semester1:
-                                                break
-                                            temp2.faculty_tt[i][3]=temp1.semester1+" (11:00-12:00)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
-                                            temp2.faculty_tt[i][4]="."
-                                            temp2.test_tt[i][3]=temp1.semester1
-                                            temp3.sem_tt[i][j]=temp1.code
-                                            temp3.sem_tt_new[i][j]=temp1.code
-                                            temp4.classroom_tt[i][j]=temp1.name
-                                            time+=60
-                                            break
-                                    if _<4 and j==3:
-                                        if temp2.faculty_tt[i][4]==temp2.faculty_tt[i][5]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
-                                            temp2.faculty_tt[i][4]=temp1.semester1+" (12:00-1:00)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
-                                            temp2.faculty_tt[i][5]="."
-                                            temp2.test_tt[i][4]=temp1.semester1
-                                            temp3.sem_tt[i][j]=temp1.code
-                                            temp3.sem_tt_new[i][j]=temp1.code
-                                            temp4.classroom_tt[i][j]=temp1.name
-                                            time+=60
-                                            break
-                                    if _>=2 and j==5:
-                                        if temp2.faculty_tt[i][8]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
-                                            temp2.faculty_tt[i][8]=temp1.semester1+" (3:30-4:30)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
-                                            temp2.test_tt[i][8]=temp1.semester1
-                                            temp3.sem_tt[i][j]=temp1.code
-                                            temp3.sem_tt_new[i][j]=temp1.code
-                                            temp4.classroom_tt[i][j]=temp1.name
-                                            time+=60
-                                            break
-                                    if _>=3 and j==1:
-                                        if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
-                                            temp2.faculty_tt[i][1]=temp1.semester1+" (9:00-10:00)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
-                                            temp2.faculty_tt[i][2]="."
-                                            temp2.test_tt[i][1]=temp1.semester1
-                                            temp3.sem_tt[i][j]=temp1.code
-                                            temp3.sem_tt_new[i][j]=temp1.code
-                                            temp4.classroom_tt[i][j]=temp1.name
-                                            time+=60
-                                            break
-                                    if _>=3 and j==4:
-                                        if temp2.faculty_tt[i][6]==temp2.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
-                                            temp2.faculty_tt[i][6]=temp1.semester1+" (2:00-3:00)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
-                                            temp2.faculty_tt[i][7]="."
-                                            temp2.test_tt[i][6]=temp1.semester1
-                                            temp3.sem_tt[i][j]=temp1.code
-                                            temp3.sem_tt_new[i][j]=temp1.code
-                                            temp4.classroom_tt[i][j]=temp1.name
-                                            time+=60
-                                            break         
-                    elif temp1.lab:
-                        time=0
-                        for _ in range(5):
-                            for i in range(6):
-                                for j in range(8):
-                                    
-                                    if time>=temp1.lab:
-                                        break
-                                    elif j==2:
-                                        if temp2.faculty_tt[i][3]==temp2.faculty_tt[i][4]==temp2.faculty_tt[i][5]=='*' and time<temp1.lab:
-                                            #If there is no activity at that time...
-                                            if temp3.sem_tt[i][j]==temp3.sem_tt[i][j+1]==temp4.classroom_tt[i][j]==temp4.classroom_tt[i][j+1]=='*' and (time+120)<=temp1.lab:
-                                                if temp2.faculty_tt[i][1]==temp1.semester1:
-                                                    break
-                                                if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
-                                                if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
-                                                while(temp6):
-                                                    if temp6.tt[i][3]==temp6.tt[i][4]==temp6.tt[i][5]=='*':
-                                                        temp2.faculty_tt[i][3]=temp1.semester1+" (11:00-1:00)"+"_"+temp1.code+"_LAB ("+temp6.name+")"
-                                                        temp2.faculty_tt[i][4]=temp2.faculty_tt[i][5]="."
-                                                        temp2.test_tt[i][3]=temp1.semester1
-                                                        temp3.sem_tt[i][j]=temp1.code
-                                                        temp3.sem_tt[i][j+1]=temp1.code
-                                                        temp3.sem_tt_new[i][j]=temp1.code+temp6.name
-                                                        temp3.sem_tt_new[i][j+1]=temp1.code+temp6.name
-                                                        
-                                                        temp6.tt[i][3]=temp1.semester1+"_"+temp1.code
-                                                        temp6.tt[i][4]=temp1.semester1+"_"+temp1.code
-                                                        temp6.tt[i][5]=temp1.semester1+"_"+temp1.code
-                                                        time+=120
-                                                        break
-                                                    temp6=temp6.next
-                                            elif temp3.sem_tt[i][j]==temp3.sem_tt[i][j+1] and time+120<=temp1.lab:
-                                                if time>=temp1.lab:break
-                                                temp5=None
-                                                tip=0
-                                                if temp1.branch1=="CSE":temp5=obj_for_linked_list_for_traversing_labs.head_for_CSE
-                                                if temp1.branch1=="DSAI":temp5=obj_for_linked_list_for_traversing_labs.head_for_DSAI
-                                                if temp1.branch1=="ECE":temp5=obj_for_linked_list_for_traversing_labs.head_for_ECE
-                                                temp6=None
-                                                if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
-                                                if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
-                                                while(temp5):
-                                                    if temp3.sem_tt[i][j]==temp5.code:
-                                                        tip=1
-                                                        break
-                                                    temp5=temp5.next
-                                                while(temp6):
-                                                    if temp6.tt[i][3]==temp6.tt[i][4]==temp6.tt[i][5]=='*':
-                                                        break
-                                                    temp6=temp6.next
-                                                if tip==1 and temp5.id!=temp1.id and temp6:
-                                                    temp2.faculty_tt[i][3]=temp1.semester1+" (11:00-1:00)"+"_"+temp1.code+"_LAB ("+temp6.name+")"
-                                                    temp2.faculty_tt[i][4]="."
-                                                    temp2.faculty_tt[i][5]="."
-                                                    temp2.test_tt[i][3]=temp1.semester1
-                                                    temp3.sem_tt[i][j]+=" /" +temp1.code
-                                                    temp3.sem_tt[i][j+1]+=" / "+temp1.code
-                                                    temp3.sem_tt_new[i][j]+=" / "+temp1.code+temp6.name
-                                                    temp3.sem_tt_new[i][j+1]+=" / "+temp1.code+temp6.name
-                                                    
-                                                    temp6.tt[i][3]=temp1.semester1+"_"+temp1.code
-                                                    temp6.tt[i][4]=temp1.semester1+"_"+temp1.code
-                                                    temp6.tt[i][5]=temp1.semester1+"_"+temp1.code
-                                                    time+=120
-                                                    break
-                                    if _>3 and j==5:
-                                        if temp2.faculty_tt[i][7]==temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.lab:
-                                            if temp1.lab_name=='CS_LAB':temp5=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
-                                            if temp1.lab_name=='EC_LAB':temp5=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
-                                            while(temp5):
-                                                if temp5.tt[i][7]==temp5.tt[i][8]==temp5.tt[i][9]=='*' and time<temp1.lab:
-                                                    temp5.tt[i][7]=temp5.tt[i][8]=temp5.tt[i][9]=temp1.semester1+"_"+temp1.code
-                                                    temp2.faculty_tt[i][7]=temp1.semester1+" (3:15-5:15)"+"_"+temp1.code+"_LAB ("+temp5.name+")"
-                                                    temp2.faculty_tt[i][8]=temp2.faculty_tt[i][9]="."
-                                                    temp3.sem_tt[i][j]=temp1.code
-                                                    temp3.sem_tt_new[i][j]=temp1.code+temp5.name
-                                                    
-                                                    time+=120
-                                                    break
-                                                temp5=temp5.next
-                if "CSE_Sem_5_A"==temp1.semester1 or "CSE_Sem_5_B"==temp1.semester1 or "CSE_Sem_6_A"==temp1.semester1 or "CSE_Sem_6_B"==temp1.semester1 or "DSAI_Sem_5"==temp1.semester1 or "DSAI_Sem_6"==temp1.semester1 or "ECE_Sem_5"==temp1.semester1 or "ECE_Sem_6"==temp1.semester1 :
-                    if temp1.theory:
-                        time=0
-                        for _ in range(5):
-                            for i in range(6):
-                                for j in range(8):
-                                    if _<3:
-                                        if i==1 and j==1 and (temp3.sem_tt[1][2]==temp1.code or temp3.sem_tt[1][3]==temp1.code or temp3.sem_tt[2][1]==temp1.code): break
-                                        if i==2 and j==1 and (temp3.sem_tt[2][2]==temp1.code or temp3.sem_tt[2][3]==temp1.code or temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[3][1]==temp1.code): break
-                                        if i==3 and j==1 and (temp3.sem_tt[3][2]==temp1.code or temp3.sem_tt[3][3]==temp1.code or temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[4][1]==temp1.code): break
-                                        if i==4 and j==1 and (temp3.sem_tt[4][2]==temp1.code or temp3.sem_tt[4][3]==temp1.code or temp3.sem_tt[3][1]==temp1.code or temp3.sem_tt[5][1]==temp1.code): break
-                                        if i==5 and j==1 and (temp3.sem_tt[5][2]==temp1.code or temp3.sem_tt[5][3]==temp1.code or temp3.sem_tt[4][1]==temp1.code ): break
-                                        if i==1 and j==2 and (temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[1][3]==temp1.code or temp3.sem_tt[2][2]==temp1.code): break
-                                        if i==2 and j==2 and (temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[2][3]==temp1.code or temp3.sem_tt[1][2]==temp1.code or temp3.sem_tt[3][2]==temp1.code): break
-                                        if i==3 and j==2 and (temp3.sem_tt[3][1]==temp1.code or temp3.sem_tt[3][3]==temp1.code or temp3.sem_tt[2][2]==temp1.code or temp3.sem_tt[4][2]==temp1.code): break
-                                        if i==4 and j==2 and (temp3.sem_tt[4][1]==temp1.code or temp3.sem_tt[4][3]==temp1.code or temp3.sem_tt[3][2]==temp1.code or temp3.sem_tt[5][2]==temp1.code): break
-                                        if i==5 and j==2 and (temp3.sem_tt[5][1]==temp1.code or temp3.sem_tt[5][3]==temp1.code or temp3.sem_tt[4][2]==temp1.code ): break
-                                        if i==1 and j==3 and (temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[1][2]==temp1.code or temp3.sem_tt[2][3]==temp1.code): break
-                                        if i==2 and j==3 and (temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[2][2]==temp1.code or temp3.sem_tt[1][3]==temp1.code or temp3.sem_tt[3][3]==temp1.code): break
-                                        if i==3 and j==3 and (temp3.sem_tt[3][1]==temp1.code or temp3.sem_tt[3][2]==temp1.code or temp3.sem_tt[2][3]==temp1.code or temp3.sem_tt[4][3]==temp1.code): break
-                                        if i==4 and j==3 and (temp3.sem_tt[4][1]==temp1.code or temp3.sem_tt[4][2]==temp1.code or temp3.sem_tt[3][3]==temp1.code or temp3.sem_tt[5][3]==temp1.code): break
-                                        if i==5 and j==3 and (temp3.sem_tt[5][1]==temp1.code or temp3.sem_tt[5][2]==temp1.code or temp3.sem_tt[4][3]==temp1.code ): break
-                                    if _<=2:
-                                        shift=0
-                                        for l in range(8):
-                                            if temp2.test_tt[i][l]==temp1.semester1:
-                                                shift=1
-                                                break
-                                        if shift==1:break
-                                    if _<4 and j==1 and time<temp1.theory:
-                                        if temp2:
-                                            if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                if temp22:
-                                                    if temp22.faculty_tt[i][1]==temp22.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                        if temp222:
-                                                            if temp222.faculty_tt[i][1]==temp222.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                                temp2.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp2.faculty_tt[i][2]="."
-                                                                temp2.test_tt[i][1]=temp1.semester1
-                                                                temp22.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp22.faculty_tt[i][2]="."
-                                                                temp222.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp222.faculty_tt[i][2]="."
-                                                                temp3.sem_tt[i][j]=temp1.code
-                                                                temp3.sem_tt_new[i][j]=temp1.code
-                                                                temp4.classroom_tt[i][j]=temp1.name
-                                                                time+=90
-                                                                break
-                                                        else:
-                                                            temp2.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp2.faculty_tt[i][2]="."
-                                                            temp2.test_tt[i][1]=temp1.semester1
-                                                            temp22.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp22.faculty_tt[i][2]="."
-                                                            temp3.sem_tt[i][j]=temp1.code
-                                                            temp3.sem_tt_new[i][j]=temp1.code
-                                                            temp4.classroom_tt[i][j]=temp1.name
-                                                            time+=90
-                                                            break
-                                                else:  
-                                                    temp2.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                    temp2.faculty_tt[i][2]="."
-                                                    temp2.test_tt[i][1]=temp1.semester1
-                                                    temp3.sem_tt[i][j]=temp1.code
-                                                    temp3.sem_tt_new[i][j]=temp1.code
-                                                    temp4.classroom_tt[i][j]=temp1.name
-                                                    time+=90
-                                                    break
-                                    if _<4 and j==2:
-                                        if temp2:
-                                            if temp2.faculty_tt[i][3]==temp2.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                if temp22:
-                                                    if temp22.faculty_tt[i][3]==temp22.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                        if temp222:
-                                                            if temp222.faculty_tt[i][3]==temp222.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                                temp2.faculty_tt[i][3]=temp1.semester1+" (10:30-12:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp2.faculty_tt[i][4]="."
-                                                                temp2.test_tt[i][3]=temp1.semester1
-                                                                temp22.faculty_tt[i][3]=temp1.semester1+" (10:30-12:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp22.faculty_tt[i][4]="."
-                                                                temp222.faculty_tt[i][3]=temp1.semester1+" (10:30-12:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp222.faculty_tt[i][4]="."
-                                                                temp3.sem_tt[i][j]=temp1.code
-                                                                temp3.sem_tt_new[i][j]=temp1.code
-                                                                temp4.classroom_tt[i][j]=temp1.name
-                                                                time+=90
-                                                                break
-                                                        else:
-                                                            temp2.faculty_tt[i][3]=temp1.semester1+" (10:30-12:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp2.faculty_tt[i][4]="."
-                                                            temp2.test_tt[i][3]=temp1.semester1
-                                                            temp22.faculty_tt[i][3]=temp1.semester1+" (10:30-12:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp22.faculty_tt[i][4]="."
-                                                            temp3.sem_tt[i][j]=temp1.code
-                                                            temp3.sem_tt_new[i][j]=temp1.code
-                                                            temp4.classroom_tt[i][j]=temp1.name
-                                                            time+=90
-                                                            break
-                                                else:  
-                                                    temp2.faculty_tt[i][3]=temp1.semester1+" (10:30-12:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                            if j==2 and _==2:
+                                                if temp2.faculty_tt[i][3]==temp2.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
+                                                    temp2.faculty_tt[i][3]=temp1.semester1+" (10:45-11:45)"+"_"+temp1.code+"_TUT ("+temp4.classroom_code+")"
                                                     temp2.faculty_tt[i][4]="."
                                                     temp2.test_tt[i][3]=temp1.semester1
                                                     temp3.sem_tt[i][j]=temp1.code
                                                     temp3.sem_tt_new[i][j]=temp1.code
                                                     temp4.classroom_tt[i][j]=temp1.name
-                                                    time+=90
+                                                    time+=60
                                                     break
-                                    if _<4 and j==3:
-                                        if temp2:
-                                            if temp2.faculty_tt[i][4]==temp2.faculty_tt[i][5]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                if temp22:
-                                                    if temp22.faculty_tt[i][4]==temp22.faculty_tt[i][5]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                        if temp222:
-                                                            if temp222.faculty_tt[i][4]==temp222.faculty_tt[i][5]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                                temp2.faculty_tt[i][4]=temp1.semester1+" (12:00-1:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp2.faculty_tt[i][5]="."
-                                                                temp2.test_tt[i][4]=temp1.semester1
-                                                                temp22.faculty_tt[i][4]=temp1.semester1+" (12:00-1:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp22.faculty_tt[i][5]="."
-                                                                temp222.faculty_tt[i][4]=temp1.semester1+" (12:00-1:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp222.faculty_tt[i][5]="."
-                                                                temp3.sem_tt[i][j]=temp1.code
-                                                                temp3.sem_tt_new[i][j]=temp1.code
-                                                                temp4.classroom_tt[i][j]=temp1.name
-                                                                time+=90
-                                                                break
-                                                        else:
-                                                            temp2.faculty_tt[i][4]=temp1.semester1+" (12:00-1:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp2.faculty_tt[i][5]="."
-                                                            temp2.test_tt[i][4]=temp1.semester1
-                                                            temp22.faculty_tt[i][4]=temp1.semester1+" (12:00-1:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp22.faculty_tt[i][5]="."
-                                                            temp3.sem_tt[i][j]=temp1.code
-                                                            temp3.sem_tt_new[i][j]=temp1.code
-                                                            temp4.classroom_tt[i][j]=temp1.name
-                                                            time+=90
-                                                            break
-                                                else:  
-                                                    temp2.faculty_tt[i][4]=temp1.semester1+" (12:00-1:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                            if j==3 and _==3:
+                                                if temp2.faculty_tt[i][4]==temp2.faculty_tt[i][5]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
+                                                    temp2.faculty_tt[i][4]=temp1.semester1+" (11:45-12:45)"+"_"+temp1.code+"_TUT ("+temp4.classroom_code+")"
                                                     temp2.faculty_tt[i][5]="."
                                                     temp2.test_tt[i][4]=temp1.semester1
                                                     temp3.sem_tt[i][j]=temp1.code
                                                     temp3.sem_tt_new[i][j]=temp1.code
                                                     temp4.classroom_tt[i][j]=temp1.name
-                                                    time+=90
+                                                    time+=60
                                                     break
-                                    if _<4 and j==4:
-                                        if temp2:
-                                            if temp2.faculty_tt[i][7]==temp2.faculty_tt[i][8]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                if temp22:
-                                                    if temp22.faculty_tt[i][7]==temp22.faculty_tt[i][8]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                        if temp222:
-                                                            if temp222.faculty_tt[i][7]==temp222.faculty_tt[i][8]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                                temp2.faculty_tt[i][7]=temp1.semester1+" (2:30-4:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp2.faculty_tt[i][8]="."
-                                                                temp2.test_tt[i][7]=temp1.semester1
-                                                                temp22.faculty_tt[i][7]=temp1.semester1+" (2:30-4:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp22.faculty_tt[i][8]="."
-                                                                temp222.faculty_tt[i][7]=temp1.semester1+" (2:30-4:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp222.faculty_tt[i][8]="."
+                                            if j==5 and _==4:
+                                                if temp2.faculty_tt[i][7]==temp2.faculty_tt[i][8]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
+                                                    if j-1!=0 and temp2.faculty_tt[i][j-1]==temp1.semester1:break
+                                                    temp2.faculty_tt[i][7]=temp1.semester1+" (3:15-4:15)"+"_"+temp1.code+"_TUT ("+temp4.classroom_code+")"
+                                                    temp2.faculty_tt[i][8]="."
+                                                    temp2.test_tt[i][7]=temp1.semester1
+                                                    temp3.sem_tt[i][j]=temp1.code
+                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                    time+=60
+                                                    break
+                            elif temp1.lab:
+                                time=0
+                                for _ in range(4):
+                                    for i in range(6):
+                                        for j in range(8):
+
+                                            if time>=temp1.lab:
+                                                break
+                                            elif j==2:
+                                                if temp2.faculty_tt[i][3]==temp2.faculty_tt[i][4]==temp2.faculty_tt[i][5]=='*' and time<temp1.lab:
+                                                    #If there is no activity at that time...
+                                                    if temp3.sem_tt[i][j]==temp3.sem_tt[i][j+1]=='*' and (time+120)<=temp1.lab:
+                                                        if temp2.faculty_tt[i][1]==temp1.semester1:break
+                                                        if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
+                                                        if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
+                                                        while(temp6):
+                                                            if temp6.tt[i][3]==temp6.tt[i][4]==temp6.tt[i][5]=='*' and temp6.tt[i][j]=='*':
+                                                                temp2.faculty_tt[i][3]=temp1.semester1+" (10:45-12:45)"+"_"+temp1.code+"_LAB ("+temp6.name+")"
+                                                                temp2.faculty_tt[i][4]=temp2.faculty_tt[i][5]="."
+                                                                temp2.test_tt[i][3]=temp1.semester1
                                                                 temp3.sem_tt[i][j]=temp1.code
-                                                                temp3.sem_tt_new[i][j]=temp1.code+" (2:30-4:00)"
-                                                                temp4.classroom_tt[i][j]=temp1.name
-                                                                time+=90
+                                                                temp3.sem_tt[i][j+1]=temp1.code
+                                                                temp3.sem_tt_new[i][j]=temp1.code+temp6.name
+                                                                temp3.sem_tt_new[i][j+1]=temp1.code+temp6.name
+                                                                temp6.tt[i][3]=temp1.semester1+"_"+temp1.code
+                                                                temp6.tt[i][4]=temp1.semester1+"_"+temp1.code
+                                                                temp6.tt[i][5]=temp1.semester1+"_"+temp1.code
+                                                                time+=120
                                                                 break
-                                                        else:
+                                                            temp6=temp6.next                                            
+                                                    elif temp3.sem_tt[i][j]==temp3.sem_tt[i][j+1] and time+120<=temp1.lab:
+                                                        if time>=temp1.lab:break
+                                                        temp5=None
+                                                        tip=0
+                                                        if temp1.branch1=="CSE":temp5=obj_for_linked_list_for_traversing_labs.head_for_CSE
+                                                        if temp1.branch1=="DSAI":temp5=obj_for_linked_list_for_traversing_labs.head_for_DSAI
+                                                        if temp1.branch1=="ECE":temp5=obj_for_linked_list_for_traversing_labs.head_for_ECE
+                                                        temp6=None
+                                                        if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
+                                                        if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms                                               
+                                                        while(temp5):
+                                                            if temp3.sem_tt[i][j]==temp5.code:
+                                                                tip=1
+                                                                break
+                                                            temp5=temp5.next                                                
+                                                        while(temp6):
+                                                            if temp6.tt[i][3]==temp6.tt[i][4]==temp6.tt[i][5]=='*':
+                                                                break
+                                                            temp6=temp6.next
+                                                        if tip==1 and temp5.id!=temp1.id and temp6:
+                                                            temp2.faculty_tt[i][3]=temp1.semester1+" (10:45-12:45)"+"_"+temp1.code+"_LAB ("+temp6.name+")"
+                                                            temp2.faculty_tt[i][4]="."
+                                                            temp2.test_tt[i][3]=temp1.semester1
+                                                            temp2.faculty_tt[i][5]="."
+                                                            temp3.sem_tt[i][j]+=" /" +temp1.code
+                                                            temp3.sem_tt[i][j+1]+=" / "+temp1.code
+                                                            temp3.sem_tt_new[i][j]+=" / "+temp1.code+temp6.name
+                                                            temp3.sem_tt_new[i][j+1]+=" / "+temp1.code+temp6.name
+                                                            temp6.tt[i][3]=temp1.semester1+"_"+temp1.code
+                                                            temp6.tt[i][4]=temp1.semester1+"_"+temp1.code
+                                                            temp6.tt[i][5]=temp1.semester1+"_"+temp1.code
+                                                            time+=120
+                                                            break
+                                            if _>2 and j==4:
+                                                if temp2.faculty_tt[i][7]==temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.lab:
+                                                    if temp1.lab_name=='CS_LAB':temp5=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
+                                                    if temp1.lab_name=='EC_LAB':temp5=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
+                                                    while(temp5):
+                                                        if temp5.tt[i][7]==temp5.tt[i][8]==temp5.tt[i][9]=='*' and time<temp1.lab:
+                                                            temp5.tt[i][7]=temp5.tt[i][8]=temp5.tt[i][9]=temp1.semester1+"_"+temp1.code
+                                                            temp2.faculty_tt[i][7]=temp1.semester1+" (3:15-5:15)"+"_"+temp1.code+"_LAB ("+temp5.name+")"
+                                                            temp2.faculty_tt[i][8]=temp2.faculty_tt[i][9]="."
+                                                            temp2.test_tt[i][7]=temp1.semester1
+                                                            temp3.sem_tt[i][j]=temp1.code
+                                                            temp3.sem_tt_new[i][j]=temp1.code+temp5.name
+                                                            time+=120
+                                                            break
+                                                        temp5=temp5.next
+                        if "DSAI_Sem_1"==temp1.semester1 or "DSAI_Sem_2"==temp1.semester1 or "ECE_Sem_3"==temp1.semester1 or "ECE_Sem_4"==temp1.semester1 or "DSAI_Sem_3"==temp1.semester1 :
+                            if temp1.theory:
+                                time=0
+                                for _ in range(5):
+                                    for i in range(6):
+                                        for j in range(8):
+                                            if _<2:
+                                                if i==1 and j==2 and (temp3.sem_tt[1][4]==temp1.code or temp3.sem_tt[1][5]==temp1.code or temp3.sem_tt[3][2]==temp1.code ): break
+                                                if i==2 and j==2 and (temp3.sem_tt[2][4]==temp1.code or temp3.sem_tt[2][5]==temp1.code or temp3.sem_tt[1][2]==temp1.code or temp3.sem_tt[3][2]==temp1.code): break
+                                                if i==3 and j==2 and (temp3.sem_tt[3][4]==temp1.code or temp3.sem_tt[3][5]==temp1.code or temp3.sem_tt[2][2]==temp1.code or temp3.sem_tt[4][2]==temp1.code): break
+                                                if i==4 and j==2 and (temp3.sem_tt[4][4]==temp1.code or temp3.sem_tt[4][5]==temp1.code or temp3.sem_tt[3][2]==temp1.code or temp3.sem_tt[5][2]==temp1.code): break
+                                                if i==5 and j==2 and (temp3.sem_tt[5][4]==temp1.code or temp3.sem_tt[5][5]==temp1.code or temp3.sem_tt[4][2]==temp1.code ): break
+                                                if i==1 and j==2 and (temp3.sem_tt[1][2]==temp1.code or temp3.sem_tt[1][5]==temp1.code or temp3.sem_tt[3][4]==temp1.code ): break
+                                                if i==2 and j==2 and (temp3.sem_tt[2][2]==temp1.code or temp3.sem_tt[2][5]==temp1.code or temp3.sem_tt[1][4]==temp1.code or temp3.sem_tt[3][4]==temp1.code): break
+                                                if i==3 and j==2 and (temp3.sem_tt[3][2]==temp1.code or temp3.sem_tt[3][5]==temp1.code or temp3.sem_tt[2][4]==temp1.code or temp3.sem_tt[4][4]==temp1.code): break
+                                                if i==4 and j==2 and (temp3.sem_tt[4][2]==temp1.code or temp3.sem_tt[4][5]==temp1.code or temp3.sem_tt[3][4]==temp1.code or temp3.sem_tt[5][4]==temp1.code): break
+                                                if i==5 and j==2 and (temp3.sem_tt[5][2]==temp1.code or temp3.sem_tt[5][5]==temp1.code or temp3.sem_tt[4][4]==temp1.code ): break
+                                                if i==1 and j==2 and (temp3.sem_tt[1][2]==temp1.code or temp3.sem_tt[1][4]==temp1.code or temp3.sem_tt[1][5]==temp1.code ): break
+                                                if i==2 and j==2 and (temp3.sem_tt[2][2]==temp1.code or temp3.sem_tt[2][4]==temp1.code or temp3.sem_tt[1][5]==temp1.code or temp3.sem_tt[3][5]==temp1.code): break
+                                                if i==3 and j==2 and (temp3.sem_tt[3][2]==temp1.code or temp3.sem_tt[3][4]==temp1.code or temp3.sem_tt[2][5]==temp1.code or temp3.sem_tt[4][5]==temp1.code): break
+                                                if i==4 and j==2 and (temp3.sem_tt[4][2]==temp1.code or temp3.sem_tt[4][4]==temp1.code or temp3.sem_tt[3][5]==temp1.code or temp3.sem_tt[5][5]==temp1.code): break
+                                                if i==5 and j==2 and (temp3.sem_tt[5][2]==temp1.code or temp3.sem_tt[5][4]==temp1.code or temp3.sem_tt[4][5]==temp1.code ): break
+                                            if _<=2:
+                                                shift=0
+                                                for l in range(8):
+                                                    if temp2.test_tt[i][l]==temp1.semester1:
+                                                        shift=1
+                                                        break
+                                                if shift==1:break
+                                            if j==2 :
+                                                if temp2:
+                                                    if temp2.faculty_tt[i][3]==temp2.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                        
+                                                        if temp22:
+                                                            if temp22.faculty_tt[i][3]==temp22.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                                       
+                                                                if temp222:
+                                                                    if temp222.faculty_tt[i][3]==temp222.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                        temp2.faculty_tt[i][3]=temp1.semester1+" (10:45-12:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp2.faculty_tt[i][4]="."
+                                                                        temp2.test_tt[i][3]=temp1.semester1
+                                                                        temp22.faculty_tt[i][3]=temp1.semester1+" (10:45-12:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp22.faculty_tt[i][4]="."
+                                                                        temp222.faculty_tt[i][3]=temp1.semester1+" (10:45-12:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp222.faculty_tt[i][4]="."
+                                                                        temp3.sem_tt[i][j]=temp1.code
+                                                                        temp3.sem_tt_new[i][j]=temp1.code
+                                                                        temp4.classroom_tt[i][j]=temp1.name
+                                                                        time+=90
+                                                                        break
+                                                                else:
+                                                                    temp2.faculty_tt[i][3]=temp1.semester1+" (10:45-12:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp2.faculty_tt[i][4]="."
+                                                                    temp2.test_tt[i][3]=temp1.semester1
+                                                                    temp22.faculty_tt[i][3]=temp1.semester1+" (10:45-12:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp22.faculty_tt[i][4]="."
+                                                                    temp3.sem_tt[i][j]=temp1.code
+                                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                                    time+=90
+                                                                    break                                                
+                                                        else:  
+                                                            temp2.faculty_tt[i][3]=temp1.semester1+" (10:45-12:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                            temp2.faculty_tt[i][4]="."
+                                                            temp2.test_tt[i][3]=temp1.semester1
+                                                            temp3.sem_tt[i][j]=temp1.code
+                                                            temp3.sem_tt_new[i][j]=temp1.code
+                                                            temp4.classroom_tt[i][j]=temp1.name
+                                                            time+=90
+                                                            break 
+                                            if j==1 :
+                                                if temp2:
+                                                    if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                        
+                                                        if temp22:
+                                                            if temp22.faculty_tt[i][1]==temp22.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                                       
+                                                                if temp222:
+                                                                    if temp222.faculty_tt[i][1]==temp222.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                        temp2.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp2.faculty_tt[i][2]="."
+                                                                        temp2.test_tt[i][1]=temp1.semester1
+                                                                        temp22.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp22.faculty_tt[i][2]="."
+                                                                        temp222.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp222.faculty_tt[i][2]="."
+                                                                        temp3.sem_tt[i][j]=temp1.code
+                                                                        temp3.sem_tt_new[i][j]=temp1.code
+                                                                        temp4.classroom_tt[i][j]=temp1.name
+                                                                        time+=90
+                                                                        break
+                                                                else:
+                                                                    temp2.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp2.faculty_tt[i][2]="."
+                                                                    temp2.test_tt[i][1]=temp1.semester1
+                                                                    temp22.faculty_tt[i][2]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp22.faculty_tt[i][2]="."
+                                                                    temp3.sem_tt[i][j]=temp1.code
+                                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                                    time+=90
+                                                                    break                                                
+                                                        else:  
+                                                            temp2.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                            temp2.faculty_tt[i][2]="."
+                                                            temp2.test_tt[i][1]=temp1.semester1
+                                                            temp3.sem_tt[i][j]=temp1.code
+                                                            temp3.sem_tt_new[i][j]=temp1.code
+                                                            temp4.classroom_tt[i][j]=temp1.name
+                                                            time+=90
+                                                            break                                   
+                                            if j==4:
+                                                if temp2:
+                                                    if temp2.faculty_tt[i][6]==temp2.faculty_tt[i][7]==temp2.faculty_tt[i][8]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                       
+                                                        if temp22:
+                                                            if temp22.faculty_tt[i][6]==temp22.faculty_tt[i][7]==temp22.faculty_tt[i][8]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                if temp222:
+                                                                    if temp222.faculty_tt[i][7]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                        temp2.faculty_tt[i][6]=temp1.semester1+" (2:15-3:45)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp2.faculty_tt[i][7]=temp2.faculty_tt[i][8]="."
+                                                                        temp2.test_tt[i][6]=temp1.semester1
+                                                                        temp22.faculty_tt[i][6]=temp1.semester1+" (2:15-3:45)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp22.faculty_tt[i][7]=temp22.faculty_tt[i][8]="."
+                                                                        temp222.faculty_tt[i][6]=temp1.semester1+" (2:15-3:45)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp222.faculty_tt[i][7]=temp222.faculty_tt[i][8]="."
+                                                                        temp3.sem_tt[i][j]=temp1.code
+                                                                        temp3.sem_tt_new[i][j]=temp1.code
+                                                                        temp4.classroom_tt[i][j]=temp1.name
+                                                                        time+=90
+                                                                        break
+                                                                else:
+                                                                    temp2.faculty_tt[i][6]=temp1.semester1+" (2:15-3:45)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp2.faculty_tt[i][7]=temp2.faculty_tt[i][8]="."
+                                                                    temp2.test_tt[i][6]=temp1.semester1
+                                                                    temp22.faculty_tt[i][6]=temp1.semester1+" (2:15-3:45)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp22.faculty_tt[i][7]=temp22.faculty_tt[i][8]="."
+                                                                    temp3.sem_tt[i][j]=temp1.code
+                                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                                    time+=90
+                                                                    break
+                                                        else:  
+                                                            temp2.faculty_tt[i][6]=temp1.semester1+" (2:15-3:45)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                            temp2.faculty_tt[i][7]=temp2.faculty_tt[i][8]="."
+                                                            temp2.test_tt[i][6]=temp1.semester1
+                                                            temp3.sem_tt[i][j]=temp1.code
+                                                            temp3.sem_tt_new[i][j]=temp1.code
+                                                            temp4.classroom_tt[i][j]=temp1.name
+                                                            time+=90
+                                                            break
+                                            if _>3:
+                                                if temp2:
+                                                    if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                        if temp22:
+                                                            if temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                if temp222:
+                                                                    if temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                        temp2.faculty_tt[i][8]=temp1.semester1+" (3:45-5:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp2.faculty_tt[i][9]="."
+                                                                        temp2.test_tt[i][8]=temp1.semester1
+                                                                        temp22.faculty_tt[i][8]=temp1.semester1+" (3:45-5:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp22.faculty_tt[i][9]="."
+                                                                        temp222.faculty_tt[i][8]=temp1.semester1+" (3:45-5:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp222.faculty_tt[i][9]="."
+                                                                        temp3.sem_tt[i][j]=temp1.code
+                                                                        temp3.sem_tt_new[i][j]=temp1.code
+                                                                        temp4.classroom_tt[i][j]=temp1.name
+                                                                        time+=90
+                                                                        break
+                                                                else:
+                                                                    temp2.faculty_tt[i][8]=temp1.semester1+" (3:45-5:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp2.faculty_tt[i][9]="."
+                                                                    temp2.test_tt[i][8]=temp1.semester1
+                                                                    temp22.faculty_tt[i][8]=temp1.semester1+" (3:45-5:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp22.faculty_tt[i][9]="."
+                                                                    temp3.sem_tt[i][j]=temp1.code
+                                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                                    time+=90
+                                                                    break
+                                                        else:  
+                                                            temp2.faculty_tt[i][8]=temp1.semester1+" (3:45-5:15)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                            temp2.faculty_tt[i][9]="."
+                                                            temp2.test_tt[i][8]=temp1.semester1
+                                                            temp3.sem_tt[i][j]=temp1.code
+                                                            temp3.sem_tt_new[i][j]=temp1.code
+                                                            temp4.classroom_tt[i][j]=temp1.name
+                                                            time+=90
+                                                            break
+                            elif temp1.tutorial:
+                                time=0
+                                for _ in range(4):
+                                    for i in range(6):
+                                        for j in range(8):
+                                            if _<=2:
+                                                shift=0
+                                                for l in range(8):
+                                                    if temp2.test_tt[i][l]==temp1.semester1:
+                                                        shift=1
+                                                        break
+                                                if shift==1:break
+                                            if j==1 and _==0:
+                                                if temp2.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
+                                                    temp2.test_tt[i][2]=temp1.semester1
+                                                    temp2.faculty_tt[i][2]=temp1.semester1+" (9:00-10:00)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
+                                                    temp3.sem_tt[i][j]=temp1.code
+                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                    time+=60
+                                                    break
+                                            if _==1 and j==3:
+                                                if temp2.faculty_tt[i][4]==temp2.faculty_tt[i][5]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
+                                                    temp2.faculty_tt[i][4]=temp1.semester1+" (12:15-1:15)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
+                                                    temp2.faculty_tt[i][5]="."
+                                                    temp2.test_tt[i][4]=temp1.semester1
+                                                    temp3.sem_tt[i][j]=temp1.code
+                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                    time+=60
+                                                    break
+                                            if _==2 and j==4:
+                                                if temp2.faculty_tt[i][6]==temp2.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
+                                                    temp2.faculty_tt[i][6]=temp1.semester1+" (2:15-3:15)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
+                                                    temp2.faculty_tt[i][7]="."
+                                                    temp2.test_tt[i][6]=temp1.semester1
+                                                    temp3.sem_tt[i][j]=temp1.code
+                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                    time+=60
+                                                    break
+                                            if _>3 and j==5:
+                                                if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
+                                                    temp2.faculty_tt[i][8]=temp1.semester1+" (3:45-4:45)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
+                                                    temp2.faculty_tt[i][9]="."
+                                                    temp2.test_tt[i][8]=temp1.semester1
+                                                    temp3.sem_tt[i][j]=temp1.code
+                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                    time+=60
+                                                    break
+                                            if _>3 and j==5:
+                                                if temp2.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
+                                                    temp2.faculty_tt[i][9]=temp1.semester1+" (4:30-5:30)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
+                                                    temp2.test_tt[i][9]=temp1.semester1
+                                                    temp3.sem_tt[i][j]=temp1.code
+                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                    time+=60
+                                                    break
+                            elif temp1.lab:
+                                time=0
+                                for _ in range(5):
+                                    for i in range(6):
+                                        for j in range(8):
+                                            if time>=temp1.lab:
+                                                break
+                                            
+                                            elif j==1:
+                                                if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]=='*' and time<temp1.lab:
+                                                    #If there is no activity at that time...
+                                                    if temp3.sem_tt[i][j]==temp3.sem_tt[i][j+1]==temp4.classroom_tt[i][j]==temp4.classroom_tt[i][j+1]=='*' and (time+120)<=temp1.lab:
+                                                        if temp2.faculty_tt[i][1]==temp1.semester1:
+                                                            break
+                                                        if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
+                                                        if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
+                                                        while(temp6):
+                                                            if temp6.tt[i][1]==temp6.tt[i][2]=='*':
+                                                                temp2.faculty_tt[i][1]=temp1.semester1+" (8:30-10:30)"+"_"+temp1.code+"_LAB ("+temp6.name+")"
+                                                                temp2.faculty_tt[i][2]="."
+                                                                temp2.test_tt[i][1]=temp1.semester1
+                                                                temp3.sem_tt[i][j]=temp1.code
+                                                                temp3.sem_tt_new[i][j]=temp1.code+temp6.name                                                                                                              
+                                                                temp6.tt[i][1]=temp1.semester1+"_"+temp1.code
+                                                                temp6.tt[i][2]=temp1.semester1+"_"+temp1.code                                                        
+                                                                time+=120
+                                                                break
+                                                            temp6=temp6.next                                           
+                                                    elif temp3.sem_tt[i][j]!="*" and time+120<=temp1.lab:
+                                                        if time>=temp1.lab:break
+                                                        temp5=None
+                                                        tip=0
+                                                        if temp1.branch1=="CSE":temp5=obj_for_linked_list_for_traversing_labs.head_for_CSE
+                                                        if temp1.branch1=="DSAI":temp5=obj_for_linked_list_for_traversing_labs.head_for_DSAI
+                                                        if temp1.branch1=="ECE":temp5=obj_for_linked_list_for_traversing_labs.head_for_ECE
+                                                        temp6=None
+                                                        if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
+                                                        if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms                                                
+                                                        while(temp5):
+                                                            if temp3.sem_tt[i][j]==temp5.code:
+                                                                tip=1
+                                                                break
+                                                            temp5=temp5.next                                                
+                                                        while(temp6):
+                                                            if temp6.tt[i][1]==temp6.tt[i][2]=='*':
+                                                                break
+                                                            temp6=temp6.next
+                                                        if tip==1 and temp5.id!=temp1.id and temp6:
+                                                            temp2.faculty_tt[i][1]=temp1.semester1+" (8:30-10:30)"+"_"+temp1.code+"_LAB ("+temp6.name+")"
+                                                            temp2.faculty_tt[i][2]="."    
+                                                            temp2.test_tt[i][1]=temp1.semester1                                                
+                                                            temp3.sem_tt[i][j]+=" /" +temp1.code                                                    
+                                                            temp3.sem_tt_new[i][j]+=" / "+temp1.code+temp6.name                                                                                                      
+                                                            temp6.tt[i][1]=temp1.semester1+"_"+temp1.code
+                                                            temp6.tt[i][2]=temp1.semester1+"_"+temp1.code                                                
+                                                            time+=120
+                                                            break
+                                            #Newely added starts __________________________________________________________________________________________________________________________________
+                                            elif j==2 and _>=3:
+                                                if temp2.faculty_tt[i][3]==temp2.faculty_tt[i][4]==temp2.faculty_tt[i][5]=='*' and time<temp1.lab:
+                                                    #If there is no activity at that time...
+                                                    if temp3.sem_tt[i][j]==temp3.sem_tt[i][j+1]==temp4.classroom_tt[i][j]==temp4.classroom_tt[i][j+1]=='*' and (time+120)<=temp1.lab:
+                                                        if temp2.faculty_tt[i][1]==temp1.semester1:
+                                                            break
+                                                        if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
+                                                        if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
+                                                        while(temp6):
+                                                            if temp6.tt[i][3]==temp6.tt[i][4]==temp6.tt[i][5]=='*':
+                                                                temp2.faculty_tt[i][3]=temp1.semester1+" (10:45-12:45)"+"_"+temp1.code+"_LAB ("+temp6.name+")"
+                                                                temp2.faculty_tt[i][4]=temp2.faculty_tt[i][5]="."
+                                                                temp2.test_tt[i][3]=temp1.semester1
+                                                                temp3.sem_tt[i][j]=temp1.code
+                                                                temp3.sem_tt_new[i][j]=temp1.code+temp6.name 
+                                                                temp3.sem_tt[i][j+1]=temp1.code
+                                                                temp3.sem_tt_new[i][j+1]=temp1.code+temp6.name                                                                                                              
+                                                                temp6.tt[i][3]=temp6.tt[i][4]=temp6.tt[i][5]=temp1.semester1+"_"+temp1.code                                                       
+                                                                time+=120
+                                                                break
+                                                            temp6=temp6.next                                           
+                                                    elif temp3.sem_tt[i][j]!="*" and time+120<=temp1.lab:
+                                                        if time>=temp1.lab:break
+                                                        temp5=None
+                                                        tip=0
+                                                        if temp1.branch1=="CSE":temp5=obj_for_linked_list_for_traversing_labs.head_for_CSE
+                                                        if temp1.branch1=="DSAI":temp5=obj_for_linked_list_for_traversing_labs.head_for_DSAI
+                                                        if temp1.branch1=="ECE":temp5=obj_for_linked_list_for_traversing_labs.head_for_ECE
+                                                        temp6=None
+                                                        if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
+                                                        if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms                                                
+                                                        while(temp5):
+                                                            if temp3.sem_tt[i][j]==temp5.code:
+                                                                tip=1
+                                                                break
+                                                            temp5=temp5.next                                                
+                                                        while(temp6):
+                                                            if temp6.tt[i][3]==temp6.tt[i][4]==temp6.tt[i][5]=='*':
+                                                                break
+                                                            temp6=temp6.next
+                                                        if tip==1 and temp5.id!=temp1.id and temp6:
+                                                            temp2.faculty_tt[i][3]=temp1.semester1+" (10:45-12:45)"+"_"+temp1.code+"_LAB ("+temp6.name+")"
+                                                            temp2.faculty_tt[i][4]=temp2.faculty_tt[i][5]="."    
+                                                            temp2.test_tt[i][3]=temp1.semester1                                                
+                                                            temp3.sem_tt[i][j]+=" /" +temp1.code                                                    
+                                                            temp3.sem_tt_new[i][j]+=" / "+temp1.code+temp6.name 
+                                                            temp3.sem_tt[i][j+1]+=" /" +temp1.code                                                    
+                                                            temp3.sem_tt_new[i][j+1]+=" / "+temp1.code+temp6.name                                                                                                       
+                                                            temp6.tt[i][3]=temp6.tt[i][4]=temp6.tt[i][5]=temp1.semester1+"_"+temp1.code                                                
+                                                            time+=120
+                                                            break     
+                                #Newely added ends_________________________________________________________________________________________________________________________
+       
+                        if  "CSE_Sem_3_A"==temp1.semester1 or "CSE_Sem_3_B"==temp1.semester1 or "CSE_Sem_4_A"==temp1.semester1 or "CSE_Sem_4_B"==temp1.semester1 or "DSAI_Sem_4"==temp1.semester1:
+                            if temp1.theory:
+                                time=0
+                                for _ in range(5):
+                                    for i in range(6):
+                                        for j in range(6):
+                                            # if _<2:
+                                            if i==1 and j==1 and (temp3.sem_tt[1][4]==temp1.code or temp3.sem_tt[1][5]==temp1.code or temp3.sem_tt[2][1]==temp1.code): break
+                                            if i==2 and j==1 and (temp3.sem_tt[2][4]==temp1.code or temp3.sem_tt[2][5]==temp1.code or temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[3][1]==temp1.code): break
+                                            if i==3 and j==1 and (temp3.sem_tt[3][4]==temp1.code or temp3.sem_tt[3][5]==temp1.code or temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[4][1]==temp1.code): break
+                                            if i==4 and j==1 and (temp3.sem_tt[4][4]==temp1.code or temp3.sem_tt[4][5]==temp1.code or temp3.sem_tt[3][1]==temp1.code or temp3.sem_tt[5][1]==temp1.code): break
+                                            if i==5 and j==1 and (temp3.sem_tt[5][4]==temp1.code or temp3.sem_tt[5][5]==temp1.code or temp3.sem_tt[4][1]==temp1.code ): break
+                                            if i==1 and j==4 and (temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[1][5]==temp1.code or temp3.sem_tt[2][4]==temp1.code): break
+                                            if i==2 and j==4 and (temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[2][5]==temp1.code or temp3.sem_tt[1][4]==temp1.code or temp3.sem_tt[3][4]==temp1.code): break
+                                            if i==3 and j==4 and (temp3.sem_tt[3][1]==temp1.code or temp3.sem_tt[3][5]==temp1.code or temp3.sem_tt[2][4]==temp1.code or temp3.sem_tt[4][4]==temp1.code): break
+                                            if i==4 and j==4 and (temp3.sem_tt[4][1]==temp1.code or temp3.sem_tt[4][5]==temp1.code or temp3.sem_tt[3][4]==temp1.code or temp3.sem_tt[5][4]==temp1.code): break
+                                            if i==5 and j==4 and (temp3.sem_tt[5][1]==temp1.code or temp3.sem_tt[5][5]==temp1.code or temp3.sem_tt[4][4]==temp1.code ): break
+                                            if i==1 and j==5 and (temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[1][4]==temp1.code or temp3.sem_tt[2][5]==temp1.code): break
+                                            if i==2 and j==5 and (temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[2][4]==temp1.code or temp3.sem_tt[1][5]==temp1.code or temp3.sem_tt[3][5]==temp1.code): break
+                                            if i==3 and j==5 and (temp3.sem_tt[3][1]==temp1.code or temp3.sem_tt[3][4]==temp1.code or temp3.sem_tt[2][5]==temp1.code or temp3.sem_tt[4][5]==temp1.code): break
+                                            if i==4 and j==5 and (temp3.sem_tt[4][1]==temp1.code or temp3.sem_tt[4][4]==temp1.code or temp3.sem_tt[3][5]==temp1.code or temp3.sem_tt[5][5]==temp1.code): break
+                                            if i==5 and j==5 and (temp3.sem_tt[5][1]==temp1.code or temp3.sem_tt[5][4]==temp1.code or temp3.sem_tt[4][5]==temp1.code ): break
+                                            if _<2:
+                                                shift=0
+                                                for l in range(8):
+                                                    if temp2.test_tt[i][l]==temp1.semester1:
+                                                        shift=1
+                                                        break
+                                                if shift==1:break
+                                            if _<=1 and j==1 and time<temp1.theory:
+                                                if temp2:
+                                                    if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                        
+                                                        if temp22:
+                                                            if temp22.faculty_tt[i][1]==temp22.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                  
+                                                                if temp222:
+                                                                    if temp222.faculty_tt[i][1]==temp222.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                        temp2.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp2.faculty_tt[i][2]="."
+                                                                        temp2.test_tt[i][1]=temp1.semester1
+                                                                        temp22.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp22.faculty_tt[i][2]="."
+                                                                        temp222.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp222.faculty_tt[i][2]="."
+                                                                        temp3.sem_tt[i][j]=temp1.code
+                                                                        temp3.sem_tt_new[i][j]=temp1.code
+                                                                        temp4.classroom_tt[i][j]=temp1.name
+                                                                        time+=90
+                                                                        break
+                                                                else:
+                                                                    temp2.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp2.faculty_tt[i][2]="."
+                                                                    temp2.test_tt[i][1]=temp1.semester1
+                                                                    temp22.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp22.faculty_tt[i][2]="."
+                                                                    temp3.sem_tt[i][j]=temp1.code
+                                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                                    time+=90
+                                                                    break                                               
+                                                        else:  
+                                                            temp2.faculty_tt[i][1]=temp1.semester1+" (9:00-10:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                            temp2.faculty_tt[i][2]="."
+                                                            temp2.test_tt[i][1]=temp1.semester1
+                                                            temp3.sem_tt[i][j]=temp1.code
+                                                            temp3.sem_tt_new[i][j]=temp1.code
+                                                            temp4.classroom_tt[i][j]=temp1.name
+                                                            time+=90
+                                                            break
+                                            if _>1 and j==4:
+                                                if temp2:
+                                                    if temp2.faculty_tt[i][6]==temp2.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                        
+                                                        if temp22:
+                                                            if temp22.faculty_tt[i][6]==temp22.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                            
+                                                                if temp222:
+                                                                    if temp222.faculty_tt[i][6]==temp222.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                        temp2.faculty_tt[i][6]=temp1.semester1+" (2:00-3:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp2.faculty_tt[i][7]="."
+                                                                        temp2.test_tt[i][6]=temp1.semester1
+                                                                        temp22.faculty_tt[i][6]=temp1.semester1+" (2:00-3:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp22.faculty_tt[i][7]="."
+                                                                        temp222.faculty_tt[i][6]=temp1.semester1+" (2:00-3:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp222.faculty_tt[i][7]="."
+                                                                        temp3.sem_tt[i][j]=temp1.code
+                                                                        temp3.sem_tt_new[i][j]=temp1.code
+                                                                        temp4.classroom_tt[i][j]=temp1.name
+                                                                        time+=90
+                                                                        break
+                                                                else:
+                                                                    temp2.faculty_tt[i][6]=temp1.semester1+" (2:00-3:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp2.faculty_tt[i][7]="."
+                                                                    temp2.test_tt[i][6]=temp1.semester1
+                                                                    temp22.faculty_tt[i][6]=temp1.semester1+" (2:00-3:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp22.faculty_tt[i][7]="."
+                                                                    temp3.sem_tt[i][j]=temp1.code
+                                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                                    time+=90
+                                                                    break
+                                                        else:  
+                                                            temp2.faculty_tt[i][6]=temp1.semester1+" (2:00-3:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                            temp2.faculty_tt[i][7]="."
+                                                            temp2.test_tt[i][6]=temp1.semester1
+                                                            temp3.sem_tt[i][j]=temp1.code
+                                                            temp3.sem_tt_new[i][j]=temp1.code
+                                                            temp4.classroom_tt[i][j]=temp1.name
+                                                            time+=90
+                                                            break
+                                            if _>3 and j==5:
+                                                if temp2:
+                                                    if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                        
+                                                        if temp22:
+                                                            if temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                 
+                                                                if temp222:
+                                                                    if temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                        temp2.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp2.faculty_tt[i][9]="."
+                                                                        temp2.test_tt[i][8]=temp1.semester1
+                                                                        temp22.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp22.faculty_tt[i][9]="."
+                                                                        temp222.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp222.faculty_tt[i][9]="."
+                                                                        temp3.sem_tt[i][j]=temp1.code
+                                                                        temp3.sem_tt_new[i][j]=temp1.code
+                                                                        temp4.classroom_tt[i][j]=temp1.name
+                                                                        time+=90
+                                                                        break
+                                                                else:
+                                                                    temp2.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp2.faculty_tt[i][9]="."
+                                                                    temp2.test_tt[i][8]=temp1.semester1
+                                                                    temp22.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp22.faculty_tt[i][9]="."
+                                                                    temp3.sem_tt[i][j]=temp1.code
+                                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                                    time+=90
+                                                                    break   
+                                                        else:  
+                                                            temp2.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                            temp2.faculty_tt[i][9]="."
+                                                            temp2.test_tt[i][8]=temp1.semester1
+                                                            temp3.sem_tt[i][j]=temp1.code
+                                                            temp3.sem_tt_new[i][j]=temp1.code
+                                                            temp4.classroom_tt[i][j]=temp1.name
+                                                            time+=90
+                                                            break
+                            elif temp1.tutorial:
+                                time=0
+                                for _ in range(4):
+                                    for i in range(6):
+                                        for j in range(6):
+                                            if _<=2:
+                                                shift=0
+                                                for l in range(8):
+                                                    if temp2.test_tt[i][l]==temp1.semester1:
+                                                        shift=1
+                                                        break
+                                                if shift==1:break
+                                            if j==2 and _==1:
+                                                if temp2.faculty_tt[i][3]==temp2.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
+                                                    if j-1!=0 and temp2.faculty_tt[i][2]==temp1.semester1:
+                                                        break
+                                                    temp2.faculty_tt[i][3]=temp1.semester1+" (11:00-12:00)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
+                                                    temp2.faculty_tt[i][4]="."
+                                                    temp2.test_tt[i][3]=temp1.semester1
+                                                    temp3.sem_tt[i][j]=temp1.code
+                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                    time+=60
+                                                    break
+                                            if _==2 and j==3:
+                                                if temp2.faculty_tt[i][4]==temp2.faculty_tt[i][5]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
+                                                    temp2.faculty_tt[i][4]=temp1.semester1+" (12:00-1:00)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
+                                                    temp2.faculty_tt[i][5]="."
+                                                    temp2.test_tt[i][4]=temp1.semester1
+                                                    temp3.sem_tt[i][j]=temp1.code
+                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                    time+=60
+                                                    break
+                                            if _>=3 and j==5:
+                                                if temp2.faculty_tt[i][8]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
+                                                    temp2.faculty_tt[i][8]=temp1.semester1+" (3:30-4:30)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
+                                                    temp2.test_tt[i][8]=temp1.semester1
+                                                    temp3.sem_tt[i][j]=temp1.code
+                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                    time+=60
+                                                    break
+                                            if _==0 and j==1:
+                                                if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
+                                                    temp2.faculty_tt[i][1]=temp1.semester1+" (9:00-10:00)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
+                                                    temp2.faculty_tt[i][2]="."
+                                                    temp2.test_tt[i][1]=temp1.semester1
+                                                    temp3.sem_tt[i][j]=temp1.code
+                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                    time+=60
+                                                    break
+                                            if _>=3 and j==4:
+                                                if temp2.faculty_tt[i][6]==temp2.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
+                                                    temp2.faculty_tt[i][6]=temp1.semester1+" (2:00-3:00)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
+                                                    temp2.faculty_tt[i][7]="."
+                                                    temp2.test_tt[i][6]=temp1.semester1
+                                                    temp3.sem_tt[i][j]=temp1.code
+                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                    time+=60
+                                                    break         
+                            elif temp1.lab:
+                                time=0
+                                for _ in range(5):
+                                    for i in range(6):
+                                        for j in range(8):
+
+                                            if time>=temp1.lab:
+                                                break
+                                            elif j==2:
+                                                if temp2.faculty_tt[i][3]==temp2.faculty_tt[i][4]==temp2.faculty_tt[i][5]=='*' and time<temp1.lab:
+                                                    #If there is no activity at that time...
+                                                    if temp3.sem_tt[i][j]==temp3.sem_tt[i][j+1]==temp4.classroom_tt[i][j]==temp4.classroom_tt[i][j+1]=='*' and (time+120)<=temp1.lab:
+                                                        if temp2.faculty_tt[i][1]==temp1.semester1:
+                                                            break
+                                                        if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
+                                                        if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
+                                                        while(temp6):
+                                                            if temp6.tt[i][3]==temp6.tt[i][4]==temp6.tt[i][5]=='*':
+                                                                temp2.faculty_tt[i][3]=temp1.semester1+" (11:00-1:00)"+"_"+temp1.code+"_LAB ("+temp6.name+")"
+                                                                temp2.faculty_tt[i][4]=temp2.faculty_tt[i][5]="."
+                                                                temp2.test_tt[i][3]=temp1.semester1
+                                                                temp3.sem_tt[i][j]=temp1.code
+                                                                temp3.sem_tt[i][j+1]=temp1.code
+                                                                temp3.sem_tt_new[i][j]=temp1.code+temp6.name
+                                                                temp3.sem_tt_new[i][j+1]=temp1.code+temp6.name
+
+                                                                temp6.tt[i][3]=temp1.semester1+"_"+temp1.code
+                                                                temp6.tt[i][4]=temp1.semester1+"_"+temp1.code
+                                                                temp6.tt[i][5]=temp1.semester1+"_"+temp1.code
+                                                                time+=120
+                                                                break
+                                                            temp6=temp6.next
+                                                    elif temp3.sem_tt[i][j]==temp3.sem_tt[i][j+1] and time+120<=temp1.lab:
+                                                        if time>=temp1.lab:break
+                                                        temp5=None
+                                                        tip=0
+                                                        if temp1.branch1=="CSE":temp5=obj_for_linked_list_for_traversing_labs.head_for_CSE
+                                                        if temp1.branch1=="DSAI":temp5=obj_for_linked_list_for_traversing_labs.head_for_DSAI
+                                                        if temp1.branch1=="ECE":temp5=obj_for_linked_list_for_traversing_labs.head_for_ECE
+                                                        temp6=None
+                                                        if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
+                                                        if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
+                                                        while(temp5):
+                                                            if temp3.sem_tt[i][j]==temp5.code:
+                                                                tip=1
+                                                                break
+                                                            temp5=temp5.next
+                                                        while(temp6):
+                                                            if temp6.tt[i][3]==temp6.tt[i][4]==temp6.tt[i][5]=='*':
+                                                                break
+                                                            temp6=temp6.next
+                                                        if tip==1 and temp5.id!=temp1.id and temp6:
+                                                            temp2.faculty_tt[i][3]=temp1.semester1+" (11:00-1:00)"+"_"+temp1.code+"_LAB ("+temp6.name+")"
+                                                            temp2.faculty_tt[i][4]="."
+                                                            temp2.faculty_tt[i][5]="."
+                                                            temp2.test_tt[i][3]=temp1.semester1
+                                                            temp3.sem_tt[i][j]+=" /" +temp1.code
+                                                            temp3.sem_tt[i][j+1]+=" / "+temp1.code
+                                                            temp3.sem_tt_new[i][j]+=" / "+temp1.code+temp6.name
+                                                            temp3.sem_tt_new[i][j+1]+=" / "+temp1.code+temp6.name
+
+                                                            temp6.tt[i][3]=temp1.semester1+"_"+temp1.code
+                                                            temp6.tt[i][4]=temp1.semester1+"_"+temp1.code
+                                                            temp6.tt[i][5]=temp1.semester1+"_"+temp1.code
+                                                            time+=120
+                                                            break
+                                            if _>3 and j==5:
+                                                if temp2.faculty_tt[i][7]==temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.lab:
+                                                    if temp1.lab_name=='CS_LAB':temp5=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
+                                                    if temp1.lab_name=='EC_LAB':temp5=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
+                                                    while(temp5):
+                                                        if temp5.tt[i][7]==temp5.tt[i][8]==temp5.tt[i][9]=='*' and time<temp1.lab:
+                                                            temp5.tt[i][7]=temp5.tt[i][8]=temp5.tt[i][9]=temp1.semester1+"_"+temp1.code
+                                                            temp2.faculty_tt[i][7]=temp1.semester1+" (3:15-5:15)"+"_"+temp1.code+"_LAB ("+temp5.name+")"
+                                                            temp2.faculty_tt[i][8]=temp2.faculty_tt[i][9]="."
+                                                            temp3.sem_tt[i][j]=temp1.code
+                                                            temp3.sem_tt_new[i][j]=temp1.code+temp5.name
+
+                                                            time+=120
+                                                            break
+                                                        temp5=temp5.next
+                        # if "CSE_Sem_5_A"==temp1.semester1 or "CSE_Sem_5_B"==temp1.semester1 or "CSE_Sem_6_A"==temp1.semester1 or "CSE_Sem_6_B"==temp1.semester1 or "DSAI_Sem_5"==temp1.semester1 or "DSAI_Sem_6"==temp1.semester1 or "ECE_Sem_5"==temp1.semester1 or "ECE_Sem_6"==temp1.semester1 :
+                        if "CSE_Sem_6_A"==temp1.semester1 or "CSE_Sem_6_B"==temp1.semester1 or "DSAI_Sem_5"==temp1.semester1 or "DSAI_Sem_6"==temp1.semester1 or "ECE_Sem_5"==temp1.semester1 or "ECE_Sem_6"==temp1.semester1 :
+                            if temp1.theory:
+                                time=0
+                                for _ in range(5):
+                                    for i in range(5,-1,-1):
+                                        for j in range(8):
+                                            if _<3:
+                                                if i==1 and j==1 and (temp3.sem_tt[1][2]==temp1.code or temp3.sem_tt[1][3]==temp1.code or temp3.sem_tt[2][1]==temp1.code): break
+                                                if i==2 and j==1 and (temp3.sem_tt[2][2]==temp1.code or temp3.sem_tt[2][3]==temp1.code or temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[3][1]==temp1.code): break
+                                                if i==3 and j==1 and (temp3.sem_tt[3][2]==temp1.code or temp3.sem_tt[3][3]==temp1.code or temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[4][1]==temp1.code): break
+                                                if i==4 and j==1 and (temp3.sem_tt[4][2]==temp1.code or temp3.sem_tt[4][3]==temp1.code or temp3.sem_tt[3][1]==temp1.code or temp3.sem_tt[5][1]==temp1.code): break
+                                                if i==5 and j==1 and (temp3.sem_tt[5][2]==temp1.code or temp3.sem_tt[5][3]==temp1.code or temp3.sem_tt[4][1]==temp1.code ): break
+                                                if i==1 and j==2 and (temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[1][3]==temp1.code or temp3.sem_tt[2][2]==temp1.code): break
+                                                if i==2 and j==2 and (temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[2][3]==temp1.code or temp3.sem_tt[1][2]==temp1.code or temp3.sem_tt[3][2]==temp1.code): break
+                                                if i==3 and j==2 and (temp3.sem_tt[3][1]==temp1.code or temp3.sem_tt[3][3]==temp1.code or temp3.sem_tt[2][2]==temp1.code or temp3.sem_tt[4][2]==temp1.code): break
+                                                if i==4 and j==2 and (temp3.sem_tt[4][1]==temp1.code or temp3.sem_tt[4][3]==temp1.code or temp3.sem_tt[3][2]==temp1.code or temp3.sem_tt[5][2]==temp1.code): break
+                                                if i==5 and j==2 and (temp3.sem_tt[5][1]==temp1.code or temp3.sem_tt[5][3]==temp1.code or temp3.sem_tt[4][2]==temp1.code ): break
+                                                if i==1 and j==3 and (temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[1][2]==temp1.code or temp3.sem_tt[2][3]==temp1.code): break
+                                                if i==2 and j==3 and (temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[2][2]==temp1.code or temp3.sem_tt[1][3]==temp1.code or temp3.sem_tt[3][3]==temp1.code): break
+                                                if i==3 and j==3 and (temp3.sem_tt[3][1]==temp1.code or temp3.sem_tt[3][2]==temp1.code or temp3.sem_tt[2][3]==temp1.code or temp3.sem_tt[4][3]==temp1.code): break
+                                                if i==4 and j==3 and (temp3.sem_tt[4][1]==temp1.code or temp3.sem_tt[4][2]==temp1.code or temp3.sem_tt[3][3]==temp1.code or temp3.sem_tt[5][3]==temp1.code): break
+                                                if i==5 and j==3 and (temp3.sem_tt[5][1]==temp1.code or temp3.sem_tt[5][2]==temp1.code or temp3.sem_tt[4][3]==temp1.code ): break
+                                            if _<=2:
+                                                shift=0
+                                                for l in range(8):
+                                                    if temp2.test_tt[i][l]==temp1.semester1:
+                                                        shift=1
+                                                        break
+                                                if shift==1:break
+                                            if _>=0 and j==1 and time<temp1.theory:
+                                                if temp2:
+                                                    if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                        if temp22:
+                                                            if temp22.faculty_tt[i][1]==temp22.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                if temp222:
+                                                                    if temp222.faculty_tt[i][1]==temp222.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                        temp2.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp2.faculty_tt[i][2]="."
+                                                                        temp2.test_tt[i][1]=temp1.semester1
+                                                                        temp22.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp22.faculty_tt[i][2]="."
+                                                                        temp222.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp222.faculty_tt[i][2]="."
+                                                                        temp3.sem_tt[i][j]=temp1.code
+                                                                        temp3.sem_tt_new[i][j]=temp1.code
+                                                                        temp4.classroom_tt[i][j]=temp1.name
+                                                                        time+=90
+                                                                        break
+                                                                else:
+                                                                    temp2.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp2.faculty_tt[i][2]="."
+                                                                    temp2.test_tt[i][1]=temp1.semester1
+                                                                    temp22.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp22.faculty_tt[i][2]="."
+                                                                    temp3.sem_tt[i][j]=temp1.code
+                                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                                    time+=90
+                                                                    break
+                                                        else:  
+                                                            temp2.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                            temp2.faculty_tt[i][2]="."
+                                                            temp2.test_tt[i][1]=temp1.semester1
+                                                            temp3.sem_tt[i][j]=temp1.code
+                                                            temp3.sem_tt_new[i][j]=temp1.code
+                                                            temp4.classroom_tt[i][j]=temp1.name
+                                                            time+=90
+                                                            break
+                                            if _>=2 and j==2:
+                                                if temp2:
+                                                    if temp2.faculty_tt[i][3]==temp2.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                        if temp22:
+                                                            if temp22.faculty_tt[i][3]==temp22.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                if temp222:
+                                                                    if temp222.faculty_tt[i][3]==temp222.faculty_tt[i][4]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                        temp2.faculty_tt[i][3]=temp1.semester1+" (10:30-12:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp2.faculty_tt[i][4]="."
+                                                                        temp2.test_tt[i][3]=temp1.semester1
+                                                                        temp22.faculty_tt[i][3]=temp1.semester1+" (10:30-12:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp22.faculty_tt[i][4]="."
+                                                                        temp222.faculty_tt[i][3]=temp1.semester1+" (10:30-12:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp222.faculty_tt[i][4]="."
+                                                                        temp3.sem_tt[i][j]=temp1.code
+                                                                        temp3.sem_tt_new[i][j]=temp1.code
+                                                                        temp4.classroom_tt[i][j]=temp1.name
+                                                                        time+=90
+                                                                        break
+                                                                else:
+                                                                    temp2.faculty_tt[i][3]=temp1.semester1+" (10:30-12:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp2.faculty_tt[i][4]="."
+                                                                    temp2.test_tt[i][3]=temp1.semester1
+                                                                    temp22.faculty_tt[i][3]=temp1.semester1+" (10:30-12:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp22.faculty_tt[i][4]="."
+                                                                    temp3.sem_tt[i][j]=temp1.code
+                                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                                    time+=90
+                                                                    break
+                                                        else:  
+                                                            temp2.faculty_tt[i][3]=temp1.semester1+" (10:30-12:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                            temp2.faculty_tt[i][4]="."
+                                                            temp2.test_tt[i][3]=temp1.semester1
+                                                            temp3.sem_tt[i][j]=temp1.code
+                                                            temp3.sem_tt_new[i][j]=temp1.code
+                                                            temp4.classroom_tt[i][j]=temp1.name
+                                                            time+=90
+                                                            break
+                                            if _>=3 and j==3:
+                                                if temp2:
+                                                    if temp2.faculty_tt[i][4]==temp2.faculty_tt[i][5]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                        if temp22:
+                                                            if temp22.faculty_tt[i][4]==temp22.faculty_tt[i][5]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                if temp222:
+                                                                    if temp222.faculty_tt[i][4]==temp222.faculty_tt[i][5]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                        temp2.faculty_tt[i][4]=temp1.semester1+" (12:00-1:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp2.faculty_tt[i][5]="."
+                                                                        temp2.test_tt[i][4]=temp1.semester1
+                                                                        temp22.faculty_tt[i][4]=temp1.semester1+" (12:00-1:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp22.faculty_tt[i][5]="."
+                                                                        temp222.faculty_tt[i][4]=temp1.semester1+" (12:00-1:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp222.faculty_tt[i][5]="."
+                                                                        temp3.sem_tt[i][j]=temp1.code
+                                                                        temp3.sem_tt_new[i][j]=temp1.code
+                                                                        temp4.classroom_tt[i][j]=temp1.name
+                                                                        time+=90
+                                                                        break
+                                                                else:
+                                                                    temp2.faculty_tt[i][4]=temp1.semester1+" (12:00-1:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp2.faculty_tt[i][5]="."
+                                                                    temp2.test_tt[i][4]=temp1.semester1
+                                                                    temp22.faculty_tt[i][4]=temp1.semester1+" (12:00-1:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp22.faculty_tt[i][5]="."
+                                                                    temp3.sem_tt[i][j]=temp1.code
+                                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                                    time+=90
+                                                                    break
+                                                        else:  
+                                                            temp2.faculty_tt[i][4]=temp1.semester1+" (12:00-1:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                            temp2.faculty_tt[i][5]="."
+                                                            temp2.test_tt[i][4]=temp1.semester1
+                                                            temp3.sem_tt[i][j]=temp1.code
+                                                            temp3.sem_tt_new[i][j]=temp1.code
+                                                            temp4.classroom_tt[i][j]=temp1.name
+                                                            time+=90
+                                                            break
+                                            if _>3 and j==4:
+                                                if temp2:
+                                                    if temp2.faculty_tt[i][7]==temp2.faculty_tt[i][8]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                        if temp22:
+                                                            if temp22.faculty_tt[i][7]==temp22.faculty_tt[i][8]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                if temp222:
+                                                                    if temp222.faculty_tt[i][7]==temp222.faculty_tt[i][8]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                        temp2.faculty_tt[i][7]=temp1.semester1+" (2:30-4:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp2.faculty_tt[i][8]="."
+                                                                        temp2.test_tt[i][7]=temp1.semester1
+                                                                        temp22.faculty_tt[i][7]=temp1.semester1+" (2:30-4:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp22.faculty_tt[i][8]="."
+                                                                        temp222.faculty_tt[i][7]=temp1.semester1+" (2:30-4:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp222.faculty_tt[i][8]="."
+                                                                        temp3.sem_tt[i][j]=temp1.code
+                                                                        temp3.sem_tt_new[i][j]=temp1.code+" (2:30-4:00)"
+                                                                        temp4.classroom_tt[i][j]=temp1.name
+                                                                        time+=90
+                                                                        break
+                                                                else:
+                                                                    temp2.faculty_tt[i][7]=temp1.semester1+" (2:30-4:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp2.faculty_tt[i][8]="."
+                                                                    temp2.test_tt[i][7]=temp1.semester1
+                                                                    temp22.faculty_tt[i][7]=temp1.semester1+" (2:30-4:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp22.faculty_tt[i][8]="."
+                                                                    temp3.sem_tt[i][j]=temp1.code
+                                                                    temp3.sem_tt_new[i][j]=temp1.code+" (2:30-4:00)"
+                                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                                    time+=90
+                                                                    break
+                                                        else:  
                                                             temp2.faculty_tt[i][7]=temp1.semester1+" (2:30-4:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
                                                             temp2.faculty_tt[i][8]="."
                                                             temp2.test_tt[i][7]=temp1.semester1
-                                                            temp22.faculty_tt[i][7]=temp1.semester1+" (2:30-4:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp22.faculty_tt[i][8]="."
                                                             temp3.sem_tt[i][j]=temp1.code
                                                             temp3.sem_tt_new[i][j]=temp1.code+" (2:30-4:00)"
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
                                                             break
-                                                else:  
-                                                    temp2.faculty_tt[i][7]=temp1.semester1+" (2:30-4:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                    temp2.faculty_tt[i][8]="."
-                                                    temp2.test_tt[i][7]=temp1.semester1
-                                                    temp3.sem_tt[i][j]=temp1.code
-                                                    temp3.sem_tt_new[i][j]=temp1.code+" (2:30-4:00)"
-                                                    temp4.classroom_tt[i][j]=temp1.name
-                                                    time+=90
-                                                    break
-                                    if _<4 and j==5:
-                                        if temp2:
-                                            if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                if temp22:
-                                                    if temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                        if temp222:
-                                                            if temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                                temp2.faculty_tt[i][8]=temp1.semester1+" (4:00-5:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp2.faculty_tt[i][9]="."
-                                                                temp2.test_tt[i][8]=temp1.semester1
-                                                                temp22.faculty_tt[i][8]=temp1.semester1+" (4:00-5:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp22.faculty_tt[i][9]="."
-                                                                temp222.faculty_tt[i][8]=temp1.semester1+" (4:00-5:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp222.faculty_tt[i][9]="."
-                                                                temp3.sem_tt[i][j]=temp1.code
-                                                                temp3.sem_tt_new[i][j]=temp1.code+" (4:00-5:30)"
-                                                                temp4.classroom_tt[i][j]=temp1.name
-                                                                time+=90
-                                                                break
-                                                        else:
+                                            if _>=4 and j==5:
+                                                if temp2:
+                                                    if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                        if temp22:
+                                                            if temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                if temp222:
+                                                                    if temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                        temp2.faculty_tt[i][8]=temp1.semester1+" (4:00-5:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp2.faculty_tt[i][9]="."
+                                                                        temp2.test_tt[i][8]=temp1.semester1
+                                                                        temp22.faculty_tt[i][8]=temp1.semester1+" (4:00-5:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp22.faculty_tt[i][9]="."
+                                                                        temp222.faculty_tt[i][8]=temp1.semester1+" (4:00-5:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp222.faculty_tt[i][9]="."
+                                                                        temp3.sem_tt[i][j]=temp1.code
+                                                                        temp3.sem_tt_new[i][j]=temp1.code+" (4:00-5:30)"
+                                                                        temp4.classroom_tt[i][j]=temp1.name
+                                                                        time+=90
+                                                                        break
+                                                                else:
+                                                                    temp2.faculty_tt[i][8]=temp1.semester1+" (4:00-5:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp2.faculty_tt[i][9]="."
+                                                                    temp2.test_tt[i][8]=temp1.semester1
+                                                                    temp22.faculty_tt[i][8]=temp1.semester1+" (4:00-5:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp22.faculty_tt[i][9]="."
+                                                                    temp3.sem_tt[i][j]=temp1.code
+                                                                    temp3.sem_tt_new[i][j]=temp1.code+" (4:00-5:30)"
+                                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                                    time+=90
+                                                                    break
+                                                        else:  
                                                             temp2.faculty_tt[i][8]=temp1.semester1+" (4:00-5:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
                                                             temp2.faculty_tt[i][9]="."
                                                             temp2.test_tt[i][8]=temp1.semester1
-                                                            temp22.faculty_tt[i][8]=temp1.semester1+" (4:00-5:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp22.faculty_tt[i][9]="."
                                                             temp3.sem_tt[i][j]=temp1.code
                                                             temp3.sem_tt_new[i][j]=temp1.code+" (4:00-5:30)"
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
                                                             break
-                                                else:  
-                                                    temp2.faculty_tt[i][8]=temp1.semester1+" (4:00-5:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                    temp2.faculty_tt[i][9]="."
-                                                    temp2.test_tt[i][8]=temp1.semester1
-                                                    temp3.sem_tt[i][j]=temp1.code
-                                                    temp3.sem_tt_new[i][j]=temp1.code+" (4:00-5:30)"
-                                                    temp4.classroom_tt[i][j]=temp1.name
-                                                    time+=90
-                                                    break
-                    elif temp1.tutorial:
-                        time=0
-                        for _ in range(4):
-                            for i in range(6):
-                                for j in range(8):
-                                    if _<=2:
-                                        shift=0
-                                        for l in range(8):
-                                            if temp2.test_tt[i][l]==temp1.semester1:
-                                                shift=1
-                                                break
-                                        if shift==1:break
-                                    if j==3 and time<temp1.tutorial:
-                                        if temp2.faculty_tt[i][4]==temp2.faculty_tt[i][5]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*':
-                                            if j-1!=0 and temp2.faculty_tt[i][2]==temp1.semester1:
-                                                break
-                                            temp2.faculty_tt[i][4]=temp1.semester1+" (12:00-1:00)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
-                                            temp2.faculty_tt[i][5]="."
-                                            temp2.test_tt[i][4]=temp1.semester1
-                                            temp3.sem_tt[i][j]=temp1.code
-                                            temp3.sem_tt_new[i][j]=temp1.code+" (12:00-1:00)"
-                                            temp4.classroom_tt[i][j]=temp1.name
-                                            time+=60
-                                            break
-                                    if j==3 and time<temp1.tutorial:
-                                        if temp2.faculty_tt[i][5]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*':
-                                            if j-1!=0 and temp2.faculty_tt[i][2]==temp1.semester1:break
-                                            temp2.faculty_tt[i][5]=temp1.semester1+" (12:30-1:30)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
-                                            temp2.test_tt[i][5]=temp1.semester1
-                                            temp3.sem_tt[i][j]=temp1.code
-                                            temp3.sem_tt_new[i][j]=temp1.code+" (12:30-1:30)"
-                                            temp4.classroom_tt[i][j]=temp1.name
-                                            time+=60
-                                            break
-                                    if _<4 and j==4:
-                                        if temp2.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
-                                            temp2.faculty_tt[i][7]=temp1.semester1+" (2:30-3:30)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
-                                            temp2.test_tt[i][7]=temp1.semester1
-                                            temp3.sem_tt[i][j]=temp1.code
-                                            temp3.sem_tt_new[i][j]=temp1.code
-                                            temp4.classroom_tt[i][j]=temp1.name
-                                            time+=60
-                                            break
-                                    if _>=2 and j==5:
-                                        if temp2.faculty_tt[i][8]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
-                                            temp2.faculty_tt[i][8]=temp1.semester1+" (3:30-4:30)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
-                                            temp2.test_tt[i][8]=temp1.semester1
-                                            temp3.sem_tt[i][j]=temp1.code
-                                            temp3.sem_tt_new[i][j]=temp1.code
-                                            temp4.classroom_tt[i][j]=temp1.name
-                                            time+=60
-                                            break
-                    elif temp1.lab:
-                        time=0
-                        for _ in range(4):
-                            for i in range(6):
-                                for j in range(8):
-                                    
-                                    if time>=temp1.lab:break
-                                    elif j==4:
-                                        if temp2.faculty_tt[i][7]==temp2.faculty_tt[i][8]=='*' and time<temp1.lab:
-                                            #If there is no activity at that time...
-                                            if temp3.sem_tt[i][j]==temp3.sem_tt[i][j+1]==temp4.classroom_tt[i][j]==temp4.classroom_tt[i][j+1]=='*' and (time+120)<=temp1.lab:
-                                                if temp2.faculty_tt[i][1]==temp1.semester1:break
-                                                if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
-                                                if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
-                                                while(temp6):
-                                                    if temp6.tt[i][7]==temp6.tt[i][8]=='*':
-                                                        temp2.faculty_tt[i][7]=temp1.semester1+" (2:30-4:30)"+"_"+temp1.code+"_LAB ("+temp6.name+")"
-                                                        temp2.faculty_tt[i][8]="."
-                                                        temp2.test_tt[i][7]=temp1.semester1
-                                                        temp3.sem_tt[i][j]=temp1.code
-                                                        temp3.sem_tt[i][j+1]=temp1.code
-                                                        temp3.sem_tt_new[i][j]=temp1.code+temp6.name
-                                                        temp3.sem_tt_new[i][j+1]=temp1.code+temp6.name
-                                                        
-                                                        temp6.tt[i][7]=temp1.semester1+"_"+temp1.code
-                                                        temp6.tt[i][8]=temp1.semester1+"_"+temp1.code
-                                                        time+=120
+                            elif temp1.tutorial:
+                                time=0
+                                for _ in range(4):
+                                    for i in range(6):
+                                        for j in range(8):
+                                            if _<=2:
+                                                shift=0
+                                                for l in range(8):
+                                                    if temp2.test_tt[i][l]==temp1.semester1:
+                                                        shift=1
                                                         break
-                                                    temp6=temp6.next
-                                            elif temp3.sem_tt[i][j]==temp3.sem_tt[i][j+1] and time+120<=temp1.lab:
-                                                if time>=temp1.lab:break
-                                                temp5=None
-                                                tip=0
-                                                if temp1.branch1=="CSE":temp5=obj_for_linked_list_for_traversing_labs.head_for_CSE
-                                                if temp1.branch1=="DSAI":temp5=obj_for_linked_list_for_traversing_labs.head_for_DSAI
-                                                if temp1.branch1=="ECE":temp5=obj_for_linked_list_for_traversing_labs.head_for_ECE
-                                                temp6=None
-                                                if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
-                                                if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
-                                                while(temp5):
-                                                    if temp3.sem_tt[i][j]==temp5.code:
-                                                        tip=1
+                                                if shift==1:break
+                                            if j==3 and _<2:
+                                                if temp2.faculty_tt[i][4]==temp2.faculty_tt[i][5]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
+                                                    if j-1!=0 and temp2.faculty_tt[i][2]==temp1.semester1:
                                                         break
-                                                    temp5=temp5.next
-                                                while(temp6):
-                                                    if temp6.tt[i][7]==temp6.tt[i][8]=='*':break
-                                                    temp6=temp6.next
-                                                if tip==1 and temp5.id!=temp1.id and temp6:
-                                                    temp2.faculty_tt[i][7]=temp1.semester1+" (2:30-4:30)"+"_"+temp1.code+"_LAB ("+temp6.name+")"
-                                                    temp2.faculty_tt[i][8]="."
-                                                    temp2.test_tt[i][7]=temp1.semester1
-                                                    temp3.sem_tt[i][j]+=" /" +temp1.code
-                                                    temp3.sem_tt[i][j+1]+=" / "+temp1.code
-                                                    temp3.sem_tt_new[i][j]+=" / "+temp1.code+temp6.name
-                                                    temp3.sem_tt_new[i][j+1]+=" / "+temp1.code+temp6.name
-                                                    
-                                                    temp6.tt[i][7]=temp1.semester1+"_"+temp1.code
-                                                    temp6.tt[i][8]=temp1.semester1+"_"+temp1.code
-                                                    time+=120
-                                                    break
-                if "CSE_Sem_7"==temp1.semester1 or "ECE_Sem_7"==temp1.semester1 or "DSAI_Sem_7"==temp1.semester1 :
-                    if temp1.theory:
-                        time=0
-                        for _ in range(4):
-                            for i in range(6):
-                                for j in range(8):
-                                    if _<2:
-                                        if i==1 and j==1 and (temp3.sem_tt[1][2]==temp1.code or temp3.sem_tt[1][3]==temp1.code or temp3.sem_tt[1][6]==temp1.code or temp3.sem_tt[2][1]==temp1.code): break
-                                        if i==2 and j==1 and (temp3.sem_tt[2][2]==temp1.code or temp3.sem_tt[2][3]==temp1.code or temp3.sem_tt[2][6]==temp1.code or temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[3][1]==temp1.code): break
-                                        if i==3 and j==1 and (temp3.sem_tt[3][2]==temp1.code or temp3.sem_tt[3][3]==temp1.code or temp3.sem_tt[3][6]==temp1.code or temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[4][1]==temp1.code): break
-                                        if i==4 and j==1 and (temp3.sem_tt[4][2]==temp1.code or temp3.sem_tt[4][3]==temp1.code or temp3.sem_tt[4][6]==temp1.code or temp3.sem_tt[3][1]==temp1.code or temp3.sem_tt[5][1]==temp1.code): break
-                                        if i==5 and j==1 and (temp3.sem_tt[5][2]==temp1.code or temp3.sem_tt[5][3]==temp1.code or temp3.sem_tt[5][6]==temp1.code or temp3.sem_tt[4][1]==temp1.code ): break
-                                        if i==1 and j==2 and (temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[1][3]==temp1.code or temp3.sem_tt[1][6]==temp1.code or temp3.sem_tt[2][2]==temp1.code ): break
-                                        if i==2 and j==2 and (temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[2][3]==temp1.code or temp3.sem_tt[2][6]==temp1.code or temp3.sem_tt[1][2]==temp1.code or temp3.sem_tt[3][2]==temp1.code ): break
-                                        if i==3 and j==2 and (temp3.sem_tt[3][1]==temp1.code or temp3.sem_tt[3][3]==temp1.code or temp3.sem_tt[3][6]==temp1.code or temp3.sem_tt[2][2]==temp1.code or temp3.sem_tt[4][2]==temp1.code ): break
-                                        if i==4 and j==2 and (temp3.sem_tt[4][1]==temp1.code or temp3.sem_tt[4][3]==temp1.code or temp3.sem_tt[4][6]==temp1.code or temp3.sem_tt[3][2]==temp1.code or temp3.sem_tt[5][2]==temp1.code ): break
-                                        if i==5 and j==2 and (temp3.sem_tt[5][1]==temp1.code or temp3.sem_tt[5][3]==temp1.code or temp3.sem_tt[5][6]==temp1.code or temp3.sem_tt[4][2]==temp1.code ): break
-                                        if i==1 and j==3 and (temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[1][2]==temp1.code or temp3.sem_tt[1][6]==temp1.code or temp3.sem_tt[2][3]==temp1.code ): break
-                                        if i==2 and j==3 and (temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[2][2]==temp1.code or temp3.sem_tt[2][6]==temp1.code or temp3.sem_tt[1][3]==temp1.code or temp3.sem_tt[3][3]==temp1.code ): break
-                                        if i==3 and j==3 and (temp3.sem_tt[3][1]==temp1.code or temp3.sem_tt[3][2]==temp1.code or temp3.sem_tt[3][6]==temp1.code or temp3.sem_tt[2][3]==temp1.code or temp3.sem_tt[4][3]==temp1.code ): break
-                                        if i==4 and j==3 and (temp3.sem_tt[4][1]==temp1.code or temp3.sem_tt[4][2]==temp1.code or temp3.sem_tt[4][6]==temp1.code or temp3.sem_tt[3][3]==temp1.code or temp3.sem_tt[5][3]==temp1.code ): break
-                                        if i==5 and j==3 and (temp3.sem_tt[5][1]==temp1.code or temp3.sem_tt[5][2]==temp1.code or temp3.sem_tt[5][6]==temp1.code or temp3.sem_tt[4][3]==temp1.code ): break
-                                        if i==1 and j==6 and (temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[1][2]==temp1.code or temp3.sem_tt[1][3]==temp1.code or temp3.sem_tt[2][6]==temp1.code ): break
-                                        if i==2 and j==6 and (temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[2][2]==temp1.code or temp3.sem_tt[2][3]==temp1.code or temp3.sem_tt[1][6]==temp1.code or temp3.sem_tt[3][6]==temp1.code ): break
-                                        if i==3 and j==6 and (temp3.sem_tt[3][1]==temp1.code or temp3.sem_tt[3][2]==temp1.code or temp3.sem_tt[3][3]==temp1.code or temp3.sem_tt[2][6]==temp1.code or temp3.sem_tt[4][6]==temp1.code ): break
-                                        if i==4 and j==6 and (temp3.sem_tt[4][1]==temp1.code or temp3.sem_tt[4][2]==temp1.code or temp3.sem_tt[4][3]==temp1.code or temp3.sem_tt[3][6]==temp1.code or temp3.sem_tt[5][6]==temp1.code ): break
-                                        if i==5 and j==6 and (temp3.sem_tt[5][1]==temp1.code or temp3.sem_tt[5][2]==temp1.code or temp3.sem_tt[5][3]==temp1.code or temp3.sem_tt[4][6]==temp1.code ): break
-                                    if _<=2:
-                                        shift=0
-                                        for l in range(8):
-                                            if temp2.test_tt[i][l]==temp1.semester1:
-                                                shift=1
-                                                break
-                                        if shift==1:break
-                                    if _<4 and j==1 and time<temp1.theory:
-                                        if temp2:
-                                            if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                if temp22:
-                                                    if temp22.faculty_tt[i][1]==temp22.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                        if temp222:
-                                                            if temp222.faculty_tt[i][1]==temp222.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                                temp2.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp2.faculty_tt[i][2]="."
-                                                                temp2.test_tt[i][1]=temp1.semester1
-                                                                temp22.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp22.faculty_tt[i][2]="."
-                                                                temp222.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp222.faculty_tt[i][2]="."
-                                                                temp3.sem_tt[i][j]=temp1.code
-                                                                temp3.sem_tt_new[i][j]=temp1.code
-                                                                temp4.classroom_tt[i][j]=temp1.name
-                                                                time+=90
-                                                                break
-                                                        else:
-                                                            temp2.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp2.faculty_tt[i][2]="."
-                                                            temp2.test_tt[i][1]=temp1.semester1
-                                                            temp22.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp22.faculty_tt[i][2]="."
-                                                            temp3.sem_tt[i][j]=temp1.code
-                                                            temp3.sem_tt_new[i][j]=temp1.code
-                                                            temp4.classroom_tt[i][j]=temp1.name
-                                                            time+=90
-                                                            break
-                                                else:  
-                                                    temp2.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                    temp2.faculty_tt[i][2]="."
-                                                    temp2.test_tt[i][1]=temp1.semester1
-                                                    temp3.sem_tt[i][j]=temp1.code
-                                                    temp3.sem_tt_new[i][j]=temp1.code
-                                                    temp4.classroom_tt[i][j]=temp1.name
-                                                    time+=90
-                                                    break
-                                    if _<4 and j==2:
-                                        if temp2:
-                                            if temp2.faculty_tt[i][2]==temp2.faculty_tt[i][3]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                        
-                                                if temp22:
-                                                    if temp22.faculty_tt[i][2]==temp22.faculty_tt[i][3]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                  
-                                                        if temp222:
-                                                            if temp222.faculty_tt[i][2]==temp222.faculty_tt[i][3]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                                temp2.faculty_tt[i][2]=temp1.semester1+" (10:00-11:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp2.faculty_tt[i][3]="."
-                                                                temp2.test_tt[i][2]=temp1.semester1
-                                                                temp22.faculty_tt[i][2]=temp1.semester1+" (10:00-11:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp22.faculty_tt[i][3]="."
-                                                                temp222.faculty_tt[i][2]=temp1.semester1+" (10:00-11:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp222.faculty_tt[i][3]="."
-                                                                temp3.sem_tt[i][j]=temp1.code
-                                                                temp3.sem_tt_new[i][j]=temp1.code
-                                                                temp4.classroom_tt[i][j]=temp1.name
-                                                                time+=90
-                                                                break
-                                                        else:
-                                                            temp2.faculty_tt[i][2]=temp1.semester1+" (10:00-11:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp2.faculty_tt[i][3]="."
-                                                            temp2.test_tt[i][2]=temp1.semester1
-                                                            temp22.faculty_tt[i][2]=temp1.semester1+" (10:00-11:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp22.faculty_tt[i][3]="."
-                                                            temp3.sem_tt[i][j]=temp1.code
-                                                            temp3.sem_tt_new[i][j]=temp1.code
-                                                            temp4.classroom_tt[i][j]=temp1.name
-                                                            time+=90
-                                                            break
-                                                else:  
-                                                    temp2.faculty_tt[i][2]=temp1.semester1+" (10:00-11:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                    temp2.faculty_tt[i][3]="."
-                                                    temp2.test_tt[i][2]=temp1.semester1
-                                                    temp3.sem_tt[i][j]=temp1.code
-                                                    temp3.sem_tt_new[i][j]=temp1.code
-                                                    temp4.classroom_tt[i][j]=temp1.name
-                                                    time+=90
-                                                    break
-                                    if _<4 and j==3:
-                                        if temp2:
-                                            if temp2.faculty_tt[i][4]==temp2.faculty_tt[i][5]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                if temp22:
-                                                    if temp22.faculty_tt[i][4]==temp22.faculty_tt[i][5]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                        if temp222:
-                                                            if temp222.faculty_tt[i][4]==temp222.faculty_tt[i][5]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                                temp2.faculty_tt[i][4]=temp1.semester1+" (11:30-1:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp2.faculty_tt[i][5]="."
-                                                                temp2.test_tt[i][4]=temp1.semester1
-                                                                temp22.faculty_tt[i][4]=temp1.semester1+" (11:30-1:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp22.faculty_tt[i][5]="."
-                                                                temp222.faculty_tt[i][4]=temp1.semester1+" (11:30-1:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp222.faculty_tt[i][5]="."
-                                                                temp3.sem_tt[i][j]=temp1.code
-                                                                temp3.sem_tt_new[i][j]=temp1.code
-                                                                temp4.classroom_tt[i][j]=temp1.name
-                                                                time+=90
-                                                                break
-                                                        else:
-                                                            temp2.faculty_tt[i][4]=temp1.semester1+" (11:30-1:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp2.faculty_tt[i][5]="."
-                                                            temp2.test_tt[i][4]=temp1.semester1
-                                                            temp22.faculty_tt[i][4]=temp1.semester1+" (11:30-1:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp22.faculty_tt[i][5]="."
-                                                            temp3.sem_tt[i][j]=temp1.code
-                                                            temp3.sem_tt_new[i][j]=temp1.code
-                                                            temp4.classroom_tt[i][j]=temp1.name
-                                                            time+=90
-                                                            break
-                                                else:  
-                                                    temp2.faculty_tt[i][4]=temp1.semester1+" (11:30-1:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                    temp2.faculty_tt[i][4]=temp1.semester1+" (12:00-1:00)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
                                                     temp2.faculty_tt[i][5]="."
                                                     temp2.test_tt[i][4]=temp1.semester1
                                                     temp3.sem_tt[i][j]=temp1.code
+                                                    temp3.sem_tt_new[i][j]=temp1.code+" (12:00-1:00)"
+                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                    time+=60
+                                                    break
+                                            if j==3 and _<3:
+                                                if temp2.faculty_tt[i][5]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
+                                                    if j-1!=0 and temp2.faculty_tt[i][2]==temp1.semester1:break
+                                                    temp2.faculty_tt[i][5]=temp1.semester1+" (12:30-1:30)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
+                                                    temp2.test_tt[i][5]=temp1.semester1
+                                                    temp3.sem_tt[i][j]=temp1.code
+                                                    temp3.sem_tt_new[i][j]=temp1.code+" (12:30-1:30)"
+                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                    time+=60
+                                                    break
+                                            if _>2 and j==4:
+                                                if temp2.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
+                                                    temp2.faculty_tt[i][7]=temp1.semester1+" (2:30-3:30)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
+                                                    temp2.test_tt[i][7]=temp1.semester1
+                                                    temp3.sem_tt[i][j]=temp1.code
                                                     temp3.sem_tt_new[i][j]=temp1.code
                                                     temp4.classroom_tt[i][j]=temp1.name
-                                                    time+=90
-                                                    break  
-                                    if _<4 and j==6:
-                                        if temp2:
-                                            if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                if temp22:
-                                                    if temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                        if temp222:
-                                                            if temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
-                                                                temp2.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp2.faculty_tt[i][9]="."
-                                                                temp2.test_tt[i][8]=temp1.semester1
-                                                                temp22.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp22.faculty_tt[i][9]="."
-                                                                temp222.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                                temp222.faculty_tt[i][9]="."
+                                                    time+=60
+                                                    break
+                                            if _>=2 and j==5:
+                                                if temp2.faculty_tt[i][8]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
+                                                    temp2.faculty_tt[i][8]=temp1.semester1+" (3:30-4:30)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
+                                                    temp2.test_tt[i][8]=temp1.semester1
+                                                    temp3.sem_tt[i][j]=temp1.code
+                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                    time+=60
+                                                    break
+                            elif temp1.lab:
+                                time=0
+                                for _ in range(4):
+                                    for i in range(6):
+                                        for j in range(8):
+
+                                            if time>=temp1.lab:break
+                                            elif j==4:
+                                                if temp2.faculty_tt[i][7]==temp2.faculty_tt[i][8]=='*' and time<temp1.lab:
+                                                    #If there is no activity at that time...
+                                                    if temp3.sem_tt[i][j]==temp3.sem_tt[i][j+1]==temp4.classroom_tt[i][j]==temp4.classroom_tt[i][j+1]=='*' and (time+120)<=temp1.lab:
+                                                        if temp2.faculty_tt[i][1]==temp1.semester1:break
+                                                        if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
+                                                        if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
+                                                        while(temp6):
+                                                            if temp6.tt[i][7]==temp6.tt[i][8]=='*':
+                                                                temp2.faculty_tt[i][7]=temp1.semester1+" (2:30-4:30)"+"_"+temp1.code+"_LAB ("+temp6.name+")"
+                                                                temp2.faculty_tt[i][8]="."
+                                                                temp2.test_tt[i][7]=temp1.semester1
                                                                 temp3.sem_tt[i][j]=temp1.code
-                                                                temp3.sem_tt_new[i][j]=temp1.code
-                                                                temp4.classroom_tt[i][j]=temp1.name
-                                                                time+=90
+                                                                temp3.sem_tt[i][j+1]=temp1.code
+                                                                temp3.sem_tt_new[i][j]=temp1.code+temp6.name
+                                                                temp3.sem_tt_new[i][j+1]=temp1.code+temp6.name
+
+                                                                temp6.tt[i][7]=temp1.semester1+"_"+temp1.code
+                                                                temp6.tt[i][8]=temp1.semester1+"_"+temp1.code
+                                                                time+=120
                                                                 break
-                                                        else:
-                                                            temp2.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp2.faculty_tt[i][9]="."
-                                                            temp2.test_tt[i][8]=temp1.semester1
-                                                            temp22.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                            temp22.faculty_tt[i][9]="."
+                                                            temp6=temp6.next
+                                                    elif temp3.sem_tt[i][j]==temp3.sem_tt[i][j+1] and time+120<=temp1.lab:
+                                                        if time>=temp1.lab:break
+                                                        temp5=None
+                                                        tip=0
+                                                        if temp1.branch1=="CSE":temp5=obj_for_linked_list_for_traversing_labs.head_for_CSE
+                                                        if temp1.branch1=="DSAI":temp5=obj_for_linked_list_for_traversing_labs.head_for_DSAI
+                                                        if temp1.branch1=="ECE":temp5=obj_for_linked_list_for_traversing_labs.head_for_ECE
+                                                        temp6=None
+                                                        if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
+                                                        if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
+                                                        while(temp5):
+                                                            if temp3.sem_tt[i][j]==temp5.code:
+                                                                tip=1
+                                                                break
+                                                            temp5=temp5.next
+                                                        while(temp6):
+                                                            if temp6.tt[i][7]==temp6.tt[i][8]=='*':break
+                                                            temp6=temp6.next
+                                                        if tip==1 and temp5.id!=temp1.id and temp6:
+                                                            temp2.faculty_tt[i][7]=temp1.semester1+" (2:30-4:30)"+"_"+temp1.code+"_LAB ("+temp6.name+")"
+                                                            temp2.faculty_tt[i][8]="."
+                                                            temp2.test_tt[i][7]=temp1.semester1
+                                                            temp3.sem_tt[i][j]+=" /" +temp1.code
+                                                            temp3.sem_tt[i][j+1]+=" / "+temp1.code
+                                                            temp3.sem_tt_new[i][j]+=" / "+temp1.code+temp6.name
+                                                            temp3.sem_tt_new[i][j+1]+=" / "+temp1.code+temp6.name
+
+                                                            temp6.tt[i][7]=temp1.semester1+"_"+temp1.code
+                                                            temp6.tt[i][8]=temp1.semester1+"_"+temp1.code
+                                                            time+=120
+                                                            break
+                        if "CSE_Sem_5_A"==temp1.semester1 or "CSE_Sem_5_B"==temp1.semester1 or "CSE_Sem_7"==temp1.semester1 or "ECE_Sem_7"==temp1.semester1 or "DSAI_Sem_7"==temp1.semester1 :
+                            if temp1.theory:
+                                time=0
+                                for _ in range(4):
+                                    for i in range(6):
+                                        for j in range(8):
+                                            if _<2:
+                                                if i==1 and j==1 and (temp3.sem_tt[1][2]==temp1.code or temp3.sem_tt[1][3]==temp1.code or temp3.sem_tt[1][6]==temp1.code or temp3.sem_tt[2][1]==temp1.code): break
+                                                if i==2 and j==1 and (temp3.sem_tt[2][2]==temp1.code or temp3.sem_tt[2][3]==temp1.code or temp3.sem_tt[2][6]==temp1.code or temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[3][1]==temp1.code): break
+                                                if i==3 and j==1 and (temp3.sem_tt[3][2]==temp1.code or temp3.sem_tt[3][3]==temp1.code or temp3.sem_tt[3][6]==temp1.code or temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[4][1]==temp1.code): break
+                                                if i==4 and j==1 and (temp3.sem_tt[4][2]==temp1.code or temp3.sem_tt[4][3]==temp1.code or temp3.sem_tt[4][6]==temp1.code or temp3.sem_tt[3][1]==temp1.code or temp3.sem_tt[5][1]==temp1.code): break
+                                                if i==5 and j==1 and (temp3.sem_tt[5][2]==temp1.code or temp3.sem_tt[5][3]==temp1.code or temp3.sem_tt[5][6]==temp1.code or temp3.sem_tt[4][1]==temp1.code ): break
+                                                if i==1 and j==2 and (temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[1][3]==temp1.code or temp3.sem_tt[1][6]==temp1.code or temp3.sem_tt[2][2]==temp1.code ): break
+                                                if i==2 and j==2 and (temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[2][3]==temp1.code or temp3.sem_tt[2][6]==temp1.code or temp3.sem_tt[1][2]==temp1.code or temp3.sem_tt[3][2]==temp1.code ): break
+                                                if i==3 and j==2 and (temp3.sem_tt[3][1]==temp1.code or temp3.sem_tt[3][3]==temp1.code or temp3.sem_tt[3][6]==temp1.code or temp3.sem_tt[2][2]==temp1.code or temp3.sem_tt[4][2]==temp1.code ): break
+                                                if i==4 and j==2 and (temp3.sem_tt[4][1]==temp1.code or temp3.sem_tt[4][3]==temp1.code or temp3.sem_tt[4][6]==temp1.code or temp3.sem_tt[3][2]==temp1.code or temp3.sem_tt[5][2]==temp1.code ): break
+                                                if i==5 and j==2 and (temp3.sem_tt[5][1]==temp1.code or temp3.sem_tt[5][3]==temp1.code or temp3.sem_tt[5][6]==temp1.code or temp3.sem_tt[4][2]==temp1.code ): break
+                                                if i==1 and j==3 and (temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[1][2]==temp1.code or temp3.sem_tt[1][6]==temp1.code or temp3.sem_tt[2][3]==temp1.code ): break
+                                                if i==2 and j==3 and (temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[2][2]==temp1.code or temp3.sem_tt[2][6]==temp1.code or temp3.sem_tt[1][3]==temp1.code or temp3.sem_tt[3][3]==temp1.code ): break
+                                                if i==3 and j==3 and (temp3.sem_tt[3][1]==temp1.code or temp3.sem_tt[3][2]==temp1.code or temp3.sem_tt[3][6]==temp1.code or temp3.sem_tt[2][3]==temp1.code or temp3.sem_tt[4][3]==temp1.code ): break
+                                                if i==4 and j==3 and (temp3.sem_tt[4][1]==temp1.code or temp3.sem_tt[4][2]==temp1.code or temp3.sem_tt[4][6]==temp1.code or temp3.sem_tt[3][3]==temp1.code or temp3.sem_tt[5][3]==temp1.code ): break
+                                                if i==5 and j==3 and (temp3.sem_tt[5][1]==temp1.code or temp3.sem_tt[5][2]==temp1.code or temp3.sem_tt[5][6]==temp1.code or temp3.sem_tt[4][3]==temp1.code ): break
+                                                if i==1 and j==6 and (temp3.sem_tt[1][1]==temp1.code or temp3.sem_tt[1][2]==temp1.code or temp3.sem_tt[1][3]==temp1.code or temp3.sem_tt[2][6]==temp1.code ): break
+                                                if i==2 and j==6 and (temp3.sem_tt[2][1]==temp1.code or temp3.sem_tt[2][2]==temp1.code or temp3.sem_tt[2][3]==temp1.code or temp3.sem_tt[1][6]==temp1.code or temp3.sem_tt[3][6]==temp1.code ): break
+                                                if i==3 and j==6 and (temp3.sem_tt[3][1]==temp1.code or temp3.sem_tt[3][2]==temp1.code or temp3.sem_tt[3][3]==temp1.code or temp3.sem_tt[2][6]==temp1.code or temp3.sem_tt[4][6]==temp1.code ): break
+                                                if i==4 and j==6 and (temp3.sem_tt[4][1]==temp1.code or temp3.sem_tt[4][2]==temp1.code or temp3.sem_tt[4][3]==temp1.code or temp3.sem_tt[3][6]==temp1.code or temp3.sem_tt[5][6]==temp1.code ): break
+                                                if i==5 and j==6 and (temp3.sem_tt[5][1]==temp1.code or temp3.sem_tt[5][2]==temp1.code or temp3.sem_tt[5][3]==temp1.code or temp3.sem_tt[4][6]==temp1.code ): break
+                                            if _<=2:
+                                                shift=0
+                                                for l in range(8):
+                                                    if temp2.test_tt[i][l]==temp1.semester1:
+                                                        shift=1
+                                                        break
+                                                if shift==1:break
+                                            if _<4 and j==1 and time<temp1.theory:
+                                                if temp2:
+                                                    if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                        if temp22:
+                                                            if temp22.faculty_tt[i][1]==temp22.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                if temp222:
+                                                                    if temp222.faculty_tt[i][1]==temp222.faculty_tt[i][2]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                        temp2.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp2.faculty_tt[i][2]="."
+                                                                        temp2.test_tt[i][1]=temp1.semester1
+                                                                        temp22.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp22.faculty_tt[i][2]="."
+                                                                        temp222.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp222.faculty_tt[i][2]="."
+                                                                        temp3.sem_tt[i][j]=temp1.code
+                                                                        temp3.sem_tt_new[i][j]=temp1.code
+                                                                        temp4.classroom_tt[i][j]=temp1.name
+                                                                        time+=90
+                                                                        break
+                                                                else:
+                                                                    temp2.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp2.faculty_tt[i][2]="."
+                                                                    temp2.test_tt[i][1]=temp1.semester1
+                                                                    temp22.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp22.faculty_tt[i][2]="."
+                                                                    temp3.sem_tt[i][j]=temp1.code
+                                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                                    time+=90
+                                                                    break
+                                                        else:  
+                                                            temp2.faculty_tt[i][1]=temp1.semester1+" (8:30-10:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                            temp2.faculty_tt[i][2]="."
+                                                            temp2.test_tt[i][1]=temp1.semester1
                                                             temp3.sem_tt[i][j]=temp1.code
                                                             temp3.sem_tt_new[i][j]=temp1.code
                                                             temp4.classroom_tt[i][j]=temp1.name
                                                             time+=90
                                                             break
-                                                else:  
-                                                    temp2.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
-                                                    temp2.faculty_tt[i][9]="."
-                                                    temp2.test_tt[i][8]=temp1.semester1
+                                            if _<4 and j==2:
+                                                if temp2:
+                                                    if temp2.faculty_tt[i][2]==temp2.faculty_tt[i][3]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                        
+                                                        if temp22:
+                                                            if temp22.faculty_tt[i][2]==temp22.faculty_tt[i][3]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:                                  
+                                                                if temp222:
+                                                                    if temp222.faculty_tt[i][2]==temp222.faculty_tt[i][3]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                        temp2.faculty_tt[i][2]=temp1.semester1+" (10:00-11:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp2.faculty_tt[i][3]="."
+                                                                        temp2.test_tt[i][2]=temp1.semester1
+                                                                        temp22.faculty_tt[i][2]=temp1.semester1+" (10:00-11:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp22.faculty_tt[i][3]="."
+                                                                        temp222.faculty_tt[i][2]=temp1.semester1+" (10:00-11:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp222.faculty_tt[i][3]="."
+                                                                        temp3.sem_tt[i][j]=temp1.code
+                                                                        temp3.sem_tt_new[i][j]=temp1.code
+                                                                        temp4.classroom_tt[i][j]=temp1.name
+                                                                        time+=90
+                                                                        break
+                                                                else:
+                                                                    temp2.faculty_tt[i][2]=temp1.semester1+" (10:00-11:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp2.faculty_tt[i][3]="."
+                                                                    temp2.test_tt[i][2]=temp1.semester1
+                                                                    temp22.faculty_tt[i][2]=temp1.semester1+" (10:00-11:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp22.faculty_tt[i][3]="."
+                                                                    temp3.sem_tt[i][j]=temp1.code
+                                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                                    time+=90
+                                                                    break
+                                                        else:  
+                                                            temp2.faculty_tt[i][2]=temp1.semester1+" (10:00-11:30)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                            temp2.faculty_tt[i][3]="."
+                                                            temp2.test_tt[i][2]=temp1.semester1
+                                                            temp3.sem_tt[i][j]=temp1.code
+                                                            temp3.sem_tt_new[i][j]=temp1.code
+                                                            temp4.classroom_tt[i][j]=temp1.name
+                                                            time+=90
+                                                            break
+                                            if _<4 and j==3:
+                                                if temp2:
+                                                    if temp2.faculty_tt[i][4]==temp2.faculty_tt[i][5]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                        if temp22:
+                                                            if temp22.faculty_tt[i][4]==temp22.faculty_tt[i][5]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                if temp222:
+                                                                    if temp222.faculty_tt[i][4]==temp222.faculty_tt[i][5]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                        temp2.faculty_tt[i][4]=temp1.semester1+" (11:30-1:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp2.faculty_tt[i][5]="."
+                                                                        temp2.test_tt[i][4]=temp1.semester1
+                                                                        temp22.faculty_tt[i][4]=temp1.semester1+" (11:30-1:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp22.faculty_tt[i][5]="."
+                                                                        temp222.faculty_tt[i][4]=temp1.semester1+" (11:30-1:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp222.faculty_tt[i][5]="."
+                                                                        temp3.sem_tt[i][j]=temp1.code
+                                                                        temp3.sem_tt_new[i][j]=temp1.code
+                                                                        temp4.classroom_tt[i][j]=temp1.name
+                                                                        time+=90
+                                                                        break
+                                                                else:
+                                                                    temp2.faculty_tt[i][4]=temp1.semester1+" (11:30-1:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp2.faculty_tt[i][5]="."
+                                                                    temp2.test_tt[i][4]=temp1.semester1
+                                                                    temp22.faculty_tt[i][4]=temp1.semester1+" (11:30-1:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp22.faculty_tt[i][5]="."
+                                                                    temp3.sem_tt[i][j]=temp1.code
+                                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                                    time+=90
+                                                                    break
+                                                        else:  
+                                                            temp2.faculty_tt[i][4]=temp1.semester1+" (11:30-1:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                            temp2.faculty_tt[i][5]="."
+                                                            temp2.test_tt[i][4]=temp1.semester1
+                                                            temp3.sem_tt[i][j]=temp1.code
+                                                            temp3.sem_tt_new[i][j]=temp1.code
+                                                            temp4.classroom_tt[i][j]=temp1.name
+                                                            time+=90
+                                                            break  
+                                            if _<4 and j==6:
+                                                if temp2:
+                                                    if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                        if temp22:
+                                                            if temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                if temp222:
+                                                                    if temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.theory:
+                                                                        temp2.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp2.faculty_tt[i][9]="."
+                                                                        temp2.test_tt[i][8]=temp1.semester1
+                                                                        temp22.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp22.faculty_tt[i][9]="."
+                                                                        temp222.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                        temp222.faculty_tt[i][9]="."
+                                                                        temp3.sem_tt[i][j]=temp1.code
+                                                                        temp3.sem_tt_new[i][j]=temp1.code
+                                                                        temp4.classroom_tt[i][j]=temp1.name
+                                                                        time+=90
+                                                                        break
+                                                                else:
+                                                                    temp2.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp2.faculty_tt[i][9]="."
+                                                                    temp2.test_tt[i][8]=temp1.semester1
+                                                                    temp22.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                                    temp22.faculty_tt[i][9]="."
+                                                                    temp3.sem_tt[i][j]=temp1.code
+                                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                                    time+=90
+                                                                    break
+                                                        else:  
+                                                            temp2.faculty_tt[i][8]=temp1.semester1+" (3:30-5:00)"+"_"+temp1.code+" ("+temp4.classroom_code+")"
+                                                            temp2.faculty_tt[i][9]="."
+                                                            temp2.test_tt[i][8]=temp1.semester1
+                                                            temp3.sem_tt[i][j]=temp1.code
+                                                            temp3.sem_tt_new[i][j]=temp1.code
+                                                            temp4.classroom_tt[i][j]=temp1.name
+                                                            time+=90
+                                                            break
+                            elif temp1.tutorial:
+                                time=0
+                                for _ in range(4):
+                                    for i in range(6):
+                                        for j in range(8):
+                                            if _<=2:
+                                                shift=0
+                                                for l in range(8):
+                                                    if temp2.test_tt[i][l]==temp1.semester1:
+                                                        shift=1
+                                                        break
+                                                if shift==1:break
+                                            if j==4 and time<temp1.tutorial:
+                                                if temp2.faculty_tt[i][6]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*':
+                                                    if j-1!=0 and temp2.faculty_tt[i][2]==temp1.semester1: break
+                                                    temp2.faculty_tt[i][6]=temp1.semester1+" (1:30-2:30)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
+                                                    temp2.test_tt[i][6]=temp1.semester1
                                                     temp3.sem_tt[i][j]=temp1.code
                                                     temp3.sem_tt_new[i][j]=temp1.code
                                                     temp4.classroom_tt[i][j]=temp1.name
-                                                    time+=90
+                                                    time+=60
                                                     break
-                    elif temp1.tutorial:
-                        time=0
-                        for _ in range(4):
-                            for i in range(6):
-                                for j in range(8):
-                                    if _<=2:
-                                        shift=0
-                                        for l in range(8):
-                                            if temp2.test_tt[i][l]==temp1.semester1:
-                                                shift=1
+                                            if _<4 and j==5:
+                                                if temp2.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
+                                                    temp2.faculty_tt[i][7]=temp1.semester1+" (2:30-3:30)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
+                                                    temp2.test_tt[i][7]=temp1.semester1
+                                                    temp3.sem_tt[i][j]=temp1.code
+                                                    temp3.sem_tt_new[i][j]=temp1.code
+                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                    time+=60
+                                                    break
+                                            if _<4 and j==6:
+                                                if temp2.faculty_tt[i][8]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
+                                                    temp2.faculty_tt[i][8]=temp1.semester1+" (3:30-4:30)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
+                                                    temp2.test_tt[i][8]=temp1.semester1
+                                                    temp3.sem_tt[i][j]=temp1.code
+                                                    temp3.sem_tt_new[i][j]=temp1.code+" (3:30-4:30)"
+                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                    time+=60
+                                                    break
+                                            if _<4 and j==6:
+                                                if temp2.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
+                                                    temp2.faculty_tt[i][9]=temp1.semester1+"_TUT (4:30-5:30)"
+                                                    temp2.test_tt[i][9]=temp1.semester1
+                                                    temp3.sem_tt[i][j]=temp1.code
+                                                    temp3.sem_tt_new[i][j]=temp1.code+" (4:30-5:30)"
+                                                    temp4.classroom_tt[i][j]=temp1.name
+                                                    time+=60
+                                                    break
+                            elif temp1.lab:
+                                time=0
+                                for _ in range(4):
+                                    for i in range(6):
+                                        for j in range(8):
+                                            if time>=temp1.lab:
                                                 break
-                                        if shift==1:break
-                                    if j==4 and time<temp1.tutorial:
-                                        if temp2.faculty_tt[i][6]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*':
-                                            if j-1!=0 and temp2.faculty_tt[i][2]==temp1.semester1: break
-                                            temp2.faculty_tt[i][6]=temp1.semester1+" (1:30-2:30)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
-                                            temp2.test_tt[i][6]=temp1.semester1
-                                            temp3.sem_tt[i][j]=temp1.code
-                                            temp3.sem_tt_new[i][j]=temp1.code
-                                            temp4.classroom_tt[i][j]=temp1.name
-                                            time+=60
-                                            break
-                                    if _<4 and j==5:
-                                        if temp2.faculty_tt[i][7]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
-                                            temp2.faculty_tt[i][7]=temp1.semester1+" (2:30-3:30)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
-                                            temp2.test_tt[i][7]=temp1.semester1
-                                            temp3.sem_tt[i][j]=temp1.code
-                                            temp3.sem_tt_new[i][j]=temp1.code
-                                            temp4.classroom_tt[i][j]=temp1.name
-                                            time+=60
-                                            break
-                                    if _<4 and j==6:
-                                        if temp2.faculty_tt[i][8]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
-                                            temp2.faculty_tt[i][8]=temp1.semester1+" (3:30-4:30)"+"_TUT "+temp1.code+" ("+temp4.classroom_code+")"
-                                            temp2.test_tt[i][8]=temp1.semester1
-                                            temp3.sem_tt[i][j]=temp1.code
-                                            temp3.sem_tt_new[i][j]=temp1.code+" (3:30-4:30)"
-                                            temp4.classroom_tt[i][j]=temp1.name
-                                            time+=60
-                                            break
-                                    if _<4 and j==6:
-                                        if temp2.faculty_tt[i][9]==temp3.sem_tt[i][j]==temp4.classroom_tt[i][j]=='*' and time<temp1.tutorial:
-                                            temp2.faculty_tt[i][9]=temp1.semester1+"_TUT (4:30-5:30)"
-                                            temp2.test_tt[i][9]=temp1.semester1
-                                            temp3.sem_tt[i][j]=temp1.code
-                                            temp3.sem_tt_new[i][j]=temp1.code+" (4:30-5:30)"
-                                            temp4.classroom_tt[i][j]=temp1.name
-                                            time+=60
-                                            break
-                    elif temp1.lab:
-                        time=0
-                        for _ in range(4):
-                            for i in range(6):
-                                for j in range(8):
-                                    if time>=temp1.lab:
-                                        break
-                                    
-                                    elif j==4:
-                                        if temp2.faculty_tt[i][6]==temp2.faculty_tt[i][7]=='*' and time<temp1.lab:
-                                            #If there is no activity at that time...
-                                            if temp3.sem_tt[i][j]==temp3.sem_tt[i][j+1]==temp4.classroom_tt[i][j]==temp4.classroom_tt[i][j+1]=='*' and (time+120)<=temp1.lab:
-                                                if temp2.faculty_tt[i][1]==temp1.semester1:break
-                                                if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
-                                                if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
-                                                while(temp6):
-                                                    if temp6.tt[i][6]==temp6.tt[i][7]=='*':
-                                                        temp2.faculty_tt[i][6]=temp1.semester1+" (1:30-3:30)"+"_"+temp1.code+"_LAB ("+temp6.name+")"
-                                                        temp2.faculty_tt[i][7]="."
-                                                        temp2.test_tt[i][6]=temp1.semester1
-                                                        temp3.sem_tt[i][j]=temp1.code
-                                                        temp3.sem_tt[i][j+1]=temp1.code
-                                                        temp3.sem_tt_new[i][j]=temp1.code+temp6.name
-                                                        temp3.sem_tt_new[i][j+1]=temp1.code+temp6.name
-                                                        
-                                                        temp6.tt[i][6]=temp1.semester1+"_"+temp1.code
-                                                        temp6.tt[i][7]=temp1.semester1+"_"+temp1.code
-                                                        time+=120
-                                                        break
-                                                    temp6=temp6.next
-                                            elif temp3.sem_tt[i][j]==temp3.sem_tt[i][j+1] and time+120<=temp1.lab:
-                                                if time>=temp1.lab:break
-                                                temp5=None
-                                                tip=0
-                                                if temp1.branch1=="CSE":temp5=obj_for_linked_list_for_traversing_labs.head_for_CSE
-                                                if temp1.branch1=="DSAI":temp5=obj_for_linked_list_for_traversing_labs.head_for_DSAI
-                                                if temp1.branch1=="ECE":temp5=obj_for_linked_list_for_traversing_labs.head_for_ECE
-                                                temp6=None
-                                                if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
-                                                if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
-                                                while(temp5):
-                                                    if temp3.sem_tt[i][j]==temp5.code:
-                                                        tip=1
-                                                        break
-                                                    temp5=temp5.next
-                                                while(temp6):
-                                                    if temp6.tt[i][6]==temp6.tt[i][7]=='*':
-                                                        break
-                                                    temp6=temp6.next
-                                                if tip==1 and temp5.id!=temp1.id and temp6:
-                                                    temp2.faculty_tt[i][6]=temp1.semester1+" (1:30-3:30)"+"_"+temp1.code+"_LAB ("+temp6.name+")"
-                                                    temp2.faculty_tt[i][7]="."
-                                                    temp2.test_tt[i][6]=temp1.semester1
-                                                    temp3.sem_tt[i][j]+=" /" +temp1.code
-                                                    temp3.sem_tt[i][j+1]+=" / "+temp1.code
-                                                    temp3.sem_tt_new[i][j]+=" / "+temp1.code+temp6.name
-                                                    temp3.sem_tt_new[i][j+1]+=" / "+temp1.code+temp6.name
-                                                    
-                                                    temp6.tt[i][6]=temp1.semester1+"_"+temp1.code
-                                                    temp6.tt[i][7]=temp1.semester1+"_"+temp1.code
-                                                    time+=120
-                                                    break
-                if temp1.theory:
-                    if time<temp1.theory:
-                        print("theory not satisfied for ",temp1.name,"Semester: ",temp1.semester1,"time=",time)
-                if temp1.tutorial:
-                    if time<temp1.tutorial:
-                        print("tutorial not satisfied for ",temp1.name,"Semester: ",temp1.semester1)
-                if temp1.lab:
-                    if time<temp1.lab:
-                        print("lab not satisfied for ",temp1.name,"Semester: ",temp1.semester1)                
-                temp1=temp1.next
-            temp_for_faculty=temp_for_faculty.next
+                                            
+                                            elif j==4:
+                                                if temp2.faculty_tt[i][6]==temp2.faculty_tt[i][7]=='*' and time<temp1.lab:
+                                                    #If there is no activity at that time...
+                                                    if temp3.sem_tt[i][j]==temp3.sem_tt[i][j+1]==temp4.classroom_tt[i][j]==temp4.classroom_tt[i][j+1]=='*' and (time+120)<=temp1.lab:
+                                                        if temp2.faculty_tt[i][1]==temp1.semester1:break
+                                                        if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
+                                                        if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
+                                                        while(temp6):
+                                                            if temp6.tt[i][6]==temp6.tt[i][7]=='*':
+                                                                temp2.faculty_tt[i][6]=temp1.semester1+" (1:30-3:30)"+"_"+temp1.code+"_LAB ("+temp6.name+")"
+                                                                temp2.faculty_tt[i][7]="."
+                                                                temp2.test_tt[i][6]=temp1.semester1
+                                                                temp3.sem_tt[i][j]=temp1.code
+                                                                temp3.sem_tt[i][j+1]=temp1.code
+                                                                temp3.sem_tt_new[i][j]=temp1.code+temp6.name
+                                                                temp3.sem_tt_new[i][j+1]=temp1.code+temp6.name
+
+                                                                temp6.tt[i][6]=temp1.semester1+"_"+temp1.code
+                                                                temp6.tt[i][7]=temp1.semester1+"_"+temp1.code
+                                                                time+=120
+                                                                break
+                                                            temp6=temp6.next
+                                                    elif temp3.sem_tt[i][j]==temp3.sem_tt[i][j+1] and time+120<=temp1.lab:
+                                                        if time>=temp1.lab:break
+                                                        temp5=None
+                                                        tip=0
+                                                        if temp1.branch1=="CSE":temp5=obj_for_linked_list_for_traversing_labs.head_for_CSE
+                                                        if temp1.branch1=="DSAI":temp5=obj_for_linked_list_for_traversing_labs.head_for_DSAI
+                                                        if temp1.branch1=="ECE":temp5=obj_for_linked_list_for_traversing_labs.head_for_ECE
+                                                        temp6=None
+                                                        if temp1.lab_name=='CS_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_CSE_rooms
+                                                        if temp1.lab_name=='EC_LAB':temp6=obj_for_linked_list_for_traversing_lab_rooms.head_for_ECE_rooms
+                                                        while(temp5):
+                                                            if temp3.sem_tt[i][j]==temp5.code:
+                                                                tip=1
+                                                                break
+                                                            temp5=temp5.next
+                                                        while(temp6):
+                                                            if temp6.tt[i][6]==temp6.tt[i][7]=='*':
+                                                                break
+                                                            temp6=temp6.next
+                                                        if tip==1 and temp5.id!=temp1.id and temp6:
+                                                            temp2.faculty_tt[i][6]=temp1.semester1+" (1:30-3:30)"+"_"+temp1.code+"_LAB ("+temp6.name+")"
+                                                            temp2.faculty_tt[i][7]="."
+                                                            temp2.test_tt[i][6]=temp1.semester1
+                                                            temp3.sem_tt[i][j]+=" /" +temp1.code
+                                                            temp3.sem_tt[i][j+1]+=" / "+temp1.code
+                                                            temp3.sem_tt_new[i][j]+=" / "+temp1.code+temp6.name
+                                                            temp3.sem_tt_new[i][j+1]+=" / "+temp1.code+temp6.name
+
+                                                            temp6.tt[i][6]=temp1.semester1+"_"+temp1.code
+                                                            temp6.tt[i][7]=temp1.semester1+"_"+temp1.code
+                                                            time+=120
+                                                            break
+                        if temp1.theory:
+                            if time<temp1.theory:
+                                print("theory not satisfied for ",temp1.name,"Semester: ",temp1.semester1,"time=",time)
+                        if temp1.tutorial:
+                            if time<temp1.tutorial:
+                                print("tutorial not satisfied for ",temp1.name,"Semester: ",temp1.semester1)
+                        if temp1.lab:
+                            if time<temp1.lab:
+                                print("lab not satisfied for ",temp1.name,"Semester: ",temp1.semester1)                
+                        temp1=temp1.next
+            temp=temp.next
 def plotting_for_electives(openion=0):
     for k in range(6):
         if k==0:temp1=obj_for_linked_list_for_electives.head_for_lab
@@ -2285,18 +2386,18 @@ def plotting_for_electives(openion=0):
                 if not(temp1.semester1=="CSE_Sem_3_A"):
                     temp1=temp1.next
                     continue
-                print(temp1.semester1)
+        
             if openion==0:
                 if k==0 or k==1 or k==2:
                     if temp1.semester1=="CSE_Sem_5_A" or temp1.semester1=="ECE_Sem_5":
                         temp1=temp1.next
                         continue
-                    print("openion : ",temp1.semester1)
+                    
                 if k==3 or k==4 or k==5:
-                    if temp1.semester1=="CSE_Sem_7" or temp1.semester1=="DSAI_Sem_7" or temp1.semester1=="ECE_Sem_7" or temp1.semester1=="CSE_Sem_3_A" :
+                    if temp1.semester1=="CSE_Sem_7" or temp1.semester1=="DSAI_Sem_7" or temp1.semester1=="ECE_Sem_7" or temp1.semester1=="CSE_Sem_3_A" or temp1 :
                         temp1=temp1.next
                         continue
-                    print("openion ",temp1.semester1)
+                
             temp2=obj_for_facultys.head_for_faculty_names
             while temp2:
                 if temp1.faculty1==temp2.faculty_name:
@@ -2352,7 +2453,7 @@ def plotting_for_electives(openion=0):
                 if temp1.theory:
                     time1,time2,time3=0,0,0
                     for _ in range(6):
-                        for i in range(6):
+                        for i in range(5,-1,-1):
                             for j in range(8):
                                 if _<=2:
                                         shift=0
@@ -2837,7 +2938,7 @@ def plotting_for_electives(openion=0):
                 if temp1.tutorial:
                     time1,time2,time3=0,0,0
                     for _ in range(5):
-                        for i in range(6):
+                        for i in range(5,-1,-1):
                             for j in range(8):
                                 if _<=2:
                                         shift=0
@@ -3473,7 +3574,7 @@ def plotting_for_electives(openion=0):
                 if temp1.lab:
                     time1,time2,time3=0,0,0
                     for _ in range(5):
-                        for i in range(6):
+                        for i in range(5,-1,-1):
                             for j in range(8):
                                 if _<=2:
                                         shift=0
@@ -3673,7 +3774,7 @@ def plotting_for_electives(openion=0):
                     time1=0
                     time2=0
                     time3=0
-                    for _ in range(5):
+                    for _ in range(6):
                         for i in range(6):
                             for j in range(8):
                                 if _<=2:
@@ -3984,6 +4085,133 @@ def plotting_for_electives(openion=0):
                                                         temp222.faculty_tt[i][9]="."
                                                         break
                                                     temp3=temp3.next 
+                                #Newely added___________________________________________________________________________________(only one section from here)
+                                if _>2 and j==6 and (temp1.semester1=="CSE_Sem_5_A" or temp1.semester1=="CSE_Sem_5_B"):
+                                    if temp2 and temp22 and temp222:
+                                        if temp4!=None and temp44!=None and temp444!=None:
+                                            if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]==temp444.sem_tt[i][j]=="*":
+                                                temp3=obj_for_class_rooms.head_for_class_rooms
+                                                while(temp3 and time1<temp1.theory):
+                                                    if temp3.classroom_tt[i][6]==temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]=='*' and time1<temp1.theory:
+                                                        time1+=90
+                                                        temp3.classroom_tt[i][6]=temp1.cod
+                                                        temp4.sem_tt[i][j]=temp1.code
+                                                        temp44.sem_tt[i][j]=temp1.code
+                                                        temp444.sem_tt[i][j]=temp1.cod
+                                                        temp4.sem_tt_new[i][j]=temp1.code+"("+temp3.classroom_code+") /"
+                                                        temp44.sem_tt_new[i][j]=temp1.code+"("+temp3.classroom_code+") /"
+                                                        temp444.sem_tt_new[i][j]=temp1.code+"("+temp3.classroom_code+") /"
+                                                        temp2.faculty_tt[i][8]=temp1.code+temp3.classroom_code
+                                                        temp2.faculty_tt[i][9]="."
+                                                        break
+                                                    temp3=temp3.next
+                                                temp3=obj_for_class_rooms.head_for_class_rooms
+                                                while(temp3 and time2<temp1.theory):
+                                                    if temp3.classroom_tt[i][6]==temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]=='*' :
+                                                        time2+=90
+                                                        temp3.classroom_tt[i][6]=temp1.code
+                                                        temp4.sem_tt[i][j]=temp1.code
+                                                        temp44.sem_tt[i][j]=temp1.code
+                                                        temp444.sem_tt[i][j]=temp1.code
+                                                        temp4.sem_tt_new[i][j]+=temp1.code+"("+temp3.classroom_code+") /"
+                                                        temp44.sem_tt_new[i][j]+=temp1.code+"("+temp3.classroom_code+") /"
+                                                        temp444.sem_tt_new[i][j]+=temp1.code+"("+temp3.classroom_code+") /"
+                                                        temp22.faculty_tt[i][8]=temp1.code+temp3.classroom_code
+                                                        temp22.faculty_tt[i][9]="."
+                                                        break
+                                                    temp3=temp3.next
+                                                temp3=obj_for_class_rooms.head_for_class_rooms
+                                                while(temp3 and time3<temp1.theory):
+                                                    if temp3.classroom_tt[i][6]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]=='*':
+                                                        time3+=90
+                                                        temp3.classroom_tt[i][6]=temp1.code
+                                                        temp4.sem_tt[i][j]=temp1.code
+                                                        temp44.sem_tt[i][j]=temp1.code
+                                                        temp444.sem_tt[i][j]=temp1.code
+                                                        temp4.sem_tt_new[i][j]+=temp1.code+"("+temp3.classroom_code+") /"
+                                                        temp44.sem_tt_new[i][j]+=temp1.code+"("+temp3.classroom_code+") /"
+                                                        temp444.sem_tt_new[i][j]+=temp1.code+"("+temp3.classroom_code+") /"
+                                                        temp222.faculty_tt[i][8]=temp1.code+temp3.classroom_code
+                                                        temp222.faculty_tt[i][9]="."
+                                                        break
+                                                    temp3=temp3.next 
+                                        elif temp4!=None and temp44!=None :
+                                            if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=="*":
+                                                temp3=obj_for_class_rooms.head_for_class_rooms
+                                                while(temp3 and time1<temp1.theory):
+                                                    if temp3.classroom_tt[i][6]==temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]=='*' and time1<temp1.theory:
+                                                        time1+=90
+                                                        temp3.classroom_tt[i][6]=temp1.code
+                                                        temp4.sem_tt[i][j]=temp1.code
+                                                        temp44.sem_tt[i][j]=temp1.code
+                                                        temp4.sem_tt_new[i][j]=temp1.code+"("+temp3.classroom_code+") /"
+                                                        temp44.sem_tt_new[i][j]=temp1.code+"("+temp3.classroom_code+") /"
+                                                        temp2.faculty_tt[i][8]=temp1.code+temp3.classroom_code
+                                                        temp2.faculty_tt[i][9]="."
+                                                        break
+                                                    temp3=temp3.next
+                                                temp3=obj_for_class_rooms.head_for_class_rooms
+                                                while(temp3 and time2<temp1.theory):
+                                                    if temp3.classroom_tt[i][6]==temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]=='*' :
+                                                        time2+=90
+                                                        temp3.classroom_tt[i][6]=temp1.code
+                                                        temp4.sem_tt[i][j]=temp1.code
+                                                        temp44.sem_tt[i][j]=temp1.code
+                                                        temp4.sem_tt_new[i][j]+=temp1.code+"("+temp3.classroom_code+") /"
+                                                        temp44.sem_tt_new[i][j]+=temp1.code+"("+temp3.classroom_code+") /"
+                                                        temp22.faculty_tt[i][8]=temp1.code+temp3.classroom_code
+                                                        temp22.faculty_tt[i][9]="."
+                                                        break
+                                                    temp3=temp3.next
+                                                temp3=obj_for_class_rooms.head_for_class_rooms
+                                                while(temp3 and time3<temp1.theory):
+                                                    if temp3.classroom_tt[i][6]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]=='*':
+                                                        time3+=90
+                                                        temp3.classroom_tt[i][6]=temp1.code
+                                                        temp4.sem_tt[i][j]=temp1.code
+                                                        temp44.sem_tt[i][j]=temp1.code
+                                                        temp4.sem_tt_new[i][j]+=temp1.code+"("+temp3.classroom_code+") /"
+                                                        temp44.sem_tt_new[i][j]+=temp1.code+"("+temp3.classroom_code+") /"
+                                                        temp222.faculty_tt[i][8]=temp1.code+temp3.classroom_code
+                                                        temp222.faculty_tt[i][9]="."
+                                                        break
+                                                    temp3=temp3.next 
+                                        elif temp4!=None:
+                                            if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp4.sem_tt[i][j]=="*":
+                                                temp3=obj_for_class_rooms.head_for_class_rooms
+                                                while(temp3 and time1<temp1.theory):
+                                                    if temp3.classroom_tt[i][6]==temp4.sem_tt[i][j]==temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]=='*' and time1<temp1.theory:
+                                                        time1+=90
+                                                        temp3.classroom_tt[i][6]=temp1.code
+                                                        temp4.sem_tt[i][j]=temp1.code
+                                                        temp4.sem_tt_new[i][j]=temp1.code+"("+temp3.classroom_code+") /"
+                                                        temp2.faculty_tt[i][8]=temp1.code+temp3.classroom_code
+                                                        temp2.faculty_tt[i][9]="."
+                                                        break
+                                                    temp3=temp3.next
+                                                temp3=obj_for_class_rooms.head_for_class_rooms
+                                                while(temp3 and time2<temp1.theory):
+                                                    if temp3.classroom_tt[i][6]==temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]=='*' :
+                                                        time2+=90
+                                                        temp3.classroom_tt[i][6]=temp1.code
+                                                        temp4.sem_tt[i][j]=temp1.code
+                                                        temp4.sem_tt_new[i][j]+=temp1.code+"("+temp3.classroom_code+") /"
+                                                        temp22.faculty_tt[i][8]=temp1.code+temp3.classroom_code
+                                                        temp22.faculty_tt[i][9]="."
+                                                        break
+                                                    temp3=temp3.next
+                                                temp3=obj_for_class_rooms.head_for_class_rooms
+                                                while(temp3 and time3<temp1.theory):
+                                                    if temp3.classroom_tt[i][6]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]=='*':
+                                                        time3+=90
+                                                        temp3.classroom_tt[i][6]=temp1.code
+                                                        temp4.sem_tt[i][j]=temp1.code
+                                                        temp4.sem_tt_new[i][j]+=temp1.code+"("+temp3.classroom_code+") /"
+                                                        temp222.faculty_tt[i][8]=temp1.code+temp3.classroom_code
+                                                        temp222.faculty_tt[i][9]="."
+                                                        break
+                                                    temp3=temp3.next 
+                                #Newely added ends_______________________________________________________________________________________________________________________________________________________________________________________________________________________
                                 if _>3 and j==2:
                                     if temp2 and temp22 and temp222:
                                         if temp4!=None and temp44!=None and temp444!=None:
@@ -4235,6 +4463,7 @@ def plotting_for_electives(openion=0):
                                                         break
                                                     temp3=temp3.next                 
                 if temp1.tutorial:
+                    print("Tutorial is there")
                     time1=0
                     time2=0
                     time3=0
@@ -4247,12 +4476,13 @@ def plotting_for_electives(openion=0):
                                             if temp2.test_tt[i][l]==temp1.semester1:
                                                 shift=1
                                                 break
-                                        if shift==1:break
+                                        if shift==1:break                                
                                 if _==4 and j==5:
                                     if temp2 and temp22 and temp222:
                                         if temp4!=None and temp44!=None and temp444!=None:
                                             if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]==temp444.sem_tt[i][j]=="*":
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
+                                                print("111111111")
                                                 while(temp3 and time1<temp1.tutorial):
                                                     if temp3.classroom_tt[i][j]==temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]=='*' and time1<temp1.tutorial:
                                                         time1+=60
@@ -4300,6 +4530,7 @@ def plotting_for_electives(openion=0):
                                         elif temp4!=None and temp44!=None :
                                             if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=="*":
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
+                                                print("110110110")
                                                 while(temp3 and time1<temp1.tutorial):
                                                     if temp3.classroom_tt[i][j]==temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]=='*' and time1<temp1.tutorial:
                                                         time1+=60
@@ -4341,6 +4572,7 @@ def plotting_for_electives(openion=0):
                                         elif temp4!=None:
                                             if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp4.sem_tt[i][j]=="*":
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
+                                                print("101010101010")
                                                 while(temp3 and time1<temp1.tutorial):
                                                     if temp3.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]=='*' and time1<temp1.tutorial:
                                                         time1+=60
@@ -4378,6 +4610,7 @@ def plotting_for_electives(openion=0):
                                         if temp4!=None and temp44!=None and temp444!=None:
                                             if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]==temp444.sem_tt[i][j]=="*":
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
+                                                print("22222222")
                                                 while(temp3 and time1<temp1.tutorial):
                                                     if temp3.classroom_tt[i][6]==temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]=='*' and time1<temp1.tutorial:
                                                         time1+=60
@@ -4424,6 +4657,7 @@ def plotting_for_electives(openion=0):
                                                     temp3=temp3.next 
                                         elif temp4!=None and temp44!=None :
                                             if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=="*":
+                                                print("9999999")
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
                                                 while(temp3 and time1<temp1.tutorial):
                                                     if temp3.classroom_tt[i][6]==temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]=='*' and time1<temp1.tutorial:
@@ -4466,6 +4700,7 @@ def plotting_for_electives(openion=0):
                                         elif temp4!=None:
                                             if temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]==temp22.faculty_tt[i][8]==temp22.faculty_tt[i][9]==temp222.faculty_tt[i][8]==temp222.faculty_tt[i][9]==temp4.sem_tt[i][j]=="*":
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
+                                                print("8888888")
                                                 while(temp3 and time1<temp1.tutorial):
                                                     if temp3.classroom_tt[i][6]==temp4.sem_tt[i][j]==temp2.faculty_tt[i][8]==temp2.faculty_tt[i][9]=='*' and time1<temp1.tutorial:
                                                         time1+=60
@@ -4503,6 +4738,7 @@ def plotting_for_electives(openion=0):
                                         if temp4!=None and temp44!=None and temp444!=None:
                                             if temp2.faculty_tt[i][7]==temp22.faculty_tt[i][7]==temp222.faculty_tt[i][7]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]==temp444.sem_tt[i][j]=="*":
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
+                                                print("33333333")
                                                 while(temp3 and time1<temp1.tutorial):
                                                     if temp3.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp2.faculty_tt[i][7]=='*' and time1<temp1.tutorial:
                                                         time1+=60
@@ -4546,6 +4782,7 @@ def plotting_for_electives(openion=0):
                                                     temp3=temp3.next 
                                         elif temp4!=None and temp44!=None: 
                                             if temp2.faculty_tt[i][7]==temp22.faculty_tt[i][7]==temp222.faculty_tt[i][7]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=="*":
+                                                print("Hello Karthik")
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
                                                 while(temp3 and time1<temp1.tutorial):
                                                     if temp3.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp2.faculty_tt[i][7]=='*' and time1<temp1.tutorial:
@@ -4582,9 +4819,10 @@ def plotting_for_electives(openion=0):
                                                         temp222.faculty_tt[i][7]=temp1.code+temp3.classroom_code
                                                         break
                                                     temp3=temp3.next
-                                        if temp4!=None :
+                                        elif temp4!=None :
                                             if temp2.faculty_tt[i][7]==temp22.faculty_tt[i][7]==temp222.faculty_tt[i][7]==temp4.sem_tt[i][j]=='*':
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
+                                                print("77777777")
                                                 while(temp3 and time1<temp1.tutorial):
                                                     if temp3.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp2.faculty_tt[i][7]=='*' and time1<temp1.tutorial:
                                                         time1+=60
@@ -4619,6 +4857,7 @@ def plotting_for_electives(openion=0):
                                         if temp4!=None and temp44!=None and temp444!=None:
                                             if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp22.faculty_tt[i][1]==temp22.faculty_tt[i][2]==temp222.faculty_tt[i][1]==temp222.faculty_tt[i][2]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]==temp444.sem_tt[i][j]=='*':
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
+                                                print("44444444")
                                                 while(temp3 and time1<temp1.tutorial):
                                                     if temp3.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]=='*' and time1<temp1.tutorial:
                                                         time1+=60
@@ -4666,6 +4905,7 @@ def plotting_for_electives(openion=0):
                                         elif temp4!=None and temp44!=None: 
                                             if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp22.faculty_tt[i][1]==temp22.faculty_tt[i][2]==temp222.faculty_tt[i][1]==temp222.faculty_tt[i][2]==temp4.sem_tt[i][j]==temp44.sem_tt[i][j]=='*':
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
+                                                print("55555555")
                                                 while(temp3 and time1<temp1.tutorial):
                                                     if temp3.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]=='*' and time1<temp1.tutorial:
                                                         time1+=60
@@ -4707,6 +4947,7 @@ def plotting_for_electives(openion=0):
                                         elif temp4!=None : 
                                             if temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]==temp22.faculty_tt[i][1]==temp22.faculty_tt[i][2]==temp222.faculty_tt[i][1]==temp222.faculty_tt[i][2]==temp4.sem_tt[i][j]=='*':
                                                 temp3=obj_for_class_rooms.head_for_class_rooms
+                                                print("6666666")
                                                 while(temp3 and time1<temp1.tutorial):
                                                     if temp3.classroom_tt[i][j]==temp4.sem_tt[i][j]==temp2.faculty_tt[i][1]==temp2.faculty_tt[i][2]=='*' and time1<temp1.tutorial:
                                                         time1+=60
@@ -4742,9 +4983,9 @@ def plotting_for_electives(openion=0):
                 if temp1.theory:
                     if time1<temp1.theory:print("theory not satisfied for ",temp1.name,"Semester: ",temp1.semester1,"time1:",time1)
                     if temp44:
-                        if time2<temp1.theory:print("Theory not satisfied for ",temp1.name,"Semester: ",temp1.semester2,"time2", time2)
+                        if time2<temp1.theory:print("theory not satisfied for ",temp1.name,"Semester: ",temp1.semester2,"time2", time2)
                     if temp444:
-                        if time3<temp1.theory:print("Theory not satisfied for ",temp1.name,"Semester: ",temp1.semester3,"time3",time3)
+                        if time3<temp1.theory:print("theory not satisfied for ",temp1.name,"Semester: ",temp1.semester3,"time3",time3)
                 if temp1.tutorial:
                     if time1<temp1.tutorial:print("tutorial not satisfied for ",temp1.name,"Semester: ",temp1.semester1,"time1",time1)
                     if temp44:
@@ -4808,6 +5049,7 @@ def clear4():
                     if j!=0 and i!=0:temp.tt[i][j]='*'
             temp=temp.next
 #___________________________________________________________OBJECT CREATION____________________________________________
+
 obj_for_linked_list_for_traversing_theory=None
 obj_for_linked_list_for_traversing_labs=None
 obj_for_linked_list_for_traversing_tutorials=None
@@ -4826,16 +5068,69 @@ obj_for_sem=linked_list_to_travese_semester()
 obj_for_linked_list_for_traversing_lab_rooms=linked_list_for_traversing_lab_rooms()
 obj_for_class_rooms=linked_list_for_traversing_class_rooms()
 
+def workload_calculate():
+    for i in range(15):
+        if i==0:temp=obj_for_linked_list_for_traversing_labs.head_for_CSE
+        if i==1:temp=obj_for_linked_list_for_traversing_theory.head_for_CSE
+        if i==2:temp=obj_for_linked_list_for_traversing_tutorials.head_for_CSE
+        if i==3:temp=obj_for_linked_list_for_traversing_labs.head_for_DSAI
+        if i==4:temp=obj_for_linked_list_for_traversing_theory.head_for_DSAI
+        if i==5:temp=obj_for_linked_list_for_traversing_tutorials.head_for_DSAI
+        if i==6:temp=obj_for_linked_list_for_traversing_labs.head_for_ECE
+        if i==7:temp=obj_for_linked_list_for_traversing_theory.head_for_ECE
+        if i==8:temp=obj_for_linked_list_for_traversing_tutorials.head_for_ECE
+        if i==9:temp=obj_for_linked_list_for_electives.head_for_lab
+        if i==10:temp=obj_for_linked_list_for_electives.head_for_theory
+        if i==11:temp=obj_for_linked_list_for_electives.head_for_tutorial
+        while(temp):
+            temp1=obj_for_facultys.head_for_faculty_names
+            while(temp1):
+                if temp1.faculty_name==temp.faculty1:break
+                temp1=temp1.next
+            if temp1!=None:
+                if temp.lab:temp1.workload+=(temp.lab*2)
+                if temp.theory:temp1.workload+=(temp.theory)
+                if temp.tutorial:temp1.workload+=(temp.tutorial)
+            temp=temp.next
+
+def sort_faculty_list():  
+        current = obj_for_facultys.head_for_faculty_names;  
+        index = None
+        if(current == None):return
+        else:  
+            while(current != None):  
+                index = current.next;  
+                while(index != None):   
+                    if(current.workload < index.workload):  
+                        tp = current.workload;  
+                        current.workload = index.workload;  
+                        index.workload = tp;
+                        tp = current.faculty_id;  
+                        current.faculty_id = index.faculty_id;  
+                        index.faculty_id = tp;
+                        tp = current.faculty_name;  
+                        current.faculty_name = index.faculty_name;  
+                        index.faculty_name = tp;
+                        tp = current.faculty_tt;  
+                        current.faculty_tt = index.faculty_tt;  
+                        index.faculty_tt = tp;  
+                    index = index.next;  
+                current = current.next;  
+
+def remove_spaces(str):
+    str1=str.replace(' ','')
+    return str1
+
 obj_for_linked_list_for_traversing_lab_rooms.insert('L106',50,'CSE')
 obj_for_linked_list_for_traversing_lab_rooms.insert('L107',50,'CSE')
 obj_for_linked_list_for_traversing_lab_rooms.insert('L206',50,'CSE')
 obj_for_linked_list_for_traversing_lab_rooms.insert('L207',50,'CSE')
-obj_for_linked_list_for_traversing_lab_rooms.insert('L306',50,'CSE')
-obj_for_linked_list_for_traversing_lab_rooms.insert('L307',50,'CSE')
+# obj_for_linked_list_for_traversing_lab_rooms.insert('L306',50,'CSE')
+# obj_for_linked_list_for_traversing_lab_rooms.insert('L307',50,'CSE')
 obj_for_linked_list_for_traversing_lab_rooms.insert('L406',50,'ECE')
-obj_for_linked_list_for_traversing_lab_rooms.insert('L407',50,'ECE')
-obj_for_class_rooms.insert('DSAI_Sem_7',"C209","Sem_7")# Extra classroom to be used..
-obj_for_class_rooms.insert("DSAI_Sem_8","C210","Sem_8")
+# obj_for_linked_list_for_traversing_lab_rooms.insert('L407',50,'ECE')
+# obj_for_class_rooms.insert('DSAI_Sem_7',"C209","Sem_7")# Extra classroom to be used..
+# obj_for_class_rooms.insert("DSAI_Sem_8","C210","Sem_8")
 
 #            self,code          ,type   ,name                                                  ,branch1  ,semester1       ,branch2   ,semester2  ,branch3,semester3  ,classroom_code1,code2,code3  ,faculty1                   ,faculty2        ,faculty3    ,theory   ,tutorial  ,lab   ,lab_name=None
                                              
@@ -4882,7 +5177,7 @@ node_for_courses("CS207"        ,"c"    ,"Object Oriented Programming"          
 node_for_courses("HS201"        ,"c"    ,"Industrial Psychology"                               ,"DSAI"   ,"Sem_3"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C501"  ,"NA"  ,"NA"        ,"Ms. Anushree K"          ,"NA"             ,"NA"        ,3      ,0       ,0   )
 node_for_courses("CS202"        ,"c"    ,"Design and Analysis of Algorithms"                   ,"DSAI"   ,"Sem_3"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C501"  ,"NA"  ,"NA"        ,"Dr. Sunil Saumya"        ,"NA"             ,"NA"        ,3      ,1       ,2   ,'CS_LAB')
 node_for_courses("HS202"        ,"c"    ,"Ethics"                                              ,"DSAI"   ,"Sem_3"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C501"  ,"NA"  ,"NA"        ,"Dr. Rajesh N S"          ,"NA"             ,"NA"        ,3      ,0       ,0  )
-                          
+
 node_for_courses("DS204"        ,"c"    ,"Graphs and Social Networks"                          ,"DSAI"   ,"Sem_5"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C601"  ,"NA"  ,"NA"        ,"Dr. Utkarsh"             ,"NA"             ,"NA"        ,3      ,1       ,0   ,'CS_LAB')
 node_for_courses("DS205"        ,"c"    ,"Computer Communication Networks"                     ,"DSAI"   ,"Sem_5"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C601"  ,"NA"  ,"NA"        ,"Dr. Rajib Sharma"        ,"NA"             ,"NA"        ,3      ,1       ,2   ,'CS_LAB')
 node_for_courses("DS206"        ,"c"    ,"Algorithms and Artificial Intelligence"              ,"DSAI"   ,"Sem_5"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C601"  ,"NA"  ,"NA"        ,"Ms. Animesh"             ,"NA"             ,"NA"        ,3      ,1       ,0   )
@@ -4903,53 +5198,11 @@ node_for_courses("EC351"        ,"c"    ,"Linear integrated circuits"           
 node_for_courses("EC357"        ,"c"    ,"Signals and Systems"                                 ,"ECE"    ,"Sem_5"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C701"  ,"NA"  ,"NA"        ,"Dr. Mukesh Kunar Mishra" ,"NA"             ,"NA"        ,3      ,1       ,0   )
 node_for_courses("CS352/EC359/PH351","e","ece7_ele"                                            ,"ECE"    ,"Sem_5"         ,"NA"      ,"NA"       ,"NA"   ,"NA"        ,"C701"  ,"NA"  ,"NA"        ,"Dr. Rajemdra Hegadi"     ,"Dr. Jagadeesha R Bhat" ,"Dr. Aswath"        ,3      ,1       ,0   ,'CS_LAB')
 
-def workload_calculate():
-    for i in range(15):
-        if i==0:temp=obj_for_linked_list_for_traversing_labs.head_for_CSE
-        if i==1:temp=obj_for_linked_list_for_traversing_theory.head_for_CSE
-        if i==2:temp=obj_for_linked_list_for_traversing_tutorials.head_for_CSE
-        if i==3:temp=obj_for_linked_list_for_traversing_labs.head_for_DSAI
-        if i==4:temp=obj_for_linked_list_for_traversing_theory.head_for_DSAI
-        if i==5:temp=obj_for_linked_list_for_traversing_tutorials.head_for_DSAI
-        if i==6:temp=obj_for_linked_list_for_traversing_labs.head_for_ECE
-        if i==7:temp=obj_for_linked_list_for_traversing_theory.head_for_ECE
-        if i==8:temp=obj_for_linked_list_for_traversing_tutorials.head_for_ECE
-        if i==9:temp=obj_for_linked_list_for_electives.head_for_lab
-        if i==10:temp=obj_for_linked_list_for_electives.head_for_theory
-        if i==11:temp=obj_for_linked_list_for_electives.head_for_tutorial
-        while(temp):
-            temp1=obj_for_facultys.head_for_faculty_names
-            while(temp1):
-                if temp1.faculty_name==temp.faculty1:break
-                temp1=temp1.next
-            if temp1!=None:
-                if temp.lab:temp1.workload+=(temp.lab*2)
-                if temp.theory:temp1.workload+=(temp.theory)
-                if temp.tutorial:temp1.workload+=(temp.tutorial)
-            temp=temp.next
-def sort_faculty_list():  
-        current = obj_for_facultys.head_for_faculty_names;  
-        index = None
-        if(current == None):return
-        else:  
-            while(current != None):  
-                index = current.next;  
-                while(index != None):   
-                    if(current.workload < index.workload):  
-                        tp = current.workload;  
-                        current.workload = index.workload;  
-                        index.workload = tp;
-                        tp = current.faculty_id;  
-                        current.faculty_id = index.faculty_id;  
-                        index.faculty_id = tp;
-                        tp = current.faculty_name;  
-                        current.faculty_name = index.faculty_name;  
-                        index.faculty_name = tp;
-                        tp = current.faculty_tt;  
-                        current.faculty_tt = index.faculty_tt;  
-                        index.faculty_tt = tp;  
-                    index = index.next;  
-                current = current.next;  
+
+
+
+
+
 
 
 
